@@ -4,7 +4,8 @@ const UsersController = require("../controllers/users.js");
 const tokenChecker = require('../middleware/tokenChecker.js'); // Your token verification middleware
 
 const router = express.Router();
+const upload = multer();
 
-router.post("/",  UsersController.create);
+router.post("/", upload.none(), UsersController.create);
 
 module.exports = router;

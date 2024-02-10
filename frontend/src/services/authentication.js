@@ -29,20 +29,31 @@ export const login = async (email, password) => {
     }
   };
 
-export const signup = async(formData) => {
+  export const signup = async (formData) => {
+    // IF I LOOP BELOW I CAN SEE WHAT IS BEING RECEIVED INSIDE OF THE formData
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
     const requestOptions = {
-        method: "POST",
-        body: formData,   
-      };
-    
+      method: "POST",
+      body: formData,
+      // If you're sending files, ensure the Content-Type header is not set,
+      // so the browser can set it with the correct boundary. For JSON data,
+      // you would set 'Content-Type': 'application/json'.
+    };
+  
+    console.log(requestOptions);
+  
     let response = await fetch(`${BACKEND_URL}/users`, requestOptions);
+  
     if (response.status === 201) {
-        return;
-      } else {
-        throw new Error(
-          `Received status ${response.status} when signing up. Expected 201`
-        );
-      }
-};
-    
+      // Successfully created
+      return;
+    } else {
+      // Error handling
+      throw new Error(`Received status ${response.status} when signing up. Expected 201`);
+    }
+  };
+  
 

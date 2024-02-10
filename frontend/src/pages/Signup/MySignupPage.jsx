@@ -22,15 +22,12 @@ export const SignupPage = () => {
     }
   };
 
-
-
 const handleEmailChange = (event) => {
     const newValue = event.target.value;
     setEmail(newValue);
   }
 
-
-  const handlePasswordChange = (event) => {
+const handlePasswordChange = (event) => {
     const newValue = event.target.value;
     setPassword(newValue);
   }
