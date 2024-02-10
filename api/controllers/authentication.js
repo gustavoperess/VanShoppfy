@@ -1,6 +1,6 @@
 const { generateToken } = require("../lib/token");
 const User = require("../models/user");
-
+ 
 const createToken = async (req, res) => {
     const email = req.body.email;
     const password = req.body.password;

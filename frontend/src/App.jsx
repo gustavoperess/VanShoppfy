@@ -6,8 +6,8 @@ import { SignupPage } from "./pages/Signup/MySignupPage";
 import './App.css'
 
 //Shift + Option + F to indent 
-
 // docs: https://reactrouter.com/en/main/start/overview
+
 const router = createBrowserRouter([
   {
     path: "/",

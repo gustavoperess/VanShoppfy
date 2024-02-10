@@ -3,13 +3,14 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const tokenChecker = require("./middleware/tokenChecker");
 const usersRouter = require("./routes/users");
+const authenticationRouter = require("./routes/authentication");
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 
-
+app.use("/tokens",  authenticationRouter);
 app.use("/users", usersRouter);
 
 // 404 Not Found Middleware
@@ -27,4 +28,4 @@ app.use((_req, res) => {
     }
   });
   
-  module.exports = app;
+module.exports = app;
