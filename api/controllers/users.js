@@ -1,21 +1,24 @@
 const User = require("../models/user");
 
 const create = (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
-    console.log(req.body)
-    const user = new User({ email, password });
+  const email = req.body.email;
+  const password = req.body.password;
+  const user = new User({ email, password });
 
-    user
-    .save()
-    .then((user) => {
-      // console.log("User created, id:", user._id.toString());
-      res.status(201).json({ message: "OK" });
-    })
-    .catch((err) => {
-      // console.error(err);
-      res.status(400).json({ message: "Something went wrong" });
-    });
+  user
+  .save()
+  .then((user) => {
+    console.log("User created, id:", user._id.toString());
+    res.status(201).json({ message: "User successfully created." });
+  })
+  .catch((err) => {
+    if (err.code === 11000) {
+      res.status(400).json({ message: "Email already exists. Please use a different email." });
+    } else {
+      // For other kinds of errors
+      res.status(500).json({ message: "Something went wrong. Please try again later." });
+    }
+  });
 };
 
 const UsersController = {
