@@ -1,0 +1,7 @@
+/* styles.css */
+.custom-navbar {
+  background-color: var(--bg-body-tertiary);
+  }
+  .custom-navbar .navbar-brand {
+    color: red;
+  }
