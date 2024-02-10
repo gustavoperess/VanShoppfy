@@ -28,3 +28,21 @@ export const login = async (email, password) => {
       );
     }
   };
+
+export const signup = async(formData) => {
+    const requestOptions = {
+        method: "POST",
+        body: formData,   
+      };
+    
+    let response = await fetch(`${BACKEND_URL}/users`, requestOptions);
+    if (response.status === 201) {
+        return;
+      } else {
+        throw new Error(
+          `Received status ${response.status} when signing up. Expected 201`
+        );
+      }
+};
+    
+
