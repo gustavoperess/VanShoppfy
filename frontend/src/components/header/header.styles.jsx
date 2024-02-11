@@ -8,3 +8,4 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 25px;
 `;
+

@@ -6,18 +6,18 @@ const HeaderComponent = () => {
   return (
     <Navbar expand="lg" className="custom-navbar">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="#home" className="Logo">
           <img
             src={Logo}
             width="100" // Set the width as needed
-            height="100" // Set the height as needed
+            height="50" // Set the height as needed
             className="d-inline-block align-top" // Add any classes as needed
             alt="VanShoppFY Logo"
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="ms-auto">
             <Nav.Link href="#home">Home</Nav.Link>
             <Nav.Link href="#link">Shop</Nav.Link>
             <Nav.Link href="#link">Contact</Nav.Link>
