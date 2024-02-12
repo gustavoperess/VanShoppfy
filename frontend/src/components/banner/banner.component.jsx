@@ -10,7 +10,7 @@ const myCarouselImages = [
     description: "Summer Collection has already arrived."
   },
   {
-    src: "../../../src/assets/myBanners/Banner_01.png",
+    src: "../../../src/assets/myBanners/Banner_02.png",
     label: "Summer is almost here, see our collections",
     description: "Summer Collection has already arrived."
   },
@@ -31,12 +31,10 @@ function BannerComponent() {
   return (
     <Carousel>
       {pictures.map((picture, index) => (
-        <Carousel.Item key={index}>
-          <img
-            className="d-block w-100"
-            src={picture.src}
-            alt={picture.label}
-          />
+          <Carousel.Item key={index} style={{
+              background: `url(${picture.src}) center center / cover no-repeat`,
+        
+          }}>
           <Carousel.Caption>
             <h5>New Arrivals</h5>
             <h3>{picture.label}</h3>

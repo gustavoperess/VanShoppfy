@@ -22,3 +22,10 @@
   .carousel-indicators {
     display: none !important;
   }
+
+
+  .carousel-item {
+    height: 683px; 
+    background-size: cover; 
+    background-position: center; 
+  }
