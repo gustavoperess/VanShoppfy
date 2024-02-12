@@ -15,7 +15,7 @@ const myCarouselImages = [
     description: "Summer Collection has already arrived."
   },
   {
-    src: "../../../src/assets/myBanners/Banner_01.png",
+    src: "../../../src/assets/myBanners/Banner_03_copy.png",
     label: "Shop over 100$ and get an extra 20% off",
     description: "Summer Collection has already arrived."
   },
