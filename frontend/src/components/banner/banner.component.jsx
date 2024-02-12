@@ -1,6 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 import { useState, useEffect } from 'react';
 import "./bannerStyle.css"
+import { Link } from 'react-router-dom';
 
 const myCarouselImages = [
   {
@@ -11,12 +12,12 @@ const myCarouselImages = [
   {
     src: "../../../src/assets/myBanners/Banner_01.png",
     label: "Summer is almost here, see our collections",
-    description: "Nulla vitae elit libero, a pharetra augue mollis interdum."
+    description: "Summer Collection has already arrived."
   },
   {
     src: "../../../src/assets/myBanners/Banner_01.png",
     label: "Shop over 100$ and get an extra 20% off",
-    description: "Nulla vitae elit libero, a pharetra augue mollis interdum."
+    description: "Summer Collection has already arrived."
   },
 ];
 
@@ -40,6 +41,7 @@ function BannerComponent() {
             <h5>New Arrivals</h5>
             <h3>{picture.label}</h3>
             <p>{picture.description}</p>
+            <Link to="#" className="btn btn-dark">Shop Now</Link>      
           </Carousel.Caption>
         </Carousel.Item>
       ))}

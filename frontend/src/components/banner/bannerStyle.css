@@ -1,4 +1,24 @@
-.carousel-caption {
-    color: black;
-    padding-bottom: 150px;
-}
+.carousel-caption p {
+    font-size: 14px;
+  }
+
+  .carousel-caption h3 {
+    font-size: 20px;
+  }
+
+  .carousel-caption h5 {
+    font-size: 15px;
+  }
+  
+  div.carousel .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black; 
+  }
+
+  .carousel-indicators {
+    display: none !important;
+  }

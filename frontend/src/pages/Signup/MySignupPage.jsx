@@ -2,6 +2,7 @@ import { useState } from "react";
 import { signup } from "../../services/authentication";
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import "./MySignupPage.css"
 
 const isValidPassword = (password) => {
   const minLength = 8;
