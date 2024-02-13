@@ -1,5 +1,4 @@
 import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
 import { useState, useEffect } from 'react';
 import "./thirdMenuStyle.css"
 
@@ -25,7 +24,7 @@ function ThirdMenuComponent() {
     setPictures(myImages);
   }, []);
   return (
-    <CardGroup className="third-card-group" >
+    <div  className="third-card-group" >
       {pictures.map((picture, index) =>
     <Card key={index} className="third-menu-card">
         <Card.Img variant="top" src={picture.src}/>
@@ -35,7 +34,7 @@ function ThirdMenuComponent() {
           </Card.ImgOverlay>
       </Card>
       )}
-    </CardGroup>
+    </div>
   );
 }
 

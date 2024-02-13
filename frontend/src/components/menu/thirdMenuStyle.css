@@ -1,24 +1,39 @@
+/* Base styles */
 .third-card-group {
-    display: flex; /* Use Flexbox */
-    flex-wrap: nowrap; /* Prevent wrapping to a new line */
-    justify-content: space-between; /* This will have no effect since cards will take up all space */
-    align-items: stretch; /* Make items stretch to fill the container height */
-    background-color: aqua;
-    margin: 0 !important;
-    margin-top: 20px !important;
-    width: 100%; /* Ensure the group takes full width */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 1rem;
+    width: 100%; /* Full width */
+    height: 18rem; /* Fixed height on larger screens */
 }
 
 .third-menu-card {
-    flex: 1; /* Grow to fill the available space */
-    margin: 0; /* Remove margin for full-width cards */
-    height: 15rem; /* Example height, adjust as needed */
-    padding: 0;
+    flex: 1; /* Allows cards to grow */
     overflow: hidden;
+    /* Remove the height here if you want the card's height to be based on its content */
 }
 
 .third-menu-card img {
-    width: 100%;
-    height: 100%; /* Adjust height as necessary to cover the card */
-    object-fit: cover; /* Cover the card area without stretching the image */
+    width: 100%; /* Full width of the parent */
+    height: 100%; /* Full height of the parent */
+    object-fit: cover; /* Cover the area, may clip the image */
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 767px) {
+    .third-card-group {
+        flex-direction: column; /* Stack the cards on smaller screens */
+    }
+
+    .third-menu-card {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Height based on content */
+    }
+
+    .third-menu-card img {
+        width: 100%; /* Full width of the parent */
+        /* Remove the 'height: auto;' to ensure the image covers the div */
+        object-fit: cover; /* Keep 'cover' to ensure the image fills the div */
+    }
 }
