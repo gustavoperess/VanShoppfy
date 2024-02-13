@@ -1,0 +1,12 @@
+.second-card-group .second-menu-card {
+    height: 20rem; /* Example height, adjust as needed */
+    overflow: hidden;
+  }
+  
+  .second-card-group .second-menu-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; 
+  }
+  
+ 

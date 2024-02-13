@@ -1,27 +1,45 @@
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import CardGroup from 'react-bootstrap/CardGroup';
+import { useState, useEffect } from 'react';
+import "./secondMenuStyle.css"
+
+const myImages = [
+  {
+    src: "../../../src/assets/myBanners/hats.jpg",
+    title: "Man",
+    text: "Shop Now."
+  },
+  {
+    src: "../../../src/assets/myBanners/woman.jpg",
+    title: "Woman",
+    text: "Shop Now."
+  },
+
+]
 
 function SecondMenuComponent() {
+  const [pictures, setPictures] = useState([]);
+
+  useEffect(() => {
+    setPictures(myImages);
+  }, []);
   return (
-    <Row xs={1} md={2} className="g-4">
-      {Array.from({ length: 4 }).map((_, idx) => (
-        <Col key={idx}>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
+    <CardGroup className="second-card-group">
+      {pictures.map((picture, index) =>
+    <Card key={index} className="second-menu-card">
+        <Card.Img variant="top" src={picture.src}/>
+        <Card.ImgOverlay>
+          <Card.Title>{picture.title}</Card.Title>
+          <Card.Text>{picture.text}</Card.Text>
+          </Card.ImgOverlay>
+      </Card>
+      )}
+    </CardGroup>
   );
 }
 
+
 export default SecondMenuComponent;
+
+
+
