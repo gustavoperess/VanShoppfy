@@ -41,3 +41,33 @@
   .card-title.h5 {
     color: white;
   }
+
+/* Responsive styles for small screens */
+  @media (max-width: 767.98px) {
+    .card-group {
+      flex-direction: column;
+      align-items: center; /* Stack cards vertically and center them */
+    }
+  
+    .card {
+      width: 100%; /* Full width on small screens */
+      height: auto; /* Adjust height automatically */
+      margin: 0.5rem 0; /* Only vertical margin */
+    }
+  
+    .card img {
+      height: auto; /* Adjust height automatically */
+      object-fit: contain; /* Change to 'contain' to see the whole image */
+    }
+  
+    .card .card-img-overlay {
+      /* Adjust overlay styles for small screens if necessary */
+      padding: 0.5rem;
+    }
+  
+    .card-title,
+    .card-text {
+      /* Adjust font size for small screens if necessary */
+      font-size: smaller;
+    }
+  }
