@@ -1,11 +1,12 @@
 .card-group {
-    display: flex; /* ensures that the card group is flex */
-    justify-content: center; /* centers the cards in the card group */
-    max-width: 1050px; /* Adjust this value as needed */
-    margin: 50px auto; /* Centers the card group with automatic margins */
-    gap: 1rem; /* adds space between cards */
-  }
-  
+    display: flex;
+    justify-content: center;
+    max-width: 1050px;
+    margin-top: 20px; /* Adjust this value to set the desired top margin */
+    margin-left: auto; /* Automatic left margin */
+    margin-right: auto; /* Automatic right margin */
+    gap: 1rem;
+}
   .card {
     flex: 0 0 auto; /* Do not grow, do not shrink, and be automatically sized */
     width: 20rem; /* Existing width from previous example */
@@ -32,7 +33,13 @@
     flex-direction: column;
     justify-content: end; /* aligns the text to the bottom */
   }
-  
+
+.card:hover .card-img-top {
+    transform: scale(1.1); /* Scale the image to 110% on hover */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+
   .card-title,
   .card-text {
     color: white; /* change the text color if needed */

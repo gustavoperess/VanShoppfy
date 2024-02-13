@@ -30,10 +30,10 @@ function MenuComponent() {
   }, []);
 
   return (
-    <CardGroup>
+    <CardGroup className="first-card-group">
       {pictures.map((picture, index) =>
-      <Card key={index}>
-        <Card.Img variant="top" src={picture.src}/>
+      <Card key={index} className="first-card-group">
+        <Card.Img variant="top" src={picture.src}  className="card-img-hover" />
         <Card.ImgOverlay>
           <Card.Title>{picture.title}</Card.Title>
           <Card.Text>{picture.text}</Card.Text>
