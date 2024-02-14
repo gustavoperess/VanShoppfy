@@ -1,0 +1,24 @@
+.text-center {
+    width: 100%;
+    margin-top: 100px;
+    padding-bottom: 40px;
+    padding-top: 10px;
+    border: none;
+
+}
+
+.text-center .card-title.h5 {
+    font-size: 30px;
+    color: black;
+}
+
+.text-center .card-text {
+    font-size: 25px;
+    color: black;
+}
+
+hr {
+    margin-top: 100px;
+    border-top: 1px solid rgba(0,0,0,1);
+}
+

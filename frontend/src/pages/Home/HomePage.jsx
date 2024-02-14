@@ -3,6 +3,7 @@ import BannerComponent from '../../components/banner/banner.component';
 import MenuComponent from '../../components/menu/menu.component';
 import SecondMenuComponent from '../../components/menu/secondMenu.component';
 import ThirdMenuComponent from '../../components/menu/thirdMenu.component';
+import ContactComponent from '../../components/contact/contact.component';
 import Container from 'react-bootstrap/Container';
 import "./HomePage.css"
 
@@ -15,6 +16,7 @@ export const HomePage = () => {
       <MenuComponent />
       <SecondMenuComponent />
       <ThirdMenuComponent />
+      <ContactComponent />
       </Container>
     </>
   );
