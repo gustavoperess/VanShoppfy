@@ -16,6 +16,7 @@ export const AdminArea = () => {
   const [productCategory, setProductCategory] = useState("");
   const [productPicture, setProductPicture] = useState(null);
   const [validated, setValidated] = useState(false);
+  const [key, setKey] = useState(0); // Key for the file input to force re-render
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -32,14 +33,19 @@ export const AdminArea = () => {
 
       try {
         await createProduct(formData);
+        setProductName("");       // Clear the form here after successful submission
+        setProductGender("");       // Clear the form here after successful submission
+        setProductAmount("");       // Clear the form here after successful submission
+        setProductCategory("");       // Clear the form here after successful submission
+        setProductPicture(null);       // Clear the form here after successful submission
+        setValidated(false); // Reset validation state
+        setKey(prevKey => prevKey + 1);
       } catch (err) {
         console.error("Error creating product:", err.message);
       }
     }
     setValidated(true);
   };
-
-  const handleNameChange = (event) => setProductName(event.target.value);
 
   const handleProductGender = (event) => {
     const selectedIndex = event.target.options.selectedIndex;
@@ -66,6 +72,7 @@ export const AdminArea = () => {
             <Form.Group className="mb-3">
               <Form.Label>Product Name</Form.Label>
               <Form.Control
+                key={key} 
                 required
                 type="text"
                 placeholder="Product Name"
@@ -96,6 +103,7 @@ export const AdminArea = () => {
             <InputGroup className="mb-3">
               <InputGroup.Text>$</InputGroup.Text>
               <Form.Control
+                key={key} 
                 id="producAmount"
                 onChange={handleProductAmount}
                 aria-label="Amount (to the nearest dollar)"
@@ -105,6 +113,7 @@ export const AdminArea = () => {
             <Form.Group className="mb-3">
               <Form.Label>Product Pictute</Form.Label>
               <Form.Control
+                key={key} 
                 type="file"
                 id="productPic"
                 onChange={handleProductPicture}

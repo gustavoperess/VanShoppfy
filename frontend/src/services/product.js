@@ -8,9 +8,9 @@ export const createProduct = async (form) => {
     };
     
       // Loop through FormData entries
-      for (let [key, value] of form.entries()) {
-        console.log(`Key: ${key}, Value: ${value}`);
-    }
+    //   for (let [key, value] of form.entries()) {
+    //     console.log(`Key: ${key}, Value: ${value}`);
+    // }
 
     const response = await fetch(`${BACKEND_URL}/products/create`, requestOptions);
 
