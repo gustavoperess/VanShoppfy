@@ -1,10 +1,10 @@
 .text-center {
     width: 100%;
     margin-top: 100px;
-    padding-bottom: 40px;
-    padding-top: 10px;
-    border: none;
-
+    border: none !important;
+}
+.card-body {
+    padding-bottom: 100px !important;
 }
 
 .text-center .card-title.h5 {
