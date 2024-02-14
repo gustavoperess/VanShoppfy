@@ -24,6 +24,8 @@ export const AdminArea = () => {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     } else {
+      const gender = productGender || "Male";
+      const category = productCategory || "Hats";
       const formData = new FormData();
       formData.append("productName", productName);
       formData.append("productGender", productGender);
@@ -34,9 +36,7 @@ export const AdminArea = () => {
       try {
         await createProduct(formData);
         setProductName("");       // Clear the form here after successful submission
-        setProductGender("");       // Clear the form here after successful submission
         setProductAmount("");       // Clear the form here after successful submission
-        setProductCategory("");       // Clear the form here after successful submission
         setProductPicture(null);       // Clear the form here after successful submission
         setValidated(false); // Reset validation state
         setKey(prevKey => prevKey + 1);
@@ -88,6 +88,7 @@ export const AdminArea = () => {
             >
               <option value="1">Male</option>
               <option value="2">Female</option>
+              <option value="3">Neutral</option>
             </Form.Select>
             <Form.Label>Product Category</Form.Label>
             <Form.Select
@@ -97,13 +98,14 @@ export const AdminArea = () => {
             >
               <option value="1">Hats</option>
               <option value="2">Sneakers</option>
-              <option value="2">Jackets</option>
+              <option value="3">Jackets</option>
             </Form.Select>
             <Form.Label>Product Price</Form.Label>
             <InputGroup className="mb-3">
               <InputGroup.Text>$</InputGroup.Text>
               <Form.Control
-                key={key} 
+                key={key}
+                required
                 id="producAmount"
                 onChange={handleProductAmount}
                 aria-label="Amount (to the nearest dollar)"
@@ -115,6 +117,7 @@ export const AdminArea = () => {
               <Form.Control
                 key={key} 
                 type="file"
+                required
                 id="productPic"
                 onChange={handleProductPicture}
                 accept="image/*"
