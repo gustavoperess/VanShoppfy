@@ -21,9 +21,21 @@ const createPost = async (req, res) => {
 }
 
 
+const getProducts = async (req, res) => {
+    try {
+        const products = await Product.find().populate('productName', 'productName')
+        res.json(products)
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Error getting products" });
+    }
+}
+
+
+
 const ProductController = {
     createPost: createPost,
-  
+    getProducts:getProducts
   };
 
   module.exports = ProductController;
