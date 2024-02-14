@@ -5,7 +5,7 @@ const FooterComponent = () => {
     <Navbar  className="custom-navbar">
           <Nav className="mr-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Shop</Nav.Link>
+            <Nav.Link href="/shop">Shop</Nav.Link>
             <Nav.Link href="/signup">Sign in</Nav.Link>
           </Nav>
           <Nav className="ms-auto">
