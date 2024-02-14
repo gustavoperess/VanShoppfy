@@ -4,7 +4,7 @@ const cors = require("cors");
 const tokenChecker = require("./middleware/tokenChecker");
 const usersRouter = require("./routes/users");
 const authenticationRouter = require("./routes/authentication");
-
+const productRouter = require("./routes/products")
 const app = express();
 
 app.use(cors());
@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 
 app.use("/tokens",  authenticationRouter);
 app.use("/users", usersRouter);
+app.use('/uploads', express.static('uploads'));
+app.use("/products", productRouter);
 
 // 404 Not Found Middleware
 app.use((_req, res) => {
