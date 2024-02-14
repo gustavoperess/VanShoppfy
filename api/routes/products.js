@@ -12,9 +12,11 @@ const storage = multer.diskStorage({
         cb(null, 'uploads/products') // this is where the images are going to be uploaded 
     },
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + require('path').extname(file.originalname));  // this is the file name of the images are going to be uploaded 
+        cb(null, file.fieldname + '-' + Date.now() + require('path').extname(file.originalname)); // this is the file name of the images are going to be uploaded 
     }
 });
 const upload = multer({ storage: storage });
 
-router.post("/", upload.single("image"), ProductController.create)
+router.post("/create", upload.single("productPicture"), ProductController.createPost)
+
+module.exports = router;
