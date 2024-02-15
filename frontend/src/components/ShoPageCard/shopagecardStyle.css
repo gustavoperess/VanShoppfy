@@ -25,15 +25,15 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-    max-width: calc((14rem * 4) + (1rem * 3)); /* Width of 4 cards plus 3 gaps */
+    max-width: calc((19rem * 4) + (1rem * 3)); /* Width of 4 cards plus 3 gaps */
     margin: auto; /* Center the card group */
   }
   
   /* Adjustments for individual cards within the card group */
   .shopCart .shop-card-group .shop-card-card {
     flex: 0 0 auto; /* Do not grow, do not shrink, and be automatically sized */
-    width: 13rem; /* Increased width for more landscape orientation */
-    min-height: 22rem; /* Decreased minimum height */
+    width: 18rem; /* Increased width for more landscape orientation */
+
     margin: 0.5rem; /* Provide some space between the cards */
     overflow: hidden; /* Hide any content that goes beyond the card's dimensions */
     display: flex; /* Enable flex layout for the card's content */
@@ -45,9 +45,10 @@
   
   /* Adjustments for images within cards */
   .shopCart .shop-card-group .shop-card-card .shop-card-img {
-    width: 100%; /* Make the image responsive within the card */
-    height: 100%; /* Adjust height automatically */
-    object-fit: cover; /* This will cover the area of the card without stretching the image */
+    width: 100%; /* Make the image take the full width of the card */
+    height: auto; /* Set height to auto to maintain the aspect ratio */
+    aspect-ratio: 4 / 3; /* Force images to a 4:3 aspect ratio, adjust as needed */
+    object-fit: cover; /* Cover the area of the container without stretching the image */
   }
   
   /* Allow the card body to grow and shrink as needed */

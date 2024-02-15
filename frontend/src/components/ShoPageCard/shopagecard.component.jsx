@@ -8,7 +8,7 @@ import "./shopagecardStyle.css"
 
 function ShopPageComponent() {
   const [products, setProducts] = useState([])
-  const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState('Featured');
   
   useEffect(() => {
     const fetchData = async () => {
@@ -40,7 +40,7 @@ function ShopPageComponent() {
     <div className="shopCart">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />   
                 <Nav className="shop-cart-menu">
-                  <Nav.Link href="#home">Featured</Nav.Link>
+                  <Nav.Link onClick={() => handleCategoryClick('Featured')}>Featured</Nav.Link>
                   <Nav.Link onClick={() => handleCategoryClick('Hats')}>Hats</Nav.Link>
                   <Nav.Link onClick={() => handleCategoryClick('Watches')}>Watches</Nav.Link>
                   <Nav.Link onClick={() => handleCategoryClick('Womens')}>Womens</Nav.Link>
