@@ -29,6 +29,7 @@ function BannerComponent() {
   }, []);
 
   return (
+    <div className='BannerComponent'>
     <Carousel>
       {pictures.map((picture, index) => (
           <Carousel.Item key={index} style={{
@@ -44,6 +45,7 @@ function BannerComponent() {
         </Carousel.Item>
       ))}
     </Carousel>
+    </div>
   );
 }
 

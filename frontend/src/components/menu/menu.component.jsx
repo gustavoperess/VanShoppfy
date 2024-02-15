@@ -30,17 +30,19 @@ function MenuComponent() {
   }, []);
 
   return (
-    <CardGroup className="first-card-group">
-      {pictures.map((picture, index) =>
-      <Card key={index} className="first-card-group">
-        <Card.Img variant="top" src={picture.src}  className="card-img-hover" />
-        <Card.ImgOverlay>
-          <Card.Title>{picture.title}</Card.Title>
-          <Card.Text>{picture.text}</Card.Text>
-          </Card.ImgOverlay>
-      </Card>
-      )}
-    </CardGroup>
+    <div className='menuComponent'>
+      <CardGroup className="first-card-group">
+        {pictures.map((picture, index) =>
+        <Card key={index} className="first-card-card">
+          <Card.Img variant="top" src={picture.src}  className="first-card-img" />
+          <Card.ImgOverlay>
+            <Card.Title>{picture.title}</Card.Title>
+            <Card.Text>{picture.text}</Card.Text>
+            </Card.ImgOverlay>
+        </Card>
+        )}
+      </CardGroup>
+    </div>
   );
 }
 

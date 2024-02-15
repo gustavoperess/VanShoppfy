@@ -1,12 +1,89 @@
-.second-card-group .second-menu-card {
-    height: 20rem; /* Example height, adjust as needed */
-    margin-top: 0px;
-    overflow: hidden;
+
+/* Adjustments for the card group */
+.secondMenuComponent .second-card-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; /* Adjust this value to set the desired top margin */
+  margin-left: auto; /* Automatic left margin */
+  margin-right: auto; /* Automatic right margin */
+  gap: 1rem;
+}
+
+/* Adjustments for individual cards within the card group */
+.secondMenuComponent .second-card-group .second-card-card  {
+  flex: 0 0 auto; /* Do not grow, do not shrink, and be automatically sized */
+  width: 31rem; /* Existing width from previous example */
+  height: 20rem; /* Set a fixed height for the card; adjust this as needed */
+  overflow: hidden; /* Hide any content that goes beyond the card's dimensions */
+}
+
+/* Adjustments for images within cards */
+.secondMenuComponent .second-card-group .second-card-card .second-card-img {
+  width: 100%; /* Make the image responsive within the card */
+  height: auto; /* Maintain the aspect ratio of the image */
+  min-height: 100%; /* Ensure the image covers the height of the card */
+  object-fit: cover; /* This will cover the area of the card without stretching the image */
+}
+
+
+/* Adjustments for the card overlay */
+.secondMenuComponent .second-card-group .second-card-card  .card-img-overlay {
+  position: absolute; /* overlays the title and text on the image */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem; /* adds some padding inside the overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: end; /* aligns the text to the bottom */
+}
+
+/* Hover effect */
+.secondMenuComponent .second-card-group .second-card-card:hover .second-card-img  {
+  transform: scale(1.1); /* Scale the image to 110% on hover */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Text styles */
+.secondMenuComponent .second-card-group .second-card-card .card-title,
+.secondMenuComponent .second-card-group .second-card-card .card-text {
+  color: white; /* change the text color if needed */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* adds shadow to text for better readability */
+}
+.secondMenuComponent .second-card-group .second-card-group .card-title.h5 {
+  color: white;
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 767.98px) {
+  .secondMenuComponent .second-card-group {
+    flex-direction: column;
+    align-items: center; /* Stack cards vertically and center them */
   }
+
+  .secondMenuComponent .second-card-group .second-card-card {
+    width: 100%; /* Full width on small screens */
+    height: auto; /* Adjust height automatically */
+    margin: 0.5rem 0; /* Only vertical margin */
+  }
+
+  .secondMenuComponent .second-card-group .second-card-card .second-card-img  {
+    height: auto; /* Adjust height automatically */
+    object-fit: contain; /* Change to 'contain' to see the whole image */
+  }
+
+  .secondMenuComponent .second-card-group .second-card-card .card-img-overlay {
+    /* Adjust overlay styles for small screens if necessary */
+    padding: 0.5rem;
+  }
+
+  .secondMenuComponent .second-card-group .second-card-card .card-title,
+  .secondMenuComponent .second-card-group .second-card-card .card-text {
+    /* Adjust font size for small screens if necessary */
+    font-size: smaller;
+  }
+}
+
+
   
-  .second-card-group .second-menu-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; 
-  }
- 

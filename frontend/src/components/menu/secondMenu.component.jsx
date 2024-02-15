@@ -24,10 +24,11 @@ function SecondMenuComponent() {
     setPictures(myImages);
   }, []);
   return (
+    <div className='secondMenuComponent'>
     <CardGroup className="second-card-group">
       {pictures.map((picture, index) =>
-    <Card key={index} className="second-menu-card">
-        <Card.Img variant="top" src={picture.src}/>
+    <Card key={index} className="second-card-card">
+        <Card.Img variant="top" src={picture.src}  className="second-card-img"/>
         <Card.ImgOverlay>
           <Card.Title>{picture.title}</Card.Title>
           <Card.Text>{picture.text}</Card.Text>
@@ -35,6 +36,7 @@ function SecondMenuComponent() {
       </Card>
       )}
     </CardGroup>
+    </div>
   );
 }
 

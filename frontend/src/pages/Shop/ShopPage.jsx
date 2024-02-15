@@ -7,12 +7,12 @@ import "./ShopPageStyle.css"
 
 export const MyShopPage = () => {
     return (
-        <>
+        <div className='shopPage'>
         <Container fluid>
-        <HeaderComponent />
-        <SingleBannerComponent />
-        <ShopPageComponent />
+            <HeaderComponent />
+            <SingleBannerComponent />
+            <ShopPageComponent />
         </Container>
-        </>
+        </div>
     );
 };

@@ -26,14 +26,14 @@ function ThirdMenuComponent() {
   return (
     <div  className="third-card-group" >
       {pictures.map((picture, index) =>
-    <Card key={index} className="third-menu-card">
-        <Card.Img variant="top" src={picture.src}/>
-        <Card.ImgOverlay>
-          <Card.Title>{picture.title}</Card.Title>
-          <Card.Text>{picture.text}</Card.Text>
-          </Card.ImgOverlay>
-      </Card>
-      )}
+      <Card key={index} className="third-menu-card">
+          <Card.Img variant="top" src={picture.src}/>
+          <Card.ImgOverlay>
+            <Card.Title>{picture.title}</Card.Title>
+            <Card.Text>{picture.text}</Card.Text>
+            </Card.ImgOverlay>
+        </Card>
+        )}
     </div>
   );
 }

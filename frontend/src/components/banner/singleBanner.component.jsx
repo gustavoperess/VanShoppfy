@@ -19,6 +19,7 @@ function SingleBannerComponent() {
   }, []);
 
   return (
+    <div className='singleBannerComponent'>
     <CardLayout>
       {pictures.map((picture, index) => (
         <CardTwo key={index}>
@@ -29,6 +30,7 @@ function SingleBannerComponent() {
         </CardTwo>
       ))}
     </CardLayout>
+    </div>
   );
 }
 

@@ -18,9 +18,9 @@ function ShopPageComponent() {
 
   return (
     <div className="new-card">
-      <CardGroup style={{ all: 'unset' }}> 
+      <CardGroup > 
       {products.map ((product, index) =>  
-          <Card key={index} style={{ all: 'unset' }}> 
+          <Card key={index} > 
           <Card.Img variant="top"  src={product?.productPicture ? `http://localhost:3000/${product?.productPicture}` : 'default-picture-url'} />
           <Card.Body>
             <Card.Title>{product.productName}</Card.Title>

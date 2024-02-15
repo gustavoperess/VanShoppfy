@@ -10,7 +10,7 @@ import "./HomePage.css"
 
 export const HomePage = () => {
   return (
-    <>
+    <div className='homePage'>
     <Container fluid>
       <HeaderComponent />
       <BannerComponent />
@@ -20,6 +20,6 @@ export const HomePage = () => {
       <ContactComponent />
       <FooterComponent />
       </Container>
-    </>
+    </div>
   );
 };
