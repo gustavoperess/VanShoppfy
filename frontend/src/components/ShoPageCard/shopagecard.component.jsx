@@ -31,10 +31,12 @@ function ShopPageComponent() {
   };
 
   const filteredProducts = filter
-  ? products.filter((product) => product.productCategory === filter)
+  ? products.filter((product) =>
+      filter == "Male" || filter == "Female"
+        ? product.productGender === filter
+        : product.productCategory === filter)
   : products;
-
-
+  console.log(filter)
 
   return (  
     <div className="shopCart">
@@ -43,8 +45,8 @@ function ShopPageComponent() {
                   <Nav.Link onClick={() => handleCategoryClick('Featured')}>Featured</Nav.Link>
                   <Nav.Link onClick={() => handleCategoryClick('Hats')}>Hats</Nav.Link>
                   <Nav.Link onClick={() => handleCategoryClick('Watches')}>Watches</Nav.Link>
-                  <Nav.Link onClick={() => handleCategoryClick('Womens')}>Womens</Nav.Link>
-                  <Nav.Link onClick={() => handleCategoryClick('Mens')}>Mens</Nav.Link>
+                  <Nav.Link onClick={() => handleCategoryClick('Female')}>Womens</Nav.Link>
+                  <Nav.Link onClick={() => handleCategoryClick('Male')}>Mens</Nav.Link>
                   <Nav.Link onClick={() => handleCategoryClick('Sneakers')}>Sneakers</Nav.Link>
                   <Nav.Link onClick={() => handleCategoryClick('Jackets')}>Jackets</Nav.Link>
               </Nav>
