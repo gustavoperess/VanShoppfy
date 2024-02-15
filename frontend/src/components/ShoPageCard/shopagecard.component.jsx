@@ -8,6 +8,7 @@ import "./shopagecardStyle.css"
 
 function ShopPageComponent() {
   const [products, setProducts] = useState([])
+  const [filter, setFilter] = useState('');
   
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +25,15 @@ function ShopPageComponent() {
   const formatPrice = (price) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
   };
+  
+  const handleCategoryClick = (category) => {
+    setFilter(category);
+  };
+
+  const filteredProducts = filter
+  ? products.filter((product) => product.productCategory === filter)
+  : products;
+
 
 
   return (  
@@ -31,15 +41,15 @@ function ShopPageComponent() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />   
                 <Nav className="shop-cart-menu">
                   <Nav.Link href="#home">Featured</Nav.Link>
-                  <Nav.Link href="#link">Hats</Nav.Link>
-                  <Nav.Link href="#link">Watches</Nav.Link>
-                  <Nav.Link href="#link">Womens</Nav.Link>
-                  <Nav.Link href="#link">Mens</Nav.Link>
-                  <Nav.Link href="#link">Sneakers</Nav.Link>
-                  <Nav.Link href="#link">Jackets</Nav.Link>
+                  <Nav.Link onClick={() => handleCategoryClick('Hats')}>Hats</Nav.Link>
+                  <Nav.Link onClick={() => handleCategoryClick('Watches')}>Watches</Nav.Link>
+                  <Nav.Link onClick={() => handleCategoryClick('Womens')}>Womens</Nav.Link>
+                  <Nav.Link onClick={() => handleCategoryClick('Mens')}>Mens</Nav.Link>
+                  <Nav.Link onClick={() => handleCategoryClick('Sneakers')}>Sneakers</Nav.Link>
+                  <Nav.Link onClick={() => handleCategoryClick('Jackets')}>Jackets</Nav.Link>
               </Nav>
       <CardGroup className='shop-card-group'> 
-          {products.map ((product, index) =>  
+          {filteredProducts.map ((product, index) =>  
               <Card key={index} className='shop-card-card'> 
               <Card.Img variant="top"  className='shop-card-img' src={product?.productPicture ? `http://localhost:3000/${product?.productPicture}` : 'default-picture-url'} />   
               <Card.Footer>

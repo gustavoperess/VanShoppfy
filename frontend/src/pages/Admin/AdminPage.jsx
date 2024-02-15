@@ -99,6 +99,7 @@ export const AdminArea = () => {
               <option value="1">Hats</option>
               <option value="2">Sneakers</option>
               <option value="3">Jackets</option>
+              <option value="4">Watches</option>
             </Form.Select>
             <Form.Label>Product Price</Form.Label>
             <InputGroup className="mb-3">
