@@ -10,12 +10,12 @@ const myImages = [
     text: "Shop Now."
   },
   {
-    src: "../../../src/assets/myBanners/jackets.jpg",
+    src: "../../../src/assets/myBanners/jackets_W.jpg",
     title: "Jackets",
     text: "Shop Now."
   },
   {
-    src: "../../../src/assets/myBanners/sneakers.jpg",
+    src: "../../../src/assets/myBanners/sneakers_W.jpg",
     title: "Sneakers",
     text: "Shop Now."
   }

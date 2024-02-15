@@ -5,12 +5,12 @@ import "./secondMenuStyle.css"
 
 const myImages = [
   {
-    src: "../../../src/assets/myBanners/hats.jpg",
+    src: "../../../src/assets/myBanners/newArrival.jpg",
     title: "Man",
     text: "Shop Now."
   },
   {
-    src: "../../../src/assets/myBanners/woman.jpg",
+    src: "../../../src/assets/myBanners/woman_W.jpg",
     title: "Woman",
     text: "Shop Now."
   },

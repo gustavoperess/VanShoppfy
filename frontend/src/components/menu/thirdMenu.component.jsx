@@ -4,12 +4,12 @@ import "./thirdMenuStyle.css"
 
 const myImages = [
   {
-    src: "../../../src/assets/myBanners/summerSales.jpg",
+    src: "../../../src/assets/myBanners/summerSales_W.jpg",
     title: "New Arrival",
     text: "On eligeble items."
   },
   {
-    src: "../../../src/assets/myBanners/SummerSalesTwo.jpg",
+    src: "../../../src/assets/myBanners/SummerSalesTwo_W.jpg",
     title: "Summer Sales OFF",
     text: "On eligeble items."
   },
