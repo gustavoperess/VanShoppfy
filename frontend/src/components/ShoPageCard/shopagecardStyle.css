@@ -1,27 +1,52 @@
 /* Adjustments for the card group */
+
+.shopCart {
+    padding-top: 15px;
+    display: flex; /* Use flex to center the card group */
+    justify-content: center; /* Center card group horizontally */
+    flex-wrap: wrap; /* Allow cards to wrap to next line */
+    gap: 1rem; /* Space between cards */
+    margin: 1rem auto; /* Vertical margin for spacing, auto for horizontal centering */
+  }
+
+
+  .shopCart .shop-cart-menu {
+    display: flex;
+    justify-content: center; /* This will center the nav links */
+    width: 100%; /* Make the navbar take the full width */
+    padding: 0; /* Remove default padding if necessary */
+    list-style: none; /* Remove list styles if it's an unordered list */
+    margin-bottom: 1rem; /* Add some space below the navbar */
+  }
+
+
 .shopCart .shop-card-group {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin-left: auto; /* Automatic left margin */
-    margin-right: auto; /* Automatic right margin */
     gap: 1rem;
+    max-width: calc((14rem * 4) + (1rem * 3)); /* Width of 4 cards plus 3 gaps */
+    margin: auto; /* Center the card group */
   }
   
   /* Adjustments for individual cards within the card group */
   .shopCart .shop-card-group .shop-card-card {
     flex: 0 0 auto; /* Do not grow, do not shrink, and be automatically sized */
-    width: 15rem; /* Existing width from previous example */
-    min-height: 22rem; /* Minimum height for the card; adjust this as needed */
+    width: 13rem; /* Increased width for more landscape orientation */
+    min-height: 22rem; /* Decreased minimum height */
     margin: 0.5rem; /* Provide some space between the cards */
     overflow: hidden; /* Hide any content that goes beyond the card's dimensions */
     display: flex; /* Enable flex layout for the card's content */
     flex-direction: column; /* Stack card content vertically */
+    border: 1px solid #f3f3f3;
+    box-shadow: 4px 4px 15px rgba(47,47,47,.058823529411764705);
   }
+  
   
   /* Adjustments for images within cards */
   .shopCart .shop-card-group .shop-card-card .shop-card-img {
     width: 100%; /* Make the image responsive within the card */
-    height: 80%; /* Adjust height automatically */
+    height: 100%; /* Adjust height automatically */
     object-fit: cover; /* This will cover the area of the card without stretching the image */
   }
   
@@ -34,7 +59,6 @@
   .shopCart .shop-card-group .shop-card-card .card-title,
   .shopCart .shop-card-group .shop-card-card .card-text {
     padding-top: 10px;
-    padding-left: 5px;
     color: black; /* Change the text color if needed */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Adds shadow to text for better readability */
   }
@@ -47,36 +71,25 @@
   .shopCart .shop-card-group .shop-card-card .card-footer .text-muted{
     color: black; /* Change the text color if needed */
     font-size: 18px;
+    font-weight: 700;
   }
- 
-  
-  /* Responsive styles for small screens */
-  @media (max-width: 767.98px) {
-    .menuComponent .first-card-group {
-      flex-direction: column;
-      align-items: center; /* Stack cards vertically and center them */
-    }
-  
-    .menuComponent .first-card-group .first-card-card {
-      width: 100%; /* Full width on small screens */
-      height: auto; /* Adjust height automatically */
-      margin: 0.5rem 0; /* Only vertical margin */
-    }
-  
-    .menuComponent .first-card-group .first-card-card .first-card-img {
-      height: auto; /* Adjust height automatically */
-      object-fit: contain; /* Change to 'contain' to see the whole image */
-    }
-  
-    .menuComponent .first-card-group .first-card-card .card-img-overlay {
-      /* Adjust overlay styles for small screens if necessary */
-      padding: 0.5rem;
-    }
-  
-    .menuComponent .first-card-group .first-card-card .card-title,
-    .menuComponent .first-card-group .first-card-card .card-text {
-      /* Adjust font size for small screens if necessary */
-      font-size: smaller;
+
+
+/* Responsive adjustment */
+@media (max-width: 1200px) {
+    .shopCart .shop-card-group {
+      max-width: calc((13rem * 3) + (1rem * 2)); /* Adjust for 3 cards plus 2 gaps */
     }
   }
   
+  @media (max-width: 992px) {
+    .shopCart .shop-card-group {
+      max-width: calc((13rem * 2) + (1rem * 1)); /* Adjust for 2 cards plus 1 gap */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .shopCart .shop-card-group .shop-card-card {
+      flex: 0 0 calc(100% - 1rem); /* Full width minus the gap */
+    }
+  }
