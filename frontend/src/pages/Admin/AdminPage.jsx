@@ -15,6 +15,7 @@ export const AdminArea = () => {
   const [productAmount, setProductAmount] = useState("");
   const [productCategory, setProductCategory] = useState("");
   const [productPicture, setProductPicture] = useState(null);
+  const [productFeatured, setProductFeature] = useState("")
   const [validated, setValidated] = useState(false);
   const [key, setKey] = useState(0); // Key for the file input to force re-render
 
@@ -32,6 +33,7 @@ export const AdminArea = () => {
       formData.append("productAmount", productAmount);
       formData.append("productPicture", productPicture);
       formData.append("productCategory", productCategory);
+      formData.append("productFeatured", productFeatured);
 
       try {
         await createProduct(formData);
@@ -57,6 +59,13 @@ export const AdminArea = () => {
 
   const handleProductPicture = (event) =>
     setProductPicture(event.target.files[0]);
+
+    const handleProductFeatured = (event) => {
+      const selectedIndex = event.target.options.selectedIndex;
+      const selectedText = event.target.options[selectedIndex].text;
+      setProductFeature(selectedText);
+    };
+
 
   const handleProductCategory = (event) => {
     const selectedIndex = event.target.options.selectedIndex;
@@ -113,6 +122,15 @@ export const AdminArea = () => {
               />
               <InputGroup.Text>.00</InputGroup.Text>
             </InputGroup>
+            <Form.Label>Product Featured</Form.Label>
+            <Form.Select
+              id="productGender"
+              onChange={handleProductFeatured}
+              aria-label="Default select example"
+            >
+              <option value="1">No</option>
+              <option value="2">Yes</option>
+            </Form.Select>
             <Form.Group className="mb-3">
               <Form.Label>Product Pictute</Form.Label>
               <Form.Control

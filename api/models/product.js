@@ -6,6 +6,7 @@ const ProductSchema =  new mongoose.Schema({
     productPicture: {type: String} ,
     productGender: {type: String },
     productCategory: {type: String },
+    productFeatured: {type: String },
 })
 
 const Product = mongoose.model("Product", ProductSchema)

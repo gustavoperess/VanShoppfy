@@ -10,6 +10,7 @@ const createPost = async (req, res) => {
             productGender: req.body.productGender,
             productCategory: req.body.productCategory,
             productPrice: req.body.productAmount,
+            productFeatured: req.body.productFeatured,
             productPicture: productImage,
         });
         await newProduct.save()

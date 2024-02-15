@@ -30,13 +30,16 @@ function ShopPageComponent() {
     setFilter(category);
   };
 
-  const filteredProducts = filter
-  ? products.filter((product) =>
-      filter == "Male" || filter == "Female"
-        ? product.productGender === filter
-        : product.productCategory === filter)
-  : products;
-  console.log(filter)
+  const filteredProducts = products.filter((product) => {
+    if (filter === "Male" || filter === "Female") {
+      return product.productGender === filter;
+    } else if (filter === "Featured") {
+      return product.productFeatured === "Yes";
+    } else {
+      return product.productCategory === filter;
+    }
+  });
+
 
   return (  
     <div className="shopCart">
