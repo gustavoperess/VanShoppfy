@@ -9,31 +9,34 @@ function ShopPageComponent() {
   
   useEffect(() => {
     const fetchData = async () => {
-      const productsData = await getAllProducts();
-      setProducts(productsData)
+      let productsData = await getAllProducts();
+      productsData = productsData.map((product) => ({
+        ...product,
+        productPrice: product.productPrice.$numberDecimal.toString(),
+      }));
+      setProducts(productsData);
+    };
+    fetchData();
+  }, []);
 
-    }
-    fetchData()
-  })
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
+  };
+
 
   return (
-    <div className="new-card">
-      <CardGroup > 
-      {products.map ((product, index) =>  
-          <Card key={index} > 
-          <Card.Img variant="top"  src={product?.productPicture ? `http://localhost:3000/${product?.productPicture}` : 'default-picture-url'} />
-          <Card.Body>
-            <Card.Title>{product.productName}</Card.Title>
-            <Card.Text>
-              {product.ProductPrice}
-            </Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
-        </Card>
-      )}
-   </CardGroup>
+    <div className="shopCart">
+      <CardGroup className='shop-card-group'> 
+          {products.map ((product, index) =>  
+              <Card key={index} className='shop-card-card'> 
+              <Card.Img variant="top"  className='shop-card-img' src={product?.productPicture ? `http://localhost:3000/${product?.productPicture}` : 'default-picture-url'} />
+                <Card.Title>{product.productName}</Card.Title>
+              <Card.Footer>
+                <small className="text-muted">{formatPrice(product.productPrice)}</small>
+              </Card.Footer>
+            </Card>
+          )}
+      </CardGroup>
    </div>
   );
 }

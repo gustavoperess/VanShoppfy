@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const ProductSchema =  new mongoose.Schema({
     productName: {type: String},
-    productPrice: { type: Number },
+    productPrice: { type: mongoose.Types.Decimal128 },
     productPicture: {type: String} ,
     productGender: {type: String },
     productCategory: {type: String },

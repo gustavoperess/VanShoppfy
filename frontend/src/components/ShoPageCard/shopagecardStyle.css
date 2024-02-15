@@ -1,46 +1,82 @@
-/* Style for the card group container */
-.class-group-cardgroup {
+/* Adjustments for the card group */
+.shopCart .shop-card-group {
     display: flex;
-    flex-wrap: wrap; /* Allows cards to wrap to the next line if there is not enough space */
-    justify-content: space-around; /* Evenly distributes space around the items */
-    gap: 1rem; /* Adjust the gap between the cards */
-}
-
-/* Style for individual card containers */
-.class-group-card {
-    flex-basis: calc(25% - 1rem); /* Adjust card width as needed, accounting for the gap */
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Bootstrap-like shadow */
-    padding: 1rem; /* Padding inside the card */
-    border: 1px solid #f3f3f3; /* Light border for the card */
-    border-radius: 0.25rem; /* Rounded corners */
-    background-color: #fff; /* White background */
-    margin-bottom: 1rem; /* Space at the bottom of each card */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
-}
-
-/* Hover effect for cards */
-.class-group-card:hover {
-    transform: scale(1.03); /* Slightly increase the size of the card */
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Larger shadow when hovering */
-}
-
-/* Style for the images inside the cards */
-.class-group-card img.class-group-myImage {
-    width: 100%; /* Make image take full width of the card */
-    height: auto; /* Maintain aspect ratio */
-    border-top-left-radius: 0.25rem; /* Rounded top-left corner */
-    border-top-right-radius: 0.25rem; /* Rounded top-right corner */
-}
-
-/* Style for the card titles */
-.class-group-card h5.class-group-title {
-    font-size: 1rem; /* Title font size */
-    margin-top: 0.5rem; /* Space above the title */
-    margin-bottom: 0.5rem; /* Space below the title */
-}
-
-/* Style for the card text */
-.class-group-card p.class-group-text {
-    font-size: 0.875rem; /* Text font size */
-    color: #6c757d; /* Bootstrap's text-muted color */
-}
+    justify-content: center;
+    margin-left: auto; /* Automatic left margin */
+    margin-right: auto; /* Automatic right margin */
+    gap: 1rem;
+  }
+  
+  /* Adjustments for individual cards within the card group */
+  .shopCart .shop-card-group .shop-card-card {
+    flex: 0 0 auto; /* Do not grow, do not shrink, and be automatically sized */
+    width: 15rem; /* Existing width from previous example */
+    min-height: 22rem; /* Minimum height for the card; adjust this as needed */
+    margin: 0.5rem; /* Provide some space between the cards */
+    overflow: hidden; /* Hide any content that goes beyond the card's dimensions */
+    display: flex; /* Enable flex layout for the card's content */
+    flex-direction: column; /* Stack card content vertically */
+  }
+  
+  /* Adjustments for images within cards */
+  .shopCart .shop-card-group .shop-card-card .shop-card-img {
+    width: 100%; /* Make the image responsive within the card */
+    height: 80%; /* Adjust height automatically */
+    object-fit: cover; /* This will cover the area of the card without stretching the image */
+  }
+  
+  /* Allow the card body to grow and shrink as needed */
+  .shopCart .shop-card-group .shop-card-card .card-body {
+    flex: 1; /* Allows the body to expand to fill available space */
+  }
+  
+  /* Text styles */
+  .shopCart .shop-card-group .shop-card-card .card-title,
+  .shopCart .shop-card-group .shop-card-card .card-text {
+    padding-top: 10px;
+    padding-left: 5px;
+    color: black; /* Change the text color if needed */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Adds shadow to text for better readability */
+  }
+  
+  /* Adjust the footer to ensure it's always visible */
+  .shopCart .shop-card-group .shop-card-card .card-footer {
+    background: rgba(255,255,255,0.8); /* Optional: make the footer slightly transparent */
+  }
+  
+  .shopCart .shop-card-group .shop-card-card .card-footer .text-muted{
+    color: black; /* Change the text color if needed */
+    font-size: 18px;
+  }
+ 
+  
+  /* Responsive styles for small screens */
+  @media (max-width: 767.98px) {
+    .menuComponent .first-card-group {
+      flex-direction: column;
+      align-items: center; /* Stack cards vertically and center them */
+    }
+  
+    .menuComponent .first-card-group .first-card-card {
+      width: 100%; /* Full width on small screens */
+      height: auto; /* Adjust height automatically */
+      margin: 0.5rem 0; /* Only vertical margin */
+    }
+  
+    .menuComponent .first-card-group .first-card-card .first-card-img {
+      height: auto; /* Adjust height automatically */
+      object-fit: contain; /* Change to 'contain' to see the whole image */
+    }
+  
+    .menuComponent .first-card-group .first-card-card .card-img-overlay {
+      /* Adjust overlay styles for small screens if necessary */
+      padding: 0.5rem;
+    }
+  
+    .menuComponent .first-card-group .first-card-card .card-title,
+    .menuComponent .first-card-group .first-card-card .card-text {
+      /* Adjust font size for small screens if necessary */
+      font-size: smaller;
+    }
+  }
+  
