@@ -2,6 +2,7 @@ import { Nav, Navbar } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom"; // Import Link
 import "./headerStyle.css";
 import Logo from "../../../public/VanShoppFYLogo.svg";
+import ShoppingCartLogo from "../../../public/shoppingbag.svg";
 import {useEffect, useState } from 'react';
 
 const HeaderComponent = () => {
@@ -23,7 +24,7 @@ const HeaderComponent = () => {
   return (
     <div className="headerComponent">
       <Navbar expand="lg" className="custom-navbar">
-          <Navbar.Brand href="#home" className="Logo">
+          <Navbar.Brand href="/" className="Logo">
             <img
               src={Logo}
               width="100"
@@ -39,6 +40,15 @@ const HeaderComponent = () => {
               <Link to="/shop" className={`nav-link ${activeCategory === 'Shop' ? 'active' : ''}`} >Shop</Link>
               <Link to="/contact" className={`nav-link ${activeCategory === 'Contact' ? 'active' : ''}`} >Contact</Link>
               <Link to="/signup" className={`nav-link ${activeCategory === 'Sign in' ? 'active' : ''}`} >Sign in</Link>
+              <Navbar.Brand href="#home" className="Logo">
+                  <img
+                    src={ShoppingCartLogo}
+                    width="40"
+                    height="40"
+                    className="d-inline-block align-top"
+                    alt="ShoppingCartLogo Logo"
+                  />
+                </Navbar.Brand>
             </Nav>
           </Navbar.Collapse>
       </Navbar>

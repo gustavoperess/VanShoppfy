@@ -6,25 +6,38 @@ import React, { useState, useEffect } from 'react';
 import { getAllProducts } from "../../services/product"
 import "./shopagecardStyle.css"
 import { useLocation } from 'react-router-dom';
-
+import Button from 'react-bootstrap/Button';
+import { addItemToCart } from '../../services/cart'; 
+ 
 function ShopPageComponent() {
   let location = useLocation();
   let state = location.state;
   let my_key = state == null ? 'Featured' : state.key
   const [products, setProducts] = useState([])
-  const [filter, setFilter] = useState(my_key);
+  const [filter, setFilter] = useState(my_key)
+  const [addingProduct, setAddingProduct] = useState("")
+
+
   
   useEffect(() => {
     const fetchData = async () => {
+      try {
       let productsData = await getAllProducts();
       productsData = productsData.map((product) => ({
         ...product,
         productPrice: product.productPrice.$numberDecimal.toString(),
       }));
       setProducts(productsData);
+    } catch (err){
+      console.error('Error fetching products information:', err);
+      }
     };
     fetchData();
   }, []);
+
+
+    // let addingItemtoCart =  addItemToCart(addingProduct)
+ 
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
@@ -44,7 +57,17 @@ function ShopPageComponent() {
     }
   });
 
-  
+ 
+
+  const handleShoppingClick = async (product) => {
+    try {
+       await addItemToCart(product._id)
+       console.log("Product added successfully");
+    } catch (err) {
+        console.log("Product not added", err)
+    }
+}
+
 
   return (  
     <div className="shopCart">
@@ -58,17 +81,20 @@ function ShopPageComponent() {
                   <Nav.Link  className={filter === 'Sneakers' ? 'active': ''}onClick={() => handleCategoryClick('Sneakers')}>Sneakers</Nav.Link>
                   <Nav.Link  className={filter === 'Jackets' ? 'active': ''} onClick={() => handleCategoryClick('Jackets')}>Jackets</Nav.Link>
               </Nav>
-      <CardGroup className='shop-card-group'> 
-          {filteredProducts.map ((product, index) =>  
-              <Card key={index} className='shop-card-card'> 
-              <Card.Img variant="top"  className='shop-card-img' src={product?.productPicture ? `http://localhost:3000/${product?.productPicture}` : 'default-picture-url'} />   
-              <Card.Footer>
-              <Card.Title>{product.productName}</Card.Title>
-                <small className="text-muted">{formatPrice(product.productPrice)}</small>
-              </Card.Footer>
-            </Card>
-          )}
-      </CardGroup>
+              <CardGroup className='shop-card-group'> 
+            {filteredProducts.map((product, index) => (
+              <Card key={index} className='shop-card-card' >
+                <div className="image-container">
+                  <Card.Img variant="top" className='shop-card-img' src={product?.productPicture ? `http://localhost:3000/${product?.productPicture}` : 'default-picture-url'} />
+                  <Button variant="primary" className="overlay-button"  onClick={() => handleShoppingClick(product)}>ADD TO CARD</Button>
+                </div>
+                <Card.Footer>
+                  <Card.Title>{product.productName}</Card.Title>
+                  <small className="text-muted">{formatPrice(product.productPrice)}</small>
+                </Card.Footer>
+              </Card>
+            ))}
+        </CardGroup>
    </div>
 
   );
