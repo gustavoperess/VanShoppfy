@@ -4,38 +4,23 @@ import "./headerStyle.css";
 import Logo from "/VanShoppFYLogo.svg";
 import ShoppingCartLogo from "/shoppingbag.svg";
 import {useEffect, useState } from 'react';
-import { getProductBySessionId } from "../../services/cart";
+
 
 const HeaderComponent = () => {
   const [activeCategory, setActiveCategory] = useState("");
   const location = useLocation(); 
-  const [products, setProduct] = useState([])
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        let productsData = await getProductBySessionId();
-        setProduct(productsData);
-      } catch (err) {
-        console.error('Error fetching products information:', err);
-      }
-    };
-
-    if (location.pathname === "/") {
-      setActiveCategory("Home");
-    } else if (location.pathname === "/shop") {
-      setActiveCategory("Shop");
-    } else if (location.pathname === "/contact") {
-      setActiveCategory("Contact");
-    } else if (location.pathname === "/signup") {
+    if ( location.pathname == "/") {
+        setActiveCategory("Home");
+    } else if (location.pathname == "/shop") {
+        setActiveCategory("Shop");
+    } else if (location.pathname == "/contact") {
+        setActiveCategory("Contact");
+    } else if (location.pathname == "/signup") {
       setActiveCategory("Sign in");
     }
-
-    fetchData();
-  }, [location]);
-
-
-console.log(products.length)
+},[location])
 
 return (
     <div className="headerComponent">
@@ -56,12 +41,15 @@ return (
               <Link to="/shop" className={`nav-link ${activeCategory === 'Shop' ? 'active' : ''}`} >Shop</Link>
               <Link to="/contact" className={`nav-link ${activeCategory === 'Contact' ? 'active' : ''}`} >Contact</Link>
               <Link to="/signup" className={`nav-link ${activeCategory === 'Sign in' ? 'active' : ''}`} >Sign in</Link>
-              <div className="shopping-cart-icon">
-              <Link to="/cart">
-                <img src={ShoppingCartLogo} width="40" height="40" alt="ShoppingCartLogo" />
-                <span className="cart-count">{products.length}</span>
-              </Link>
-            </div>
+              <Navbar.Brand href="/cart" className="Logo">
+                  <img
+                    src={ShoppingCartLogo}
+                    width="40"
+                    height="40"
+                    className="d-inline-block align-top"
+                    alt="ShoppingCartLogo Logo"
+                  />
+                </Navbar.Brand>
             </Nav>
           </Navbar.Collapse>
       </Navbar>
