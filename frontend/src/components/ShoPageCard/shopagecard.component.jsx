@@ -6,13 +6,15 @@ import React, { useState, useEffect } from 'react';
 import { getAllProducts } from "../../services/product"
 import "./shopagecardStyle.css"
 import { useLocation } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 function ShopPageComponent() {
   let location = useLocation();
   let state = location.state;
   let my_key = state == null ? 'Featured' : state.key
   const [products, setProducts] = useState([])
-  const [filter, setFilter] = useState(my_key);
+  const [filter, setFilter] = useState(my_key)
+  const [addingProduct, setAddingProduct] = useState("")
   
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +46,10 @@ function ShopPageComponent() {
     }
   });
 
-  
+  const handleShoppingClick = (event) => {
+    setAddingProduct(event.target.closest('.card').querySelector('.card-title').innerText)
+  }
+
 
   return (  
     <div className="shopCart">
@@ -58,17 +63,20 @@ function ShopPageComponent() {
                   <Nav.Link  className={filter === 'Sneakers' ? 'active': ''}onClick={() => handleCategoryClick('Sneakers')}>Sneakers</Nav.Link>
                   <Nav.Link  className={filter === 'Jackets' ? 'active': ''} onClick={() => handleCategoryClick('Jackets')}>Jackets</Nav.Link>
               </Nav>
-      <CardGroup className='shop-card-group'> 
-          {filteredProducts.map ((product, index) =>  
-              <Card key={index} className='shop-card-card'> 
-              <Card.Img variant="top"  className='shop-card-img' src={product?.productPicture ? `http://localhost:3000/${product?.productPicture}` : 'default-picture-url'} />   
-              <Card.Footer>
-              <Card.Title>{product.productName}</Card.Title>
-                <small className="text-muted">{formatPrice(product.productPrice)}</small>
-              </Card.Footer>
-            </Card>
-          )}
-      </CardGroup>
+              <CardGroup className='shop-card-group'> 
+            {filteredProducts.map((product, index) => (
+              <Card key={index} className='shop-card-card' >
+                <div className="image-container">
+                  <Card.Img variant="top" className='shop-card-img' src={product?.productPicture ? `http://localhost:3000/${product?.productPicture}` : 'default-picture-url'} />
+                  <Button variant="primary" onClick={handleShoppingClick} className="overlay-button">ADD TO CARD</Button>
+                </div>
+                <Card.Footer>
+                  <Card.Title>{product.productName}</Card.Title>
+                  <small className="text-muted">{formatPrice(product.productPrice)}</small>
+                </Card.Footer>
+              </Card>
+            ))}
+        </CardGroup>
    </div>
 
   );

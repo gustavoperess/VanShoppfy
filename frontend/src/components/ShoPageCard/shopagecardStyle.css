@@ -51,6 +51,7 @@
   
   /* Adjustments for individual cards within the card group */
   .shopCart .shop-card-group .shop-card-card {
+    position: relative; 
     flex: 0 0 auto; /* Do not grow, do not shrink, and be automatically sized */
     width: 18rem; /* Increased width for more landscape orientation */
     margin: 0.5rem; /* Provide some space between the cards */
@@ -60,7 +61,35 @@
     border: 1px solid #f3f3f3;
     box-shadow: 4px 4px 15px rgba(47,47,47,.058823529411764705);
   }
+  .shopCart .shop-card-group .shop-card-card .image-container {
+    position: relative;
+    width: 100%; /* Ensure the container takes the full width of the Card */
+  }
   
+  .shopCart .shop-card-group .shop-card-card .image-container .shop-card-img {
+    width: 100%; /* Ensure the image covers the container */
+    height: auto; /* Maintain aspect ratio */
+    aspect-ratio: 4 / 3; /* Adjust as needed */
+    object-fit: cover; /* Cover the area of the container without stretching */
+  }
+  
+  .shopCart .shop-card-group .shop-card-card .image-container .overlay-button {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for opacity and visibility */
+    position: absolute;
+    bottom: 10px; /* Adjust as necessary */
+    left: 50%;
+    background-color: #212529;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  .shopCart .shop-card-group .shop-card-card:hover .image-container .overlay-button,
+  .shopCart .shop-card-group .shop-card-card .image-container:hover .overlay-button {
+    opacity: 1;
+    visibility: visible;
+  }
   
   /* Adjustments for images within cards */
   .shopCart .shop-card-group .shop-card-card .shop-card-img {
