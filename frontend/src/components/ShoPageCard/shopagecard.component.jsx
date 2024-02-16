@@ -5,10 +5,14 @@ import Navbar from 'react-bootstrap/Navbar';
 import React, { useState, useEffect } from 'react';
 import { getAllProducts } from "../../services/product"
 import "./shopagecardStyle.css"
+import { useLocation } from 'react-router-dom';
 
 function ShopPageComponent() {
+  let location = useLocation();
+  let state = location.state;
+  let my_key = state == null ? 'Featured' : state.key
   const [products, setProducts] = useState([])
-  const [filter, setFilter] = useState('Featured');
+  const [filter, setFilter] = useState(my_key);
   
   useEffect(() => {
     const fetchData = async () => {

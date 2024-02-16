@@ -40,7 +40,7 @@ function BannerComponent() {
             <h5>New Arrivals</h5>
             <h3>{picture.label}</h3>
             <p>{picture.description}</p>
-            <Link to="#" className="btn btn-dark">Shop Now</Link>      
+            <Link to="http://localhost:5173/shop" className="btn btn-dark">Shop Now</Link>      
           </Carousel.Caption>
         </Carousel.Item>
       ))}
