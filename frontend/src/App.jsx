@@ -4,6 +4,7 @@ import { LoginPage } from "./pages/Login/LoginPage";
 import { SignupPage } from "./pages/Signup/MySignupPage";
 import { MyShopPage } from "./pages/Shop/ShopPage";
 import { AdminArea } from "./pages/Admin/AdminPage"
+import { ContactPage } from "./pages/Contact/ContactPage";
 
 import './App.css'
 
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <AdminArea />,
+  },
+  {
+    path: "/contact",
+    element: <ContactPage />,
   },
 
 

@@ -37,7 +37,7 @@ const HeaderComponent = () => {
             <Nav className="ms-auto">
               <Link to="/" className={`nav-link ${activeCategory === 'Home' ? 'active' : ''}`} >Home</Link>
               <Link to="/shop" className={`nav-link ${activeCategory === 'Shop' ? 'active' : ''}`} >Shop</Link>
-              <Link to="/shop" className={`nav-link ${activeCategory === 'Contact' ? 'active' : ''}`} >Contact</Link>
+              <Link to="/contact" className={`nav-link ${activeCategory === 'Contact' ? 'active' : ''}`} >Contact</Link>
               <Link to="/signup" className={`nav-link ${activeCategory === 'Sign in' ? 'active' : ''}`} >Sign in</Link>
             </Nav>
           </Navbar.Collapse>
