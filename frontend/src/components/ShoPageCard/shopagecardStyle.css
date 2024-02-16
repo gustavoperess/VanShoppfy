@@ -16,10 +16,30 @@
     width: 100%; /* Make the navbar take the full width */
     padding: 0; /* Remove default padding if necessary */
     list-style: none; /* Remove list styles if it's an unordered list */
-    margin-bottom: 1rem; /* Add some space below the navbar */
+    margin-bottom: 1rem; /* Add some space below the navbar */   
+  }
+  
+  .shopCart .shop-cart-menu .nav-link {
+    color: black; /* Or any other color you want */
+    font-weight: 300;
+    
+  }
+
+  .shopCart .shop-cart-menu .nav-link.active {
+    color: blue; /* Or any other color you want for the active state */
+    font-weight: bold; /* Make it stand out */
+    padding-bottom: 2px; /* Adjust space between text and underline */
+    border-bottom: 1px solid blue; /* Simulate underline */
+    text-decoration: none; /* Remove default underline */
   }
 
 
+  .shopCart .shop-cart-menu .nav-link:hover {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  
 .shopCart .shop-card-group {
     display: flex;
     flex-wrap: wrap;
@@ -33,7 +53,6 @@
   .shopCart .shop-card-group .shop-card-card {
     flex: 0 0 auto; /* Do not grow, do not shrink, and be automatically sized */
     width: 18rem; /* Increased width for more landscape orientation */
-
     margin: 0.5rem; /* Provide some space between the cards */
     overflow: hidden; /* Hide any content that goes beyond the card's dimensions */
     display: flex; /* Enable flex layout for the card's content */

@@ -44,18 +44,19 @@ function ShopPageComponent() {
     }
   });
 
+  
 
   return (  
     <div className="shopCart">
             <Navbar.Toggle aria-controls="basic-navbar-nav" />   
                 <Nav className="shop-cart-menu">
-                  <Nav.Link onClick={() => handleCategoryClick('Featured')}>Featured</Nav.Link>
-                  <Nav.Link onClick={() => handleCategoryClick('Hats')}>Hats</Nav.Link>
-                  <Nav.Link onClick={() => handleCategoryClick('Watches')}>Watches</Nav.Link>
-                  <Nav.Link onClick={() => handleCategoryClick('Female')}>Womens</Nav.Link>
-                  <Nav.Link onClick={() => handleCategoryClick('Male')}>Mens</Nav.Link>
-                  <Nav.Link onClick={() => handleCategoryClick('Sneakers')}>Sneakers</Nav.Link>
-                  <Nav.Link onClick={() => handleCategoryClick('Jackets')}>Jackets</Nav.Link>
+                  <Nav.Link  className={filter === 'Featured' ? 'active': ''} onClick={() => handleCategoryClick('Featured')}>Featured</Nav.Link>
+                  <Nav.Link  className={filter === 'Hats' ? 'active': ''}onClick={() => handleCategoryClick('Hats')}>Hats</Nav.Link>
+                  <Nav.Link  className={filter === 'Watches' ? 'active': ''} onClick={() => handleCategoryClick('Watches')}>Watches</Nav.Link>
+                  <Nav.Link  className={filter === 'Female' ? 'active': ''}onClick={() => handleCategoryClick('Female')}>Womens</Nav.Link>
+                  <Nav.Link  className={filter === 'Male' ? 'active': ''} onClick={() => handleCategoryClick('Male')}>Mens</Nav.Link>
+                  <Nav.Link  className={filter === 'Sneakers' ? 'active': ''}onClick={() => handleCategoryClick('Sneakers')}>Sneakers</Nav.Link>
+                  <Nav.Link  className={filter === 'Jackets' ? 'active': ''} onClick={() => handleCategoryClick('Jackets')}>Jackets</Nav.Link>
               </Nav>
       <CardGroup className='shop-card-group'> 
           {filteredProducts.map ((product, index) =>  
