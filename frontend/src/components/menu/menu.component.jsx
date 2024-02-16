@@ -22,7 +22,6 @@ const myImages = [
   }
 ]
 
-
 function MenuComponent() {
   const [pictures, setPictures] = useState([]);
   let navigate = useNavigate(); 

@@ -8,3 +8,11 @@
   .Logo.navbar-brand {
     padding: 0px;
   }
+
+  .headerComponent #basic-navbar-nav .nav-link.active {
+    color: blue; /* Or any other color you want for the active state */
+    font-weight: bold; /* Make it stand out */
+    padding-bottom: 2px; /* Adjust space between text and underline */
+    border-bottom: 1px solid blue; /* Simulate underline */
+    text-decoration: none; /* Remove default underline */
+  }
