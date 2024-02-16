@@ -31,10 +31,10 @@ export const addItemToCart = async (productId) => {
 export const getProductBySessionId = async () => {
     const requestOptions = {
         method: 'GET',
+        credentials: 'include', 
     };
 
     const response = await fetch(`${BACKEND_URL}/carts/getItems`, requestOptions);
-
     if (response.status === 200) {
       const data = await response.json();
       return data

@@ -21,7 +21,9 @@ const addItemToCart = async (req, res) => {
     }
 };
 
-const getProductBySessionId = async (red, res) => {
+
+const getProductBySessionId = async (req, res) => {
+    let sessionId = req.cookies.sessionId;
     try {
         const products = await Cart.find({ sessionId: sessionId });
         res.status(200).json(products);

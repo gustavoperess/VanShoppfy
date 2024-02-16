@@ -40,7 +40,7 @@ const HeaderComponent = () => {
               <Link to="/shop" className={`nav-link ${activeCategory === 'Shop' ? 'active' : ''}`} >Shop</Link>
               <Link to="/contact" className={`nav-link ${activeCategory === 'Contact' ? 'active' : ''}`} >Contact</Link>
               <Link to="/signup" className={`nav-link ${activeCategory === 'Sign in' ? 'active' : ''}`} >Sign in</Link>
-              <Navbar.Brand href="#home" className="Logo">
+              <Navbar.Brand href="/cart" className="Logo">
                   <img
                     src={ShoppingCartLogo}
                     width="40"
