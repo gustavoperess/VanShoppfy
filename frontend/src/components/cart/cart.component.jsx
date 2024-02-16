@@ -20,16 +20,17 @@ useEffect(() =>{
     fetchData()
 }, []);
 
-
 return (
     <>
-        {products.map ((product, index) =>
-                <p key={index}>{product.product}</p>  
-        )}
+    {products.map ((product, index) =>
+    <p key={index}>{product.product.productCategory}</p>  
+    )} 
     </>
     )
 };
 
 export default CartComponent
+
+
 
 

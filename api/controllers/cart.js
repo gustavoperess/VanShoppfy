@@ -25,7 +25,7 @@ const addItemToCart = async (req, res) => {
 const getProductBySessionId = async (req, res) => {
     let sessionId = req.cookies.sessionId;
     try {
-        const products = await Cart.find({ sessionId: sessionId });
+        const products = await Cart.find({ sessionId: sessionId }).populate("product") ;
         res.status(200).json(products);
     } catch (err) {
         console.error("Error finding products by sessionId:", err);
