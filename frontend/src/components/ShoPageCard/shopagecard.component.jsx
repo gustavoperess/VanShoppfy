@@ -7,7 +7,8 @@ import { getAllProducts } from "../../services/product"
 import "./shopagecardStyle.css"
 import { useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-
+import { addItemToCart } from '../../services/cart'; 
+ 
 function ShopPageComponent() {
   let location = useLocation();
   let state = location.state;
@@ -15,18 +16,28 @@ function ShopPageComponent() {
   const [products, setProducts] = useState([])
   const [filter, setFilter] = useState(my_key)
   const [addingProduct, setAddingProduct] = useState("")
+
+
   
   useEffect(() => {
     const fetchData = async () => {
+      try {
       let productsData = await getAllProducts();
       productsData = productsData.map((product) => ({
         ...product,
         productPrice: product.productPrice.$numberDecimal.toString(),
       }));
       setProducts(productsData);
+    } catch (err){
+      console.error('Error fetching products information:', err);
+      }
     };
     fetchData();
   }, []);
+
+
+    // let addingItemtoCart =  addItemToCart(addingProduct)
+ 
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
@@ -46,9 +57,16 @@ function ShopPageComponent() {
     }
   });
 
-  const handleShoppingClick = (event) => {
-    setAddingProduct(event.target.closest('.card').querySelector('.card-title').innerText)
-  }
+ 
+
+  const handleShoppingClick = async (product) => {
+    try {
+       await addItemToCart(product._id)
+       console.log("Product added successfully");
+    } catch (err) {
+        console.log("Product not added", err)
+    }
+}
 
 
   return (  
@@ -68,7 +86,7 @@ function ShopPageComponent() {
               <Card key={index} className='shop-card-card' >
                 <div className="image-container">
                   <Card.Img variant="top" className='shop-card-img' src={product?.productPicture ? `http://localhost:3000/${product?.productPicture}` : 'default-picture-url'} />
-                  <Button variant="primary" onClick={handleShoppingClick} className="overlay-button">ADD TO CARD</Button>
+                  <Button variant="primary" className="overlay-button"  onClick={() => handleShoppingClick(product)}>ADD TO CARD</Button>
                 </div>
                 <Card.Footer>
                   <Card.Title>{product.productName}</Card.Title>
