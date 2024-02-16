@@ -5,10 +5,10 @@ const Cart = require("../models/carts")
 const addItemToCart = async (req, res) => {
     const  productId  = req.body.productId;
     let sessionId = req.cookies.sessionId;
-    console.log(sessionId) // FINALLY GOT A USERID PER SESSION 
 
     const cartItem = new Cart({
-        product: productId,    
+        product: productId,
+        sessionId:sessionId
     });
 
     try {
@@ -21,8 +21,20 @@ const addItemToCart = async (req, res) => {
     }
 };
 
+const getProductBySessionId = async (red, res) => {
+    try {
+        const products = await Cart.find({ sessionId: sessionId });
+        res.status(200).json(products);
+    } catch (err) {
+        console.error("Error finding products by sessionId:", err);
+        res.status(500).json({ message: "Error retrieving products from the cart." });
+    }
+};
+
+
 const CartActionController = {
-    addItemToCart:addItemToCart
+    addItemToCart:addItemToCart,
+    getProductBySessionId:getProductBySessionId
 };
 
 module.exports = CartActionController;
