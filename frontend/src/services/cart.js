@@ -8,6 +8,7 @@ export const addItemToCart = async (productId) => {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ productId }),
+          credentials: 'include', 
     };
         // Loop through FormData entries
     //   for (let [key, value] of productId.entries()) {

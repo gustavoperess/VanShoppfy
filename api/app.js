@@ -7,9 +7,17 @@ const cartRouter = require("./routes/carts")
 const authenticationRouter = require("./routes/authentication");
 const productRouter = require("./routes/products")
 const app = express();
+const cookieParser = require('cookie-parser');
 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:5173', // Replace with your frontend's origin
+  credentials: true, // This is important to allow cookies
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
+app.use(cookieParser());
+
 
 app.use("/tokens",  authenticationRouter);
 app.use("/users", usersRouter);

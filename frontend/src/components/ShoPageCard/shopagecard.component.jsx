@@ -36,7 +36,7 @@ function ShopPageComponent() {
   }, []);
 
 
-    // let addingItemtoCart =  addItemToCart(addingProduct)
+
  
 
   const formatPrice = (price) => {
