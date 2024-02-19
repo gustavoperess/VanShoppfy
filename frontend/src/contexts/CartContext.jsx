@@ -10,8 +10,6 @@ export const CartProvider = ({ children }) => {
         const savedCount = localStorage.getItem('cartCount');
         return savedCount ? parseInt(savedCount, 10) : 0;
     });
-
-    // Update localStorage whenever the cart count changes
     useEffect(() => {
         localStorage.setItem('cartCount', cartCount);
     }, [cartCount]);
