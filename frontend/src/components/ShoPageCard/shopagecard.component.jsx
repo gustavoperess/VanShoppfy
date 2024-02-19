@@ -8,6 +8,7 @@ import "./shopagecardStyle.css"
 import { useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { addItemToCart } from '../../services/cart'; 
+import { useCart } from '../../contexts/CartContext';
  
 function ShopPageComponent() {
   let location = useLocation();
@@ -15,6 +16,7 @@ function ShopPageComponent() {
   let my_key = state == null ? 'Featured' : state.key
   const [products, setProducts] = useState([])
   const [filter, setFilter] = useState(my_key)
+  const { addToCart } = useCart();
 
   
   useEffect(() => {
@@ -52,15 +54,16 @@ function ShopPageComponent() {
     }
   });
 
-
   const handleShoppingClick = async (product) => {
     try {
        await addItemToCart(product._id)
+       addToCart();
       //  console.log("Product added successfully");
     } catch (err) {
         console.log("Product not added", err)
     }
 }
+
 
   return (  
     <div className="shopCart">

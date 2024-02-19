@@ -3,12 +3,14 @@ import { Link, useLocation } from "react-router-dom"; // Import Link
 import "./headerStyle.css";
 import Logo from "/VanShoppFYLogo.svg";
 import ShoppingCartLogo from "/shoppingbag.svg";
-import {useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useCart } from '../../contexts/CartContext';
 
 
 const HeaderComponent = () => {
   const [activeCategory, setActiveCategory] = useState("");
-  const location = useLocation(); 
+  const location = useLocation();
+  const { cartCount } = useCart();
 
   useEffect(() => {
     if ( location.pathname == "/") {
@@ -41,15 +43,12 @@ return (
               <Link to="/shop" className={`nav-link ${activeCategory === 'Shop' ? 'active' : ''}`} >Shop</Link>
               <Link to="/contact" className={`nav-link ${activeCategory === 'Contact' ? 'active' : ''}`} >Contact</Link>
               <Link to="/signup" className={`nav-link ${activeCategory === 'Sign in' ? 'active' : ''}`} >Sign in</Link>
-              <Navbar.Brand href="/cart" className="Logo">
-                  <img
-                    src={ShoppingCartLogo}
-                    width="40"
-                    height="40"
-                    className="d-inline-block align-top"
-                    alt="ShoppingCartLogo Logo"
-                  />
-                </Navbar.Brand>
+              <div className="shopping-cart-icon">
+              <Link to="/cart">
+                <img src={ShoppingCartLogo} width="40" height="40" alt="ShoppingCartLogo" />
+                <span className="cart-count">{cartCount}</span>
+              </Link>
+            </div>
             </Nav>
           </Navbar.Collapse>
       </Navbar>

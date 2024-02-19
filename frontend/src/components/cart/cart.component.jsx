@@ -1,7 +1,6 @@
 import { getProductBySessionId } from "../../services/cart";
 import { useEffect, useState } from "react";
 
-
 function CartComponent() {
     const [products, setProduct] = useState([])
 
@@ -21,10 +20,10 @@ useEffect(() =>{
 }, []);
 
 return (
-    <>
-    {products.map ((product, index) =>
-    <p key={index}>{product.product.productCategory}</p>  
-    )} 
+    <>  
+        {products.map ((product, index) =>
+        <p key={index}>{product.product.productCategory}</p>  
+        )} 
     </>
     )
 };
