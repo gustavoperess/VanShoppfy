@@ -9,7 +9,6 @@ export const CartPage = () => {
         <Container>
             <HeaderComponent />
             <CartComponent />
-            <h1>CART</h1>
             <FooterComponent />
         </Container>
         </>

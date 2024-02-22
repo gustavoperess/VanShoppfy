@@ -81,7 +81,7 @@ function ShopPageComponent() {
             {filteredProducts.map((product, index) => (
               <Card key={index} className='shop-card-card' >
                 <div className="image-container">
-                  <Card.Img variant="top" className='shop-card-img' src={product?.productPicture ? `http://localhost:3000/${product?.productPicture}` : 'default-picture-url'} />
+                <Card.Img variant="top" className='shop-card-img' src={product?.productPicture ? product?.productPicture : 'default-picture-url'} alt={product.productName} />
                   <Button variant="primary" className="overlay-button"  onClick={() => handleShoppingClick(product)}>ADD TO CARD</Button>
                 </div>
                 <Card.Footer>

@@ -3,22 +3,15 @@ const multer = require('multer');
 const ProductController = require("../controllers/product");
 const tokenChecker = require('../middleware/tokenChecker'); // Your token verification middleware
 
-
 const router = express.Router();
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        // console.log("Multer destination function:", file); // Debugging log
-        cb(null, 'uploads/products') // this is where the images are going to be uploaded 
-    },
-    filename: (req, file, cb) => {
-        cb(null, req.body.productName  + require('path').extname(file.originalname)); // this is the file name of the images are going to be uploaded 
-    }
-});
+// Use multer memory storage
+const storage = multer.memoryStorage();
+
 const upload = multer({ storage: storage });
 
-router.post("/create", upload.single("productPicture"), ProductController.createPost)
+router.post("/create", upload.single("productPicture"), ProductController.createPost);
 
-router.get("/getProducts", ProductController.getProducts)
+router.get("/getProducts", ProductController.getProducts);
 
 module.exports = router;

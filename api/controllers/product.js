@@ -1,17 +1,30 @@
 
 const Product = require("../models/product")
+const Keys = require('./API_KEYS');
+const keysInstance = new Keys()
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({ 
+    cloud_name: keysInstance.CLOUDNAME, 
+    api_key: keysInstance.API_KEY, 
+    api_secret: keysInstance.CLOUDINARY_API_SECRET
+  });
 
 const createPost = async (req, res) => {
-    const product = req.body.message;
-    const productImage = req.file ? req.file.path : ''; // Get the file path from Multer// multer is a lirary that we will need to add on our api end. 
+    if (!req.file) {
+        return res.status(400).json({ message: 'No image file provided.' });
+    }
     try {
+        const result = await cloudinary.uploader.upload(`data:image/jpeg;base64,${req.file.buffer.toString('base64')}`, {
+            upload_preset: 'vanShoppFY'
+        });
         const newProduct = new Product({
             productName: req.body.productName,
             productGender: req.body.productGender,
             productCategory: req.body.productCategory,
             productPrice: req.body.productAmount,
             productFeatured: req.body.productFeatured,
-            productPicture: productImage,
+            productPicture: result.secure_url,
         });
         await newProduct.save()
         res.status(201).json({ message: 'Product created successfully', product: newProduct });
