@@ -55,7 +55,6 @@ function ShopPageComponent() {
   });
 
   const handleShoppingClick = async (product) => {
-    console.log(product.length)
     try {
        await addItemToCart(product._id)
        addToCart();
