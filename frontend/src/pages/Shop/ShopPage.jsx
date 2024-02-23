@@ -4,6 +4,7 @@ import ShopPageComponent from '../../components/ShoPageCard/shopagecard.componen
 import ContactComponent from '../../components/contact/contact.component';
 import Container from 'react-bootstrap/Container';
 import FooterComponent from '../../components/footer/footer.component';
+import SidebarComponent from '../../components/SideBar/sideeBarCard.component';
 import "./ShopPageStyle.css"
 
 
@@ -12,6 +13,7 @@ export const MyShopPage = () => {
         <div className='shopPage'>
         <Container fluid>
             <HeaderComponent />
+            <SidebarComponent />
             <SingleBannerComponent />
             <ShopPageComponent />
             <ContactComponent />
