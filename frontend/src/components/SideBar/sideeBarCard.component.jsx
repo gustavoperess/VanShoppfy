@@ -48,7 +48,7 @@ function SidebarComponent() {
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title>Cart Item(s) {cartCount}</Offcanvas.Title>
               </Offcanvas.Header>
-              <div className="items-container"> {/* New scrollable container for items */}
+              <div className="items-container"> 
                 {cartItems.map((item, index) => (
                   <div className="offcanvas-body-item" key={item.id || index}>
                     <img className="myImage" src={item?.productPicture ? item?.productPicture : 'default-picture-url'} alt={item.productName} />
