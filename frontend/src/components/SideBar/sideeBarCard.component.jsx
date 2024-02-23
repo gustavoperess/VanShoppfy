@@ -16,20 +16,19 @@ function SidebarComponent() {
     setPrevCartCount(cartCount);
   }, [cartItems, prevCartCount])
   
-
-  console.log(cartItems)
   return (
-    <> {cartItems.map((item, index) => 
-      <Offcanvas key={index} placement='end' show={show} onHide={handleClose} >
+       <> 
+      <Offcanvas placement='end' show={show} onHide={handleClose} >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Cart Item(s) {cartCount}</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body>
+        {cartItems.map((item, index) => 
+        <Offcanvas.Body key={index} >
               {item.productName}
               {item.productGender}
         </Offcanvas.Body>
+              )}
       </Offcanvas>
-      )}
     </>
   );
 }
