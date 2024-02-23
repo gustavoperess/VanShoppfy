@@ -1,0 +1,38 @@
+/* This is for the offcanvas body to manage the overall scroll */
+.offcanvas-body {
+    overflow-y: hidden; /* Shows scrollbar only if content exceeds height */
+  }
+  
+  .offcanvas-body-item {
+    border-bottom: 1px solid #ccc; /* Example border style */
+    padding: 16px; /* Add padding inside each item */
+    margin: 1px; /* Keep as is if you need it */
+    height: 100px; /* Set height for each item */
+  }
+  /* This is the individual card container within the offcanvas */
+  .card-container-canvas {
+    display: flex; /* Enables flexbox layout for the card container */
+    align-items: center; /* Vertically aligns items in the container */
+    margin-bottom: 1rem; /* Adds space between the cards */
+  }
+  
+  /* Styling for the image in the card */
+  .canvas-card-img {
+    width: 10px !important; /* Fixed width for the image */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 1rem; /* Adds space between the image and the text */
+  }
+  
+  /* Styling for the text content in the card */
+  .card-content {
+    display: flex; /* Enables flexbox layout for content */
+    flex-direction: column; /* Stacks content vertically */
+    justify-content: center; /* Centers content vertically */
+    flex-grow: 1; /* Allows content to take up remaining space */
+    overflow: hidden; /* Prevents content from overflowing */
+  }
+
+  .card-content h1 {
+    font-size: 20px;
+  }
+  
