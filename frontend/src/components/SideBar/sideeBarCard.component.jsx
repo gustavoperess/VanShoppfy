@@ -14,7 +14,7 @@ const options = [
 
 function SidebarComponent() {
   const [show, setShow] = useState(false);
-  const { cartItems, cartCount } = useCart();
+  const { cartItems, cartCount, totalAmount } = useCart();
   const [prevCartCount, setPrevCartCount] = useState(cartCount);
   const handleClose = () => setShow(false);
 
@@ -46,6 +46,7 @@ function SidebarComponent() {
               </div>
             </div>
           ))}
+          Total Amount<p>{totalAmount}</p>
         </Offcanvas>
       ))}
     </>
@@ -54,11 +55,3 @@ function SidebarComponent() {
 
 
 export default SidebarComponent;
-
-
-{/* <Card className='card-container-canvas'>
-<Card.Img className='canvas-card-img' src={item?.productPicture ? item?.productPicture : 'default-picture-url'} alt={item.productName} />
-
-    <h1>{item.productName}</h1>
-
-</Card> */}
