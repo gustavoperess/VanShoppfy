@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useCart } from '../../contexts/CartContext';
 import "./sideBarStyle.css"
@@ -45,11 +45,16 @@ function SidebarComponent() {
               <img className="myImage" src={item?.productPicture ? item?.productPicture : 'default-picture-url'} alt={item.productName} />
               <div className="content">
                 <h1>{item.productName}</h1>
-                <h1>{item.quantity}</h1>
+                <p>{item.quantity} x {item.productPrice}</p>
               </div>
             </div>
           ))}
-          Total Amount<p>{totalAmount}</p>
+          <div className='total-amount'>
+              <p> Total Amount ${totalAmount}</p>
+              <Button variant="primary" size="lg">
+                    GO TO CHECKOUT 
+              </Button>
+          </div>
         </Offcanvas>
       ))}
     </>
