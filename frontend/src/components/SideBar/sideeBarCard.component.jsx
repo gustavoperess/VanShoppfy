@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { Link  } from "react-router-dom"; // Import Link
 import { useCart } from '../../contexts/CartContext';
 import "./sideBarStyle.css"
 
@@ -30,6 +31,9 @@ function SidebarComponent() {
       isMounted = false;
     };
   }, [cartCount, prevCartCount]);
+
+
+
   
   const formatPrice = (price) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
@@ -57,8 +61,8 @@ function SidebarComponent() {
               </div>
               <div className='total-amount'>
                   <p> Total Amount {formatPrice(totalAmount)}</p>
-                  <Button variant="primary" className='total-amount-button' size="lg">
-                        GO TO CHECKOUT 
+                  <Button variant="primary" className='total-amount-button' size="lg">   
+                        <Link to="/cart" style={{ all: 'unset' }}>GO TO CHECKOUT</Link>
                   </Button>
               </div>
             </Offcanvas>
