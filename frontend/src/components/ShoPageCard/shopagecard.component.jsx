@@ -82,7 +82,7 @@ function ShopPageComponent() {
               <Card key={index} className='shop-card-card' >
                 <div className="image-container">
                 <Card.Img variant="top" className='shop-card-img' src={product?.productPicture ? product?.productPicture : 'default-picture-url'} alt={product.productName} />
-                  <Button variant="primary" className="overlay-button"  onClick={() => handleShoppingClick(product)}>ADD TO CARD</Button>
+                  <Button variant="primary" className="overlay-button"  onClick={() => handleShoppingClick(product)}>ADD TO CART</Button>
                 </div>
                 <Card.Footer>
                   <Card.Title>{product.productName}</Card.Title>
