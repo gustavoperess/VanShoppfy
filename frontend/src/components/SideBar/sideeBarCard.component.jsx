@@ -14,7 +14,7 @@ const options = [
 
 function SidebarComponent() {
   const [show, setShow] = useState(false);
-  const { cartItems, cartCount, totalAmount, itemSelected } = useCart();
+  const { cartItems, cartCount, totalAmount } = useCart();
   const [prevCartCount, setPrevCartCount] = useState(cartCount);
   const handleClose = () => setShow(false);
 
@@ -31,6 +31,8 @@ function SidebarComponent() {
     };
   }, [cartCount, prevCartCount]);
   
+
+
   return (
     <> 
       {options.map((props, idx) => (
@@ -43,7 +45,7 @@ function SidebarComponent() {
               <img className="myImage" src={item?.productPicture ? item?.productPicture : 'default-picture-url'} alt={item.productName} />
               <div className="content">
                 <h1>{item.productName}</h1>
-                {itemSelected}
+                <h1>{item.quantity}</h1>
               </div>
             </div>
           ))}

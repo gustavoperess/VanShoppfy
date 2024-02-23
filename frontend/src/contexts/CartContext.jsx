@@ -4,18 +4,11 @@ const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
 
-
 export const CartProvider = ({ children }) => {
-
-    const [itemSelected, setItemSelected] = useState(() => {
-        const numberOftimesSameItem = localStorage.getItem('itemSelected');
-        return numberOftimesSameItem ? JSON.parse(numberOftimesSameItem) : [];
-    })
-
     const [totalAmount, setTotalAmount] = useState(() => {
         const savedAmount = localStorage.getItem('totalAmount');
         return savedAmount ? parseInt(savedAmount, 10) : 0;
-    })
+    });
 
     const [cartCount, setCartCount] = useState(() => {
         const savedCount = localStorage.getItem('cartCount');
@@ -27,35 +20,36 @@ export const CartProvider = ({ children }) => {
         return savedItems ? JSON.parse(savedItems) : [];
     });
 
-
     useEffect(() => {
         localStorage.setItem('cartCount', cartCount);
         localStorage.setItem('totalAmount', totalAmount);
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        localStorage.setItem('itemSelected', JSON.stringify(itemSelected));
-    }, [cartCount, cartItems, totalAmount, itemSelected]);
+    }, [cartCount, cartItems, totalAmount]);
 
     const addToCart = (item) => {
-        setTotalAmount((prevTotalAmount) => prevTotalAmount + parseFloat(item.productPrice))
+        setTotalAmount(prevTotalAmount => prevTotalAmount + parseFloat(item.productPrice));
 
-        setCartCount((prevCount) => prevCount + 1);
-     
-        setCartItems((prevItems) => {
-            // Check if the item is already in the cart based on productName
-            const isItemInCart = prevItems.some(cartItem => cartItem.productName === item.productName);
-            // If item is already in the cart, return previous items without adding
-            if (isItemInCart) {
-                setItemSelected((prevTotalItem) => prevTotalItem + 1)
-                return prevItems;
+        setCartItems(prevItems => {
+            const itemIndex = prevItems.findIndex(cartItem => cartItem.productName === item.productName);
+            if (itemIndex !== -1) {
+                // If item is already in the cart, update its quantity
+                const updatedItems = [...prevItems];
+                updatedItems[itemIndex] = {
+                    ...updatedItems[itemIndex],
+                    quantity: updatedItems[itemIndex].quantity + 1,
+                };
+                return updatedItems;
+            } else {
+                // If item is new, add it to the cart with quantity 1
+                return [...prevItems, { ...item, quantity: 1 }];
             }
-            return [...prevItems, item];
         });
 
-
+        setCartCount(prevCount => prevCount + 1);
     };
 
     return (
-        <CartContext.Provider value={{ cartCount, cartItems, addToCart, totalAmount, itemSelected}}>
+        <CartContext.Provider value={{ cartCount, cartItems, addToCart, totalAmount }}>
             {children}
         </CartContext.Provider>
     );
