@@ -6,9 +6,9 @@ import "./sideBarStyle.css"
 
 const options = [
   {
-    name: 'Enable backdrop (default)',
+    name: 'Enable body scrolling',
     scroll: true,
-    backdrop: true,
+    backdrop: false,
   },
 ];
 
@@ -40,15 +40,16 @@ function SidebarComponent() {
           </Offcanvas.Header>
           {cartItems.map((item, index) => (
             <div className="offcanvas-body-item" key={item.id || index}>
-              <Offcanvas.Body>
-                <h1>Hello</h1>
-              </Offcanvas.Body>
+              <img className="myImage" src={item?.productPicture ? item?.productPicture : 'default-picture-url'} alt={item.productName} />
+              <div className="content">
+                <h1>{item.productName}</h1>
+              </div>
             </div>
           ))}
         </Offcanvas>
       ))}
     </>
-  );
+  );  
 }
 
 
