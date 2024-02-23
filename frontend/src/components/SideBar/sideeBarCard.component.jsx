@@ -31,6 +31,9 @@ function SidebarComponent() {
     };
   }, [cartCount, prevCartCount]);
   
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
+  };
 
 
   return (
@@ -47,14 +50,14 @@ function SidebarComponent() {
                     <img className="myImage" src={item?.productPicture ? item?.productPicture : 'default-picture-url'} alt={item.productName} />
                     <div className="content">
                       <h1>{item.productName}</h1>
-                      <p>{item.quantity} x {item.productPrice}</p>
+                      <p>{item.quantity} x {formatPrice(item.productPrice)}</p>
                     </div>
                   </div>
                 ))}
               </div>
               <div className='total-amount'>
-                  <p> Total Amount ${totalAmount}</p>
-                  <Button variant="primary" size="lg">
+                  <p> Total Amount {formatPrice(totalAmount)}</p>
+                  <Button variant="primary" className='total-amount-button' size="lg">
                         GO TO CHECKOUT 
                   </Button>
               </div>
