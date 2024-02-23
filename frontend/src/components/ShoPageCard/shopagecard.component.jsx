@@ -16,8 +16,8 @@ function ShopPageComponent() {
   let my_key = state == null ? 'Featured' : state.key
   const [products, setProducts] = useState([])
   const [filter, setFilter] = useState(my_key)
-  const { addToCart } = useCart();
-
+  const { addToCart, cartItems } = useCart();
+  
   
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +57,7 @@ function ShopPageComponent() {
   const handleShoppingClick = async (product) => {
     try {
        await addItemToCart(product._id)
-       addToCart();
+       addToCart(product);
       //  console.log("Product added successfully");
     } catch (err) {
         console.log("Product not added", err)
