@@ -11,18 +11,27 @@ function CartComponent() {
 
 useEffect(() =>{
     const fetchData = async () => {
-        try  {
-            let produtsData = await getProductBySessionId();
-            produtsData = produtsData.map((product) => ({
-                ...product
-            }))
-            setProduct(produtsData);
-        } catch(err) {
+        try {
+            let productsData = await getProductBySessionId();
+            productsData = productsData.map((product) => ({
+                ...product,
+                product: {
+                    ...product.product,
+                    productPrice: product.product.productPrice.$numberDecimal ? parseFloat(product.product.productPrice.$numberDecimal) : product.product.productPrice,
+                }
+            }));
+            setProduct(productsData);
+        } catch (err) {
             console.error('Error fetching products information:', err);
         }
     }
     fetchData()
 }, []);
+
+const formatPrice = (price) => {
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
+  };
+
 
 return (
      <div className="my-bag-container">
@@ -45,14 +54,14 @@ return (
                 <tbody key={index}>
                     <tr>
                         <td> {product.product.productCategory} </td>
-                        <td>Mark</td>
-                        <td>{totalAmount}</td>
+                        <td></td>
+                        <td>{formatPrice(product.product.productPrice)}</td>
                     </tr>
                 </tbody>
                 )}
-                <tbody >
+                <tbody>
                     <tr> 
-                        <td colSpan={3}>{totalAmount}</td>
+                        <td colSpan={3}>{formatPrice(totalAmount)}</td>
                     </tr>
                 </tbody>
             </Table>
