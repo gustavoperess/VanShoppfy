@@ -14,7 +14,7 @@ router.use((req, res, next) => {
   
 router.post("/addItem", CartstionController.addItemToCart);
 router.get("/getItems", CartstionController.getProductBySessionId);
-router.delete("/deleteItem", CartstionController.removeItemfromCart)
+router.delete("/deleteItem/:productId", CartstionController.removeItemfromCart)
 
 
 module.exports = router;

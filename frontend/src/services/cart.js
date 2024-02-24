@@ -32,11 +32,10 @@ export const deleteProductById = async (productId) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ productId }),
         credentials: 'include', 
       }
 
-      const response = await fetch(`${BACKEND_URL}/carts/deleteItem`, requestOptions)
+      const response = await fetch(`${BACKEND_URL}/carts/deleteItem/${productId}`, requestOptions)
 
       if (response.status === 200) {
         const data = await response.json();

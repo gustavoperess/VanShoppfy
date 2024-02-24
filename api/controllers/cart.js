@@ -23,10 +23,10 @@ const addItemToCart = async (req, res) => {
 
 const removeItemfromCart = async (req, res) => {
     let sessionId = req.cookies.sessionId;
-    console.log(req.body.productId)
     try {
-        const product_cart = await Cart.findByIdAndDelete(req.body.productId);
-        res.json(200).json(product_cart)
+        const product_cart = await Cart.findOneAndDelete({product: req.params.productId});
+        console.log(product_cart)
+        res.status(200).json(product_cart);
     }catch (err) {
         console.error("Error deleting item from the cart", err);
         res.status(500).json({ message: "Error deleting item from the cart." });
