@@ -48,8 +48,21 @@ export const CartProvider = ({ children }) => {
         setCartCount(prevCount => prevCount + 1);
     };
 
+    const removeFromCart = (productId) => {
+        setCartItems(currentItems => {
+            const updatedItems = currentItems.filter(item => item._id !== productId);
+            return updatedItems;
+        });
+
+        // Recalculate the total amount and cart count after item removal
+        const updatedCartItems = cartItems.filter(item => item._id !== productId);
+        const newTotalAmount = updatedCartItems.reduce((acc, item) => acc + (item.productPrice * item.quantity), 0);
+        setTotalAmount(newTotalAmount);
+        setCartCount(updatedCartItems.length);
+    };
+
     return (
-        <CartContext.Provider value={{ cartCount, cartItems, addToCart, totalAmount }}>
+        <CartContext.Provider value={{ cartCount, cartItems, addToCart, totalAmount, removeFromCart }}>
             {children}
         </CartContext.Provider>
     );

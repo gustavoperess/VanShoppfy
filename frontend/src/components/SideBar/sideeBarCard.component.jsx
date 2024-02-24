@@ -17,9 +17,10 @@ const options = [
 
 function SidebarComponent() {
   const [show, setShow] = useState(false);
-  const { cartItems, cartCount, totalAmount } = useCart();
+  const { cartItems, cartCount, totalAmount, removeFromCart } = useCart();
   const [prevCartCount, setPrevCartCount] = useState(cartCount);
   const handleClose = () => setShow(false);
+
 
   useEffect(() => {
     let isMounted = true;
@@ -32,13 +33,17 @@ function SidebarComponent() {
     return () => {
       isMounted = false;
     };
+
+  
   }, [cartCount, prevCartCount]);
 
+  
 
   const handleProductDelete = async (productId) => {
-    console.log(productId)
+    // console.log(productId)
     try {
-       await deleteProductById(productId) 
+       await deleteProductById(productId)
+       removeFromCart(productId);
     } catch (err) {
       console.log("Product Not deleted", err)
     }
@@ -65,8 +70,8 @@ function SidebarComponent() {
                     <div className="content">
                       <h1>{item.productName}</h1>
                       <p>{item.quantity} x {formatPrice(item.productPrice)}</p>
-                      <CloseButton  onClick={() => handleProductDelete(item._id)} />
                     </div>
+                    <CloseButton className="btn"  onClick={() => handleProductDelete(item._id)} />
                   </div>
                 ))}
               </div>

@@ -49,3 +49,8 @@
     background-color: #212529 !important;
 
 }
+
+.btn-close.btn {
+  margin: auto;
+  margin-right: 0px;
+}
