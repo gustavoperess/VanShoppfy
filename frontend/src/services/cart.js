@@ -26,6 +26,22 @@ export const addItemToCart = async (productId) => {
       }
 }
 
+export const deleteProductById = async (productId) => {
+      const requestOptions = {
+        method: 'DELETE',
+        credentials: 'include'
+      }
+      const response = await fetch(`${BACKEND_URL}/carts/deleteItem`, requestOptions)
+
+      if (response.status === 200) {
+        const data = await response.json();
+        console.log("Product deleted ")
+        return data
+      } else {
+        const errorResponse = await response.json(); 
+        throw new Error(errorResponse);
+      }
+}
 
 
 export const getProductBySessionId = async () => {
