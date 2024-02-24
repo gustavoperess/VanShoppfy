@@ -9,6 +9,7 @@
     justify-content: space-between; /* Space between title and button */
     width: 100%;
     height: 100px;
+
 }
 
 .btn.btn-primary.btn-lg {
@@ -17,7 +18,39 @@
     margin-left: auto;
 
 }
+.my-bag-products {
+    padding-top: 20px;
+}
 
 .my-bag-checkout h1 {
     font-size: 30px;
+}
+
+.table-body-product {
+    display: flex;
+}
+
+.table-body-product h1 {
+    font-size: 20px; 
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start of the container */
+    
+}
+.table-body-product-text{
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start of the container */
+}
+
+.table-total {
+    font-size: 20px; 
+    text-align: right;
+}
+.table-body-price {
+    text-align: center;
+    vertical-align: middle; /* Centers content vertically within the cell */
+
+}
+
+.table-total p {
+    padding-right: 20px;
 }
