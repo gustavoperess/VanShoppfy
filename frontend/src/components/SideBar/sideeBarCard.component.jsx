@@ -78,7 +78,7 @@ function SidebarComponent() {
               <div className='total-amount'>
                   <p> Total Amount {formatPrice(totalAmount)}</p>
                   <Button variant="primary" className='total-amount-button' size="lg">   
-                        <Link to="/cart" style={{ all: 'unset' }}>GO TO CHECKOUT</Link>
+                        <Link to="/cart" style={{ all: 'unset' }}>GO TO YOUR BAG</Link>
                   </Button>
               </div>
             </Offcanvas>
