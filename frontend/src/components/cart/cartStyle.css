@@ -54,3 +54,14 @@
 .table-total p {
     padding-right: 20px;
 }
+
+.table-body-edit .table-body-input {
+    background-color: aqua !important;
+    height: 50px;
+}
+.table-body-edit .table-body-edi-text {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers items horizontally */
+    justify-content: center; /* Aligns items in the center vertically if there's extra space */
+}
