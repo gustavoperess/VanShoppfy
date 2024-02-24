@@ -51,7 +51,7 @@ function CartComponent() {
                                 <td className="table-body-edit">
                                     <div className="quantity-selector">
                                         <button className="decrease-quantity">-</button>
-                                        <input type="text" value={product.quantity} className="quantity-input" readOnly />
+                                        <input type="text" value={product.quantity} size={1} className="quantity-input" readOnly />
                                         <button className="increase-quantity">+</button>
                                     </div>
                                     <div className="edit-buttons">

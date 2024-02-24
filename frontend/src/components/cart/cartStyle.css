@@ -55,13 +55,35 @@
     padding-right: 20px;
 }
 
-.table-body-edit .table-body-input {
-    background-color: aqua !important;
-    height: 50px;
+.table-body-edit {
+    flex-direction: column;
+    align-items: center; /* Aligns children (quantity-selector and edit-buttons) in the center */
+    justify-content: center; /* Centers children vertically within the cell */
 }
-.table-body-edit .table-body-edi-text {
+.quantity-selector {
+    padding-top: 20px;
+}
+.decrease-quantity {
+    margin-right: 3px;
+    background-color: #212529 !important;
+    color: white;
+}
+.increase-quantity {
+    margin-left: 3px;
+    color: white;
+    background-color: #212529 !important;
+}
+
+
+.quantity-selector,
+.edit-buttons {
+    width: 100%;
     display: flex;
-    flex-direction: column; /* Stacks items vertically */
-    align-items: center; /* Centers items horizontally */
-    justify-content: center; /* Aligns items in the center vertically if there's extra space */
+    justify-content: center; /* Center these divs horizontally */
+    margin-bottom: 10px; /* Add space between the quantity-selector and edit-buttons */
+}
+
+.edit-buttons button {
+    /* Your specific styles for buttons, ensure they have some margin if side by side */
+    margin: 0 5px;
 }
