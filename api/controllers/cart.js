@@ -21,6 +21,17 @@ const addItemToCart = async (req, res) => {
     }
 };
 
+const removeItemfromCart = async (req, res) => {
+    let sessionId = req.cookies.sessionId;
+    try {
+        const product = await Cart.findByIdAndDelete(id);
+        res.json(200).json(product)
+    }catch (err) {
+        console.error("Error deleting item from the cart", err);
+        res.status(500).json({ message: "Error deleting item from the cart." });
+    }
+}
+
 
 const getProductBySessionId = async (req, res) => {
     let sessionId = req.cookies.sessionId;
@@ -36,7 +47,8 @@ const getProductBySessionId = async (req, res) => {
 
 const CartActionController = {
     addItemToCart:addItemToCart,
-    getProductBySessionId:getProductBySessionId
+    getProductBySessionId:getProductBySessionId,
+    removeItemfromCart:removeItemfromCart
 };
 
 module.exports = CartActionController;
