@@ -29,8 +29,13 @@ export const addItemToCart = async (productId) => {
 export const deleteProductById = async (productId) => {
       const requestOptions = {
         method: 'DELETE',
-        credentials: 'include'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ productId }),
+        credentials: 'include', 
       }
+
       const response = await fetch(`${BACKEND_URL}/carts/deleteItem`, requestOptions)
 
       if (response.status === 200) {

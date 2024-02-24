@@ -13,7 +13,7 @@ const addItemToCart = async (req, res) => {
 
     try {
         const savedCartItem = await cartItem.save();
-        console.log("Product added to cart successfully", savedCartItem);
+        // console.log("Product added to cart successfully", savedCartItem);
         res.status(201).json({ message: "Product added to cart successfully" });
     } catch (err) {
         console.error("Error adding product to cart:", err);
@@ -23,9 +23,10 @@ const addItemToCart = async (req, res) => {
 
 const removeItemfromCart = async (req, res) => {
     let sessionId = req.cookies.sessionId;
+    console.log(req.body.productId)
     try {
-        const product = await Cart.findByIdAndDelete(id);
-        res.json(200).json(product)
+        const product_cart = await Cart.findByIdAndDelete(req.body.productId);
+        res.json(200).json(product_cart)
     }catch (err) {
         console.error("Error deleting item from the cart", err);
         res.status(500).json({ message: "Error deleting item from the cart." });

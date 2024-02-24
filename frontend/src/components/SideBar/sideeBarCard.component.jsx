@@ -4,6 +4,8 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link  } from "react-router-dom"; // Import Link
 import { useCart } from '../../contexts/CartContext';
 import "./sideBarStyle.css"
+import { deleteProductById } from '../../services/cart';
+import CloseButton from 'react-bootstrap/CloseButton';
 
 const options = [
   {
@@ -33,6 +35,14 @@ function SidebarComponent() {
   }, [cartCount, prevCartCount]);
 
 
+  const handleProductDelete = async (productId) => {
+    console.log(productId)
+    try {
+       await deleteProductById(productId) 
+    } catch (err) {
+      console.log("Product Not deleted", err)
+    }
+  } 
 
   
   const formatPrice = (price) => {
@@ -43,8 +53,8 @@ function SidebarComponent() {
   return (
     <>
         {options.map((props, idx) => (
-          <div className='canvasContainer'>
-            <Offcanvas placement='end' show={show} key={idx} {...props} onHide={handleClose}>
+          <div className='canvasContainer' key={idx} >
+            <Offcanvas placement='end' show={show} {...props} onHide={handleClose}>
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title>Cart Item(s) {cartCount}</Offcanvas.Title>
               </Offcanvas.Header>
@@ -55,6 +65,7 @@ function SidebarComponent() {
                     <div className="content">
                       <h1>{item.productName}</h1>
                       <p>{item.quantity} x {formatPrice(item.productPrice)}</p>
+                      <CloseButton  onClick={() => handleProductDelete(item._id)} />
                     </div>
                   </div>
                 ))}
