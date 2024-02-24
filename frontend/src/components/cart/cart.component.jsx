@@ -2,9 +2,8 @@ import { getProductBySessionId } from "../../services/cart";
 import { useEffect, useState } from "react";
 import "./cartStyle.css"
 import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
 import { useCart } from '../../contexts/CartContext';
-import CloseButton from 'react-bootstrap/CloseButton';
+import Button from 'react-bootstrap/Button';
 
 function CartComponent() {
     const { cartItems, cartCount, totalAmount, removeFromCart } = useCart();
@@ -51,8 +50,11 @@ return (
                                 <p>{product.productGender}</p>
                             </div>     
                         </td>
-                        <td>{product.quantity}
-                            <CloseButton className="btn"  onClick={() => handleShoppingClick(product._id)} />
+                        <td className="table-body-edit">
+                            <div className="table-body-edi-text">
+                                {product.quantity}
+                                <Button variant="dark"  onClick={() => handleShoppingClick(product._id)}>Remove</Button>
+                            </div>
                         </td>
                         <td className="table-body-price">{formatPrice(product.productPrice)}</td>
                     </tr>
