@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import "./cartStyle.css"
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import { useCart } from '../../contexts/CartContext';
 
 function CartComponent() {
     const [products, setProduct] = useState([])
+    const { cartItems, cartCount, totalAmount, removeFromCart } = useCart();
 
 useEffect(() =>{
     const fetchData = async () => {
@@ -44,10 +46,15 @@ return (
                     <tr>
                         <td> {product.product.productCategory} </td>
                         <td>Mark</td>
-                        <td>Otto</td>    
-                    </tr>  
+                        <td>{totalAmount}</td>
+                    </tr>
                 </tbody>
                 )}
+                <tbody >
+                    <tr> 
+                        <td colSpan={3}>{totalAmount}</td>
+                    </tr>
+                </tbody>
             </Table>
         </div>
     </div>
