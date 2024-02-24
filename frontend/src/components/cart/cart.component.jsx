@@ -4,6 +4,7 @@ import "./cartStyle.css"
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { useCart } from '../../contexts/CartContext';
+import CloseButton from 'react-bootstrap/CloseButton';
 
 function CartComponent() {
     const { cartItems, cartCount, totalAmount, removeFromCart } = useCart();
@@ -13,6 +14,14 @@ const formatPrice = (price) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
   };
 
+
+  const handleShoppingClick = async (product) => {
+    try {
+       removeFromCart(product);
+    } catch (err) {
+        console.log("Product not removed", err)
+    }
+}
 
 return (
      <div className="my-bag-container">
@@ -42,7 +51,9 @@ return (
                                 <p>{product.productGender}</p>
                             </div>     
                         </td>
-                        <td>{product.quantity}</td>
+                        <td>{product.quantity}
+                            <CloseButton className="btn"  onClick={() => handleShoppingClick(product._id)} />
+                        </td>
                         <td className="table-body-price">{formatPrice(product.productPrice)}</td>
                     </tr>
                 </tbody>
