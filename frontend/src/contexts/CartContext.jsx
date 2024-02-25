@@ -23,21 +23,14 @@ export const CartProvider = ({ children }) => {
         return savedItems ? JSON.parse(savedItems) : [];
     });
 
-    const [productCount, setProductCount] = useState(() => {
-        const savedProductCount = localStorage.getItem('productCount');
-        return savedProductCount ? JSON.parse(savedProductCount) : [];
-    });
-    
-
 
 
     useEffect(() => {
         localStorage.setItem('cartCount', cartCount);
         localStorage.setItem('totalAmount', totalAmount);
-        localStorage.setItem('productCount', JSON.stringify(productCount));
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
     
-    }, [cartCount, cartItems, totalAmount, productCount]);
+    }, [cartCount, cartItems, totalAmount]);
 
 
     
@@ -73,8 +66,28 @@ export const CartProvider = ({ children }) => {
         setCartCount(updatedCartItems.length);
     };
 
+    const decreaseItem = (productId) => {
+        setCartItems(prevItems => prevItems.map(item => {
+            if (item._id === productId._id) {
+                const newQuantity = Math.max(item.quantity - 1, 0);
+                return { ...item, quantity: newQuantity };
+            }
+            return item;
+        }).filter(item => item.quantity > 0)); 
+    };
+
+    const increaseItem = (productId) => {
+        setCartItems(prevItems => prevItems.map(item => {
+            if (item._id === productId._id) {
+                const newQuantity = Math.max(item.quantity + 1, 0);
+                return { ...item, quantity: newQuantity };
+            }
+            return item;
+        })); 
+    };
+
     return (
-        <CartContext.Provider value={{ cartCount, cartItems, addToCart, totalAmount, removeFromCart }}>
+        <CartContext.Provider value={{ cartCount, cartItems, addToCart, totalAmount, removeFromCart, decreaseItem, increaseItem }}>
             {children}
         </CartContext.Provider>
     );

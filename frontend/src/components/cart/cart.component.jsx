@@ -6,7 +6,7 @@ import { useCart } from '../../contexts/CartContext';
 import Button from 'react-bootstrap/Button';
 
 function CartComponent() {
-    const { cartItems, cartCount, totalAmount, removeFromCart, addToCart } = useCart();
+    const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem} = useCart();
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
@@ -19,14 +19,8 @@ function CartComponent() {
             console.log("Product not removed", err);
         }
     };
-    const handleAddClick = async (product) => {
-        try {
-            addToCart(product)
-        } catch (err) {
-            console.log("Product not added", err)
-        }
-    }
 
+    
     return (
         <div className="my-bag-container">
             <div className="my-bag-checkout">
@@ -57,9 +51,9 @@ function CartComponent() {
                                 </td>
                                 <td className="table-body-edit">
                                     <div className="quantity-selector">
-                                        <button className="decrease-quantity">-</button>
+                                        <button className="decrease-quantity" onClick={() => decreaseItem(product)}>-</button>
                                         <input type="text" value={product.quantity} size={1} className="quantity-input" readOnly />
-                                        <button className="increase-quantity">+</button>
+                                        <button  className="increase-quantity">+</button>
                                     </div>
                                     <div className="edit-buttons">
                                         <Button variant="outline-primary" size="sm">Update</Button>
