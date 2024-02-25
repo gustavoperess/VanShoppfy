@@ -93,9 +93,12 @@ export const CartProvider = ({ children }) => {
             return {...item}
         }))
         const updatedCartItems = cartItems.filter(item => item._id !== productId);
+        const updatedCartItemsTwo = cartItems.reduce((previousValue, currentValue) => {
+            return previousValue  +  currentValue.quantity
+            },0)
         const newTotalAmount = updatedCartItems.reduce((acc, item) => acc + (item.productPrice * item.quantity), 0);
         setTotalAmount(newTotalAmount);
-        setCartCount(updatedCartItems.length);
+        setCartCount(updatedCartItemsTwo);
     }
 
 
