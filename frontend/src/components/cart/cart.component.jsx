@@ -1,12 +1,10 @@
-import { getProductBySessionId } from "../../services/cart";
-import { useEffect, useState } from "react";
 import "./cartStyle.css";
 import Table from 'react-bootstrap/Table';
 import { useCart } from '../../contexts/CartContext';
 import Button from 'react-bootstrap/Button';
 
 function CartComponent() {
-    const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem} = useCart();
+    const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem, increaseItem} = useCart();
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
@@ -52,8 +50,8 @@ function CartComponent() {
                                 <td className="table-body-edit">
                                     <div className="quantity-selector">
                                         <button className="decrease-quantity" onClick={() => decreaseItem(product)}>-</button>
-                                        <input type="text" value={product.quantity} size={1} className="quantity-input" readOnly />
-                                        <button  className="increase-quantity">+</button>
+                                        <input type="text" value={product.quantity} size={2} className="quantity-input" readOnly />
+                                        <button  className="increase-quantity" onClick={() => increaseItem(product)}>+</button>
                                     </div>
                                     <div className="edit-buttons">
                                         <Button variant="outline-primary" size="sm">Update</Button>
