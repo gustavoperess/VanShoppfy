@@ -1,8 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { getProductBySessionId } from '../services/cart';
 
 const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
+
+
 
 export const CartProvider = ({ children }) => {
     const [totalAmount, setTotalAmount] = useState(() => {
@@ -14,37 +17,47 @@ export const CartProvider = ({ children }) => {
         const savedCount = localStorage.getItem('cartCount');
         return savedCount ? parseInt(savedCount, 10) : 0;
     });
+    
 
     const [cartItems, setCartItems] = useState(() => {
         const savedItems = localStorage.getItem('cartItems');
         return savedItems ? JSON.parse(savedItems) : [];
     });
 
+    const [productCount, setProductCount] = useState(() => {
+        const savedProductCount = localStorage.getItem('productCount');
+        return savedProductCount ? JSON.parse(savedProductCount) : [];
+    });
+    
+
+
+
     useEffect(() => {
         localStorage.setItem('cartCount', cartCount);
         localStorage.setItem('totalAmount', totalAmount);
+        localStorage.setItem('productCount', JSON.stringify(productCount));
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    }, [cartCount, cartItems, totalAmount]);
+    
+    }, [cartCount, cartItems, totalAmount, productCount]);
 
-    const addToCart = (item) => {
-        setTotalAmount(prevTotalAmount => prevTotalAmount + parseFloat(item.productPrice));
 
+    
+    const addToCart = (newItem) => {
+        setTotalAmount(prevTotalAmount => prevTotalAmount + parseFloat(newItem.productPrice));
         setCartItems(prevItems => {
-            const itemIndex = prevItems.findIndex(cartItem => cartItem.productName === item.productName);
-            if (itemIndex !== -1) {
-                // If item is already in the cart, update its quantity
-                const updatedItems = [...prevItems];
-                updatedItems[itemIndex] = {
-                    ...updatedItems[itemIndex],
-                    quantity: updatedItems[itemIndex].quantity + 1,
-                };
-                return updatedItems;
+            // Check if the item already exists in the cart
+            const existingItem = prevItems.find(item => item._id === newItem._id);
+           
+            if (existingItem) {
+                // If it exists, create a new array with the item's quantity incremented
+                return prevItems.map(item => 
+                    item._id === newItem._id ? { ...item, quantity: item.quantity + 1 } : item
+                );
             } else {
-                // If item is new, add it to the cart with quantity 1
-                return [...prevItems, { ...item, quantity: 1 }];
+                // If the item is new, add it to the cart with quantity 1
+                return [...prevItems, { ...newItem, quantity: 1 }];
             }
         });
-
         setCartCount(prevCount => prevCount + 1);
     };
 

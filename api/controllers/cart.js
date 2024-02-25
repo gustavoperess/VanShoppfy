@@ -8,7 +8,7 @@ const addItemToCart = async (req, res) => {
 
     try {
         const existingCartItem = await Cart.findOne({ product: productId, sessionId: sessionId });
-        console.log(existingCartItem)
+        
         if (existingCartItem) {
             existingCartItem.quantity += 1;
             await existingCartItem.save();

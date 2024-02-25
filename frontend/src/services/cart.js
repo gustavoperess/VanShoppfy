@@ -16,14 +16,13 @@ export const addItemToCart = async (productId) => {
     // }
 
     const response = await fetch(`${BACKEND_URL}/carts/addItem`, requestOptions);
-    
-    if (response.status === 201) {
-        return;
-      } else {
-        const errorResponse = await response.json(); 
-        const errorMessage = errorResponse.message || `Received status ${response.status} when signing up. Expected 201`;
-        throw new Error(errorResponse);
-      }
+    if (response.status === 201 || response.status == 200) {
+      return await response.json(); // Assuming the server sends back some data on success
+    } else {
+        const errorResponse = await response.json();
+        const errorMessage = errorResponse.message || `Received status ${response.status} when adding item to cart. Expected 201`;
+        throw new Error(errorMessage);
+    }
 }
 
 export const deleteProductById = async (productId) => {

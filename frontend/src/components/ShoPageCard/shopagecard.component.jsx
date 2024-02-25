@@ -9,6 +9,7 @@ import { useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { addItemToCart } from '../../services/cart'; 
 import { useCart } from '../../contexts/CartContext';
+import { getProductBySessionId } from '../../services/cart';
  
 function ShopPageComponent() {
   let location = useLocation();
@@ -17,7 +18,7 @@ function ShopPageComponent() {
   const [products, setProducts] = useState([])
   const [filter, setFilter] = useState(my_key)
   const { addToCart } = useCart();
-  
+  const [ productCount, setProductCount ] = useState([])
   
   useEffect(() => {
     const fetchData = async () => {
@@ -35,7 +36,21 @@ function ShopPageComponent() {
     fetchData();
   }, []);
 
- 
+
+  useEffect(() => {
+    const myCartProducts = async () => {
+        try {
+            const getCartProducts = await getProductBySessionId();
+            setProductCount(getCartProducts); // Assuming this returns an array of products
+        } catch (err) {
+            console.log("Product not fetched", err);
+        }
+    };
+
+    myCartProducts();
+}, []); 
+
+
   const formatPrice = (price) => {
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
   };
@@ -56,10 +71,13 @@ function ShopPageComponent() {
 
   const handleShoppingClick = async (product) => {
     try {
-       await addItemToCart(product)
        addToCart(product);
+       await addItemToCart(product)
     } catch (err) {
-        console.log("Product not added", err)
+      console.error("Product not added", JSON.stringify(err, null, 2));
+      if (err.response && err.response.data) {
+          console.error("Product not added", err.response.data.message);
+      }
     }
 }
 
