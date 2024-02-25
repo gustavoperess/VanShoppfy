@@ -4,7 +4,7 @@ import { useCart } from '../../contexts/CartContext';
 import Button from 'react-bootstrap/Button';
 
 function CartComponent() {
-    const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem, increaseItem} = useCart();
+    const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem, increaseItem, updateItem} = useCart();
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
@@ -54,7 +54,7 @@ function CartComponent() {
                                         <button  className="increase-quantity" onClick={() => increaseItem(product)}>+</button>
                                     </div>
                                     <div className="edit-buttons">
-                                        <Button variant="outline-primary" size="sm">Update</Button>
+                                        <Button variant="outline-primary" size="sm" onClick={() => updateItem(product)}>Update</Button>
                                         <Button variant="outline-secondary" size="sm" onClick={() => handleShoppingClick(product._id)}>Remove</Button>
                                     </div>
                                 </td>
