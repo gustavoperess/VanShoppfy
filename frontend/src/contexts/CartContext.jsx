@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { getProductBySessionId } from '../services/cart';
 
 const CartContext = createContext();
 

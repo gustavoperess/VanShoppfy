@@ -40,7 +40,6 @@ function SidebarComponent() {
   
 
   const handleProductDelete = async (productId) => {
-    // console.log(productId)
     try {
        await deleteProductById(productId)
        removeFromCart(productId);
