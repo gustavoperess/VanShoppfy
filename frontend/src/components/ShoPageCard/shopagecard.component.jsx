@@ -56,7 +56,7 @@ function ShopPageComponent() {
 
   const handleShoppingClick = async (product) => {
     try {
-       await addItemToCart(product._id)
+       await addItemToCart(product)
        addToCart(product);
     } catch (err) {
         console.log("Product not added", err)

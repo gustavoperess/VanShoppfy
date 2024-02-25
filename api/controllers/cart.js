@@ -3,11 +3,12 @@ const Cart = require("../models/carts")
 
 
 const addItemToCart = async (req, res) => {
-    const  productId  = req.body.productId;
+    const  productId  = req.body.productId._id;
+    const productName = req.body.productId.productName;
     let sessionId = req.cookies.sessionId;
-
     const cartItem = new Cart({
         product: productId,
+        productName: productName,
         sessionId:sessionId
     });
 
@@ -24,8 +25,7 @@ const addItemToCart = async (req, res) => {
 const removeItemfromCart = async (req, res) => {
     let sessionId = req.cookies.sessionId;
     try {
-        const product_cart = await Cart.findOneAndDelete({product: req.params.productId});
-        console.log(product_cart)
+        const product_cart = await Cart.deleteMany({product: req.params.productId});
         res.status(200).json(product_cart);
     }catch (err) {
         console.error("Error deleting item from the cart", err);
