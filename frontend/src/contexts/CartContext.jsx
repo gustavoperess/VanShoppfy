@@ -90,7 +90,7 @@ export const CartProvider = ({ children }) => {
 
     const updateItem = (productId) => {
         setCartItems(prevItems => prevItems.map(item => {
-            return {...productId}
+            return {...item}
         }))
         const updatedCartItems = cartItems.filter(item => item._id !== productId);
         const newTotalAmount = updatedCartItems.reduce((acc, item) => acc + (item.productPrice * item.quantity), 0);
