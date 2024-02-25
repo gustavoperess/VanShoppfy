@@ -6,7 +6,7 @@ import { useCart } from '../../contexts/CartContext';
 import Button from 'react-bootstrap/Button';
 
 function CartComponent() {
-    const { cartItems, cartCount, totalAmount, removeFromCart } = useCart();
+    const { cartItems, cartCount, totalAmount, removeFromCart, addToCart } = useCart();
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
@@ -19,6 +19,13 @@ function CartComponent() {
             console.log("Product not removed", err);
         }
     };
+    const handleAddClick = async (product) => {
+        try {
+            addToCart(product)
+        } catch (err) {
+            console.log("Product not added", err)
+        }
+    }
 
     return (
         <div className="my-bag-container">
