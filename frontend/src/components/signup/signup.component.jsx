@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Container } from "react-bootstrap";
 
 const isValidPassword = (password) => {
   const minLength = 8;
@@ -55,7 +56,7 @@ function SignupComponent()  {
   const handleConfirmPasswordChange = (event) => setConfirmPassword(event.target.value);
 
   return (
-    <>
+    <Container >
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -96,7 +97,7 @@ function SignupComponent()  {
           Submit
         </Button>
       </Form>
-    </>
+     </Container>
   );
 };
 
