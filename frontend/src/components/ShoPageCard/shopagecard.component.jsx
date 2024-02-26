@@ -41,7 +41,7 @@ function ShopPageComponent() {
     const myCartProducts = async () => {
         try {
             const getCartProducts = await getProductBySessionId();
-            setProductCount(getCartProducts); // Assuming this returns an array of products
+            setProductCount(getCartProducts); 
         } catch (err) {
             console.log("Product not fetched", err);
         }
