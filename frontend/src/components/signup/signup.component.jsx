@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Container } from "react-bootstrap";
+import "./signUpStyle.css"
 
 const isValidPassword = (password) => {
   const minLength = 8;
@@ -56,13 +57,14 @@ function SignupComponent()  {
   const handleConfirmPasswordChange = (event) => setConfirmPassword(event.target.value);
 
   return (
-    <Container >
+    <Container className="signup-container" >
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control 
             type="email" 
-            placeholder="Enter email" 
+            placeholder="Enter email"
+            className="custom-input-size"
             value={email}
             onChange={handleEmailChange} />
           <Form.Text className="text-muted">
@@ -75,7 +77,8 @@ function SignupComponent()  {
           <Form.Label>Password</Form.Label>
           <Form.Control 
             type="password" 
-            placeholder="Password" 
+            placeholder="Password"
+            className="custom-input-size" 
             value={password}
             onChange={handlePasswordChange} />
           {formErrors.password && <div className="error">{formErrors.password}</div>}
@@ -87,6 +90,7 @@ function SignupComponent()  {
             type="password" 
             placeholder="Confirm Password" 
             value={confirmPassword}
+            className="custom-input-size"
             onChange={handleConfirmPasswordChange} />
           {formErrors.confirmPassword && <div className="error">{formErrors.confirmPassword}</div>}
         </Form.Group>
