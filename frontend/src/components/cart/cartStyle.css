@@ -1,9 +1,6 @@
-.my-bag-container {
-    margin-left: 200px;
-    margin-right: 200px;
-}
 
-.my-bag-checkout {
+
+.my-bag-container {
     display: flex;
     flex-direction: column; /* Stack items vertically */
     justify-content: space-between; /* Space between title and button */
@@ -11,6 +8,10 @@
     height: 100px;
 
 }
+.my-bag-container h1 {
+    font-size: 30px;
+}
+
 
 .btn.btn-primary.btn-lg {
     background-color: #212529 !important;
@@ -22,9 +23,6 @@
     padding-top: 20px;
 }
 
-.my-bag-checkout h1 {
-    font-size: 30px;
-}
 
 .table-body-product {
     display: flex;
