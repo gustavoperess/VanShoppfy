@@ -58,49 +58,52 @@ function SignupComponent()  {
 
   return (
     <Container className="signup-container" >
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control 
-            type="email" 
-            placeholder="Enter email"
-            className="custom-input-size"
-            value={email}
-            onChange={handleEmailChange} />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-          {formErrors.email && <div className="error">{formErrors.email}</div>}
-        </Form.Group>
+        <div className="form-container">
+           <h1>Don't have an account?</h1>
+        <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control 
+                type="email" 
+                placeholder="Enter email"
+                className="custom-input-size"
+                value={email}
+                onChange={handleEmailChange} />
+            <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+            </Form.Text>
+            {formErrors.email && <div className="error">{formErrors.email}</div>}
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control 
-            type="password" 
-            placeholder="Password"
-            className="custom-input-size" 
-            value={password}
-            onChange={handlePasswordChange} />
-          {formErrors.password && <div className="error">{formErrors.password}</div>}
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control 
+                type="password" 
+                placeholder="Password"
+                className="custom-input-size" 
+                value={password}
+                onChange={handlePasswordChange} />
+            {formErrors.password && <div className="error">{formErrors.password}</div>}
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formConfirmPassword">
-          <Form.Label>Confirm Password</Form.Label>
-          <Form.Control 
-            type="password" 
-            placeholder="Confirm Password" 
-            value={confirmPassword}
-            className="custom-input-size"
-            onChange={handleConfirmPasswordChange} />
-          {formErrors.confirmPassword && <div className="error">{formErrors.confirmPassword}</div>}
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="formConfirmPassword">
+            <Form.Label>Confirm Password</Form.Label>
+            <Form.Control 
+                type="password" 
+                placeholder="Confirm Password" 
+                value={confirmPassword}
+                className="custom-input-size"
+                onChange={handleConfirmPasswordChange} />
+            {formErrors.confirmPassword && <div className="error">{formErrors.confirmPassword}</div>}
+            </Form.Group>
 
-        {formErrors.submission && <div className="alert alert-danger">{formErrors.submission}</div>}
+            {formErrors.submission && <div className="alert alert-danger">{formErrors.submission}</div>}
 
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
+            <Button variant="primary" type="submit">
+            Submit
+            </Button>
+        </Form>
+        </div>
      </Container>
   );
 };

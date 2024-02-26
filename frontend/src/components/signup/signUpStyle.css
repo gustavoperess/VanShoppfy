@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Full viewport height */
-    padding: 50px 0; /* Adjust top and bottom padding as needed */
+    padding: 50px 0; 
   }
   
   .custom-input-size {
@@ -12,12 +12,11 @@
     width: 350px; /* Fixed width */
   }
   
-  /* Optional: Additional styling to ensure the form itself is centered */
   .form-container {
-    width: 100%; /* Use 100% of the .signup-container width */
-    max-width: 400px; /* Maximum width of the form */
+    width: 100%; 
+    max-width: 500px; /* Maximum width of the form */
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow around the form */
-    background-color: #fff; /* Optional: In case you want a different background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    background-color: #fff; 
   }
   
