@@ -9,7 +9,12 @@
 
 }
 .my-bag-container h1 {
-    font-size: 30px;
+    font-size: 28px;
+    font-family: "Super Grotesk Offc Medium", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+    letter-spacing: .06em;
 }
 
 
@@ -26,6 +31,7 @@
 
 .table-body-product {
     display: flex;
+    
 }
 
 .table-body-product h1 {
