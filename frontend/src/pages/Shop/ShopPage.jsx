@@ -4,7 +4,7 @@ import ShopPageComponent from '../../components/shoppagecard/shopagecard.compone
 import ContactComponent from '../../components/contact/contact.component';
 import Container from 'react-bootstrap/Container';
 import FooterComponent from '../../components/footer/footer.component';
-import SidebarComponent from '../../components/SideBar/sideeBarCard.component';
+import SidebarComponent from '../../components/Sidebar/sideeBarCard.component';
 import "./ShopPageStyle.css"
 
 
