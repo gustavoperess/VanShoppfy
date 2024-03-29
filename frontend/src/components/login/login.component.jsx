@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { signup } from "../../services/authentication";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Link } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { Container } from "react-bootstrap";
+import { useNavigate, Link } from "react-router-dom";
+import { Container, Form,  Button} from "react-bootstrap";
 import "./signUpStyle.css"
 
 const isValidPassword = (password) => {
@@ -19,12 +16,10 @@ const isValidPassword = (password) => {
 
 function SignupComponent()  {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const navigate = useNavigate();
-  const location = useLocation();
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -53,18 +48,7 @@ function SignupComponent()  {
       setFormErrors(errors);
     }
   };
-
-    const loginPage = () => {
-      navigate(`/login`);
-      
-  }
-
-  const signupPage = () => {
-      navigate(`/signup`);
-      
-  }
   
-  const handleNameChange = (event) => setName(event.target.value)
   const handleEmailChange = (event) => setEmail(event.target.value);
   const handlePasswordChange = (event) => setPassword(event.target.value);
   const handleConfirmPasswordChange = (event) => setConfirmPassword(event.target.value);
@@ -72,30 +56,11 @@ function SignupComponent()  {
   return (
     
     <Container className="signup-container" >
-           <div className="ItemsToNavigate">
-                    <button type="button" 
-                            className={`itemstoNavigateButton ${location.pathname === '/login' ? 'active-nav-item' : ''}`} 
-                            onClick={loginPage}>
-                        Login
-                    </button>
-                    <button type="button" 
-                            className={`itemstoNavigateButton ${location.pathname === '/signup' ? 'active-nav-item' : ''}`} 
-                            onClick={signupPage}>
-                        Create an account
-                    </button>
-            </div>
+                Login / Create an account
         <div className="form-container">
-           <h1>I do not have an account</h1>
-           <h6>Please fill out the below information to start with us</h6>
+           <h1>I already have an account</h1>
+           <h6>Sign in with your email and password</h6>
         <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicName">
-            <Form.Control 
-                type="name" 
-                placeholder="name"
-                className="custom-input-size" 
-                value={name}
-                onChange={handleNameChange} />
-            </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control 
                 type="email" 
