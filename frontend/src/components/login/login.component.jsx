@@ -1,37 +1,30 @@
 import { useState } from "react";
-import { signup } from "../../services/authentication";
+import { login } from "../../services/authentication";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { Container, Button,  Form} from "react-bootstrap";
 import "../signup/signUpStyle.css"
 import LogoComponent from "../banner/logo.component";
 
 
-
 function LoginCompononent()  {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [formErrors, setFormErrors] = useState({});
+  const [loginError, setError] = useState()
   const navigate = useNavigate();
   const location = useLocation();
   
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const errors = {};
-  
-    if (Object.keys(errors).length === 0) {
-      const formData = new FormData();
-      formData.append("email", email);
-      formData.append("password", password);
   
       try {
-        await signup(formData);
-        navigate("/login");
+        await login(email, password);
+        navigate("/");
       } catch (err) {
-        setFormErrors({ ...formErrors, submission: err.message });
+        setError(err.message)
+        console.log("erro trying to log in", err)
+        navigate("/login");
       }
-    } else {
-      setFormErrors(errors);
-    }
+   
   };
 
     const loginPage = () => {
@@ -44,7 +37,6 @@ function LoginCompononent()  {
       
   }
   
-
   const handleEmailChange = (event) => setEmail(event.target.value);
   const handlePasswordChange = (event) => setPassword(event.target.value);
 
@@ -70,6 +62,10 @@ function LoginCompononent()  {
               <h6 className="white-text">Sign in with your email and password</h6>
               <hr className="white-line" />
         <Form onSubmit={handleSubmit}>
+            {loginError && <div className="wrongCredentials">
+                <p>Wrong credentials</p>
+                <p>{loginError}</p>
+            </div> }
             <Form.Group className="MyForm" controlId="formBasicEmail">
             <Form.Control 
                 type="email" 
@@ -77,7 +73,6 @@ function LoginCompononent()  {
                 className="custom-input-size"
                 value={email}
                 onChange={handleEmailChange} />
-            {formErrors.email && <div className="error">{formErrors.email}</div>}
             </Form.Group>
             <Form.Group className="MyForm" controlId="formBasicPassword">
             <Form.Control 
@@ -86,7 +81,6 @@ function LoginCompononent()  {
                 className="custom-input-size" 
                 value={password}
                 onChange={handlePasswordChange} />
-            {formErrors.password && <div className="error">{formErrors.password}</div>}
             </Form.Group>
             <div className="ButtonDiv">
             <Button className="singInButton" type="submit">Login</Button>
