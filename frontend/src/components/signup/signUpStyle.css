@@ -1,10 +1,10 @@
 .signup-container {
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Full viewport height */
-    padding: 50px 0; 
-  }
-  
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  min-height: 86vh; 
+  padding: 5px 0;
+}
   .custom-input-size {
     height: 30px; /* Smaller height */
     font-size: 14px; /* Smaller font size */
@@ -17,6 +17,10 @@
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     background-color: #fff; 
+  }
+
+  .white-text {
+    text-align: center;
   }
   
 
@@ -39,23 +43,18 @@
   
   /* Active state styles */
   .itemstoNavigateButton.active-nav-item {
-    color: #2E9C45; /* Active state color to green */
-    text-decoration: underline;
+    color: blue; /* Or any other color you want for the active state */
+    font-weight: bold; /* Make it stand out */
+    padding-bottom: 2px; /* Adjust space between text and underline */
+    border-bottom: 1px solid blue; /* Simulate underline */
+    text-decoration: none;
   }
   
   .itemstoNavigateButton:hover {
-    text-decoration: underline; /* Underline on hover for a typical link appearance */
-    color: #033021; /* Darker color on hover, adjust as needed */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    font-weight: 700;
+    text-decoration: underline;
   }
   
-  .wrongCredentials {
-    background-color: white;
-    width: 100%;
-    height: 70px;
-    margin-bottom: 15px;
-    border: 1px solid #dd3c10;
-    background-color: #ffebe8;
-  }
-  .wrongCredentials p {
-    font-weight: 500;
-  }
+
+

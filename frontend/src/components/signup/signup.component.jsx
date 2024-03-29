@@ -84,8 +84,9 @@ function SignupComponent()  {
                     </button>
             </div>
         <div className="form-container">
-           <h1>I do not have an account</h1>
-           <h6>Please fill out the below information to start with us</h6>
+              <h4 className="white-text">I do not have an account</h4>
+              <h6 className="white-text">Please fill out the below information to start with us</h6>
+              <hr className="white-line" />
         <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Control 

@@ -34,8 +34,8 @@ const CardLayout = styled.div`
 
 const CardFour = styled.div`
   background: ${({ src }) => `url(${src})`} center center / cover;
-  height: 200px;
-  width: 400px;
+  height: 130px;
+  width: 300px;
   border-radius: 7px;
   position: relative; 
   display: flex;
@@ -44,7 +44,7 @@ const CardFour = styled.div`
   text-align: center;
   justify-content: center;
   padding: 20px;
-  margin-bottom: 80px;
+  margin-bottom: 25px;
 `;
 
 export default LogoComponent;
