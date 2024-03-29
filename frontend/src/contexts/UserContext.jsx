@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { getUserInformationById } from '../../../api/controllers/users';
+import { getUserInformationById } from '../services/authentication';
 
 const UserContext = createContext();
 
@@ -8,13 +8,14 @@ export const useUser = () => useContext(UserContext);
 export const UserProvider = ({ children }) => {
   const [userData, setUserData] = useState(null);
   const refreshUserData = async () => {
-    const user_id = window.localStorage.getItem("user_id");
-    if (!user_id) {
+    const userid = window.localStorage.getItem("userid")
+    const token = window.localStorage.getItem("token")
+    if (!userid) {
       return;
     }
 
     try {
-      const fetchedUserData = await getUserInformationById(user_id);
+      const fetchedUserData = await getUserInformationById(userid, token);
       setUserData(fetchedUserData);
     } catch (error) {
       console.error('Error fetching user data:', error);

@@ -51,14 +51,16 @@ export const login = async (email, password) => {
 };
 
 
-export const getUserInformationById = async (email, token) => {
+export const getUserInformationById = async (userid, token) => {
+  console.log(userid)
   const requestOptions = {
     method: "GET",
-    email: email,
-    token: token
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   };
   
-  let response = await fetch(`${BACKEND_URL}/users/getInformationById`, requestOptions);
+  let response = await fetch(`${BACKEND_URL}/users/getInformationById/${userid}`, requestOptions);
 
   if (response.status === 201 || response.status == 200) {
     return await response.json();

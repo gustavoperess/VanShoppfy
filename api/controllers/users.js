@@ -24,7 +24,7 @@ const create = (req, res) => {
 
 const getUserInformationById = async (req, res) => {
     try {
-      const user = await User.find({ user: req.user.userId });
+      const user = await User.findOne({ user: req.params.userId });
       res.status(200).json(user);
   } catch (err) {
       console.error("Error retriving user's information", err);
