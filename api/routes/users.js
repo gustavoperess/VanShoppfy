@@ -7,5 +7,6 @@ const router = express.Router();
 const upload = multer();
 
 router.post("/", upload.none(), UsersController.create);
+router.get("/getInformationById", upload.none(), UsersController.getUserInformationById);
 
 module.exports = router;

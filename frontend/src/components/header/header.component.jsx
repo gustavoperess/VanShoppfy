@@ -1,10 +1,12 @@
 import { Nav, Navbar } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom"; // Import Link
+import { Link, useLocation } from "react-router-dom"; 
+import { useEffect, useState } from 'react';
+import { useCart } from '../../contexts/CartContext';
 import "./headerStyle.css";
 import Logo from "/VanShoppFYLogo.svg";
 import ShoppingCartLogo from "/shoppingbag.svg";
-import { useEffect, useState } from 'react';
-import { useCart } from '../../contexts/CartContext';
+import { getUserInformationById } from "../../../../api/controllers/users";
+
 
 
 const HeaderComponent = () => {
@@ -23,6 +25,8 @@ const HeaderComponent = () => {
       setActiveCategory("Sign in");
     }
 },[location])
+
+
 
 return (
     <div className="headerComponent">

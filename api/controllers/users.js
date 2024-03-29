@@ -22,8 +22,19 @@ const create = (req, res) => {
   });
 };
 
+const getUserInformationById = async (req, res) => {
+    try {
+      const user = await User.find({ user: req.user.userId });
+      res.status(200).json(user);
+  } catch (err) {
+      console.error("Error retriving user's information", err);
+      res.status(500).json({ message: "EError retriving user's information" });
+  }
+}
+
 const UsersController = {
     create: create,
+    getUserInformationById:getUserInformationById
   
   };
 

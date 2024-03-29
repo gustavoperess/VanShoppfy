@@ -49,3 +49,22 @@ export const login = async (email, password) => {
       throw new Error(errorMessage);
     }
 };
+
+
+export const getUserInformationById = async (email, token) => {
+  const requestOptions = {
+    method: "GET",
+    email: email,
+    token: token
+  };
+  
+  let response = await fetch(`${BACKEND_URL}/users/getInformationById`, requestOptions);
+
+  if (response.status === 201 || response.status == 200) {
+    return await response.json();
+  } else {
+    const errorResponse = await response.json(); // Assuming the backend sends JSON response
+    const errorMessage = errorResponse.message || `Received status ${response.status} when signing up. Expected 201`;
+    throw new Error(errorMessage);
+  }
+};
