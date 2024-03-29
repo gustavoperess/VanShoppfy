@@ -77,3 +77,25 @@
 .MyForm {
   margin-bottom: 1.3rem !important;
 }
+
+
+.wrongCredentials {
+  background-color: white;
+  height: 70px;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 80%;
+  margin-left: auto; 
+  margin-right: auto; 
+  border: 1px solid #dd3c10;
+  background-color: #ffebe8;
+}
+.wrongCredentials p {
+  font-weight: 800;
+}
+
+@media (max-width: 600px) {
+  .wrongCredentials {
+    height: 100px; 
+  }
+}

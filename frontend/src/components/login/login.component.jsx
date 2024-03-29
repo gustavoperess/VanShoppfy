@@ -15,9 +15,9 @@ function LoginCompononent()  {
   
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
       try {
-        await login(email, password);
+        const response = await  login(email, password);
+        window.localStorage.setItem("token", response);
         navigate("/");
       } catch (err) {
         setError(err.message)
