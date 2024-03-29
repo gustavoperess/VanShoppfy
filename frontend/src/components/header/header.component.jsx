@@ -23,7 +23,10 @@ const HeaderComponent = () => {
         setActiveCategory("Contact");
     } else if (location.pathname == "/signup" || location.pathname == '/login') {
       setActiveCategory("Sign in");
+    } else if (location.pathname == "/cart") {
+      setActiveCategory("Cart");
     }
+
 },[location])
 
 const logout = () => {
@@ -57,11 +60,11 @@ return (
               <Link to="/" className={`nav-link ${activeCategory === 'Home' ? 'active' : ''}`} >Home</Link>
               <Link to="/shop" className={`nav-link ${activeCategory === 'Shop' ? 'active' : ''}`} >Shop</Link>
               <Link to="/contact" className={`nav-link ${activeCategory === 'Contact' ? 'active' : ''}`} >Contact</Link>
-                {userData && <div className="UserInPlace">
+                {userData && <div className={`nav-link ${activeCategory === 'Cart' ? 'active' : 'UserInPlace'}`}>
                   {userData.name}
                 </div>}
                 {userData ? <div onClick={logout} className="signOut">Sign Out</div>
-                : <Link to="/signup" className={`nav-link ${activeCategory === 'Sign in' ? 'active' : ''}`} >Sign in</Link>}
+                : <Link to="/login" className={`nav-link ${activeCategory === 'Sign in' ? 'active' : ''}`} >Sign in</Link>}
               <div className="shopping-cart-icon">
               <Link to="/cart">
                 <img src={ShoppingCartLogo} width="40" height="40" alt="ShoppingCartLogo" />
