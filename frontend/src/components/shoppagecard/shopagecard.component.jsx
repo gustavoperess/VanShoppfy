@@ -1,12 +1,8 @@
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import React, { useState, useEffect } from 'react';
 import { getAllProducts } from "../../services/product"
 import "./shopagecardStyle.css"
 import { useLocation } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+import {Button, Navbar, Nav, CardGroup, Card} from 'react-bootstrap';
 import { addItemToCart } from '../../services/cart'; 
 import { useCart } from '../../contexts/CartContext';
 import { getProductBySessionId } from '../../services/cart';

@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { signup } from "../../services/authentication";
-import { useNavigate, useLocation } from "react-router-dom";
-import { Link } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { Container } from "react-bootstrap";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import { Container, Button,  Form} from "react-bootstrap";
 import "./signUpStyle.css"
+import LogoComponent from "../banner/logo.component";
 
 const isValidPassword = (password) => {
   const minLength = 8;
@@ -72,6 +70,7 @@ function SignupComponent()  {
   return (
     
     <Container className="signup-container" >
+      < LogoComponent />
            <div className="ItemsToNavigate">
                     <button type="button" 
                             className={`itemstoNavigateButton ${location.pathname === '/login' ? 'active-nav-item' : ''}`} 
@@ -91,7 +90,7 @@ function SignupComponent()  {
         <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Control 
                 type="name" 
-                placeholder="name"
+                placeholder="Name"
                 className="custom-input-size" 
                 value={name}
                 onChange={handleNameChange} />

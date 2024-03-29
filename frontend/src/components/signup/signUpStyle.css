@@ -19,3 +19,43 @@
     background-color: #fff; 
   }
   
+
+  .ItemsToNavigate {
+    margin-bottom: 10px;
+  }
+  
+  .itemstoNavigateButton {
+    background-color: transparent;
+    border: none;
+    color: #A9A9A9; /* Default color to grey */
+    padding: 0;
+    margin-right: 10px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: none;
+    outline: none;
+    transition: color 0.3s; /* Smooth transition for color change */
+  }
+  
+  /* Active state styles */
+  .itemstoNavigateButton.active-nav-item {
+    color: #2E9C45; /* Active state color to green */
+    text-decoration: underline;
+  }
+  
+  .itemstoNavigateButton:hover {
+    text-decoration: underline; /* Underline on hover for a typical link appearance */
+    color: #033021; /* Darker color on hover, adjust as needed */
+  }
+  
+  .wrongCredentials {
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    margin-bottom: 15px;
+    border: 1px solid #dd3c10;
+    background-color: #ffebe8;
+  }
+  .wrongCredentials p {
+    font-weight: 500;
+  }
