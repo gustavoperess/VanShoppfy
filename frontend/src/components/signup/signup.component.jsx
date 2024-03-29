@@ -88,7 +88,7 @@ function SignupComponent()  {
               <h6 className="white-text">Please fill out the below information to start with us</h6>
               <hr className="white-line" />
         <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicName">
+        <Form.Group className="MyForm" controlId="formBasicName">
             <Form.Control 
                 type="name" 
                 placeholder="Name"
@@ -96,7 +96,7 @@ function SignupComponent()  {
                 value={name}
                 onChange={handleNameChange} />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Group className="MyForm" controlId="formBasicEmail">
             <Form.Control 
                 type="email" 
                 placeholder="Enter email"
@@ -108,7 +108,7 @@ function SignupComponent()  {
             </Form.Text>
             {formErrors.email && <div className="error">{formErrors.email}</div>}
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="MyForm" controlId="formBasicPassword">
             <Form.Control 
                 type="password" 
                 placeholder="Password"
@@ -117,7 +117,7 @@ function SignupComponent()  {
                 onChange={handlePasswordChange} />
             {formErrors.password && <div className="error">{formErrors.password}</div>}
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formConfirmPassword">
+            <Form.Group className="MyForm" controlId="formConfirmPassword">
             <Form.Control 
                 type="password" 
                 placeholder="Confirm Password" 
@@ -127,7 +127,9 @@ function SignupComponent()  {
             {formErrors.confirmPassword && <div className="error">{formErrors.confirmPassword}</div>}
             </Form.Group>
             {formErrors.submission && <div className="alert alert-danger">{formErrors.submission}</div>}
-            <Button variant="primary" type="submit">Sign In</Button>
+            <div className="ButtonDiv">
+            <Button className="singInButton" type="submit">Sign Up</Button>
+            </div>
         </Form>
         </div>
      </Container>
