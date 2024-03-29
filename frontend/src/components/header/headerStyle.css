@@ -33,3 +33,29 @@
     padding: 2px 6px;
     font-size: 12px;
   }
+
+  .UserInPlace{
+    padding-left: 5px;
+    padding-right: 10px;
+    display: flex; /* Enables Flexbox */
+    flex-direction: column; /* Stacks children vertically */
+    justify-content: center; /* Centers items along the main axis (vertical) */
+    align-items: center; /* Centers items along the cross axis (horizontal) */
+  }
+
+  .signOut {
+    padding-left: 5px;
+    padding-right: 10px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+  }
+  
+
+  .signOut:hover {
+    color: #007bff; 
+    text-decoration: underline; 
+  }

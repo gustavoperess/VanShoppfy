@@ -4,7 +4,7 @@ import { useNavigate, useLocation, Link } from "react-router-dom";
 import { Container, Button,  Form} from "react-bootstrap";
 import "../signup/signUpStyle.css"
 import LogoComponent from "../banner/logo.component";
-
+import { useUser } from "../../contexts/UserContext";
 
 function LoginCompononent()  {
   const [email, setEmail] = useState("");
@@ -12,6 +12,7 @@ function LoginCompononent()  {
   const [loginError, setError] = useState()
   const navigate = useNavigate();
   const location = useLocation();
+  const { userData, refreshUserData } = useUser();
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,6 +20,7 @@ function LoginCompononent()  {
         const response = await  login(email, password);
         window.localStorage.setItem("token", response.token);
         window.localStorage.setItem("userid", response.userid);
+        refreshUserData()
         navigate("/");
       } catch (err) {
         setError(err.message)

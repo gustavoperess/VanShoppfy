@@ -37,7 +37,6 @@ const logout = () => {
   }
 };
 
-  console.log(userData)
 
 
 return (
@@ -61,7 +60,7 @@ return (
                 {userData && <div className="UserInPlace">
                   {userData.name}
                 </div>}
-                {userData ? <div onClick={logout} >Sign Out</div>
+                {userData ? <div onClick={logout} className="signOut">Sign Out</div>
                 : <Link to="/signup" className={`nav-link ${activeCategory === 'Sign in' ? 'active' : ''}`} >Sign in</Link>}
               <div className="shopping-cart-icon">
               <Link to="/cart">
