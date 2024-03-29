@@ -38,6 +38,7 @@ function SignupComponent()  {
   
     if (Object.keys(errors).length === 0) {
       const formData = new FormData();
+      formData.append("name", name);
       formData.append("email", email);
       formData.append("password", password);
   

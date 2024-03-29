@@ -19,7 +19,7 @@ const HeaderComponent = () => {
         setActiveCategory("Shop");
     } else if (location.pathname == "/contact") {
         setActiveCategory("Contact");
-    } else if (location.pathname == "/signup") {
+    } else if (location.pathname == "/signup" || location.pathname == '/login') {
       setActiveCategory("Sign in");
     }
 },[location])
