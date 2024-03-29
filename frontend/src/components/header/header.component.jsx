@@ -1,5 +1,5 @@
 import { Nav, Navbar } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom"; 
+import { Link, useLocation, useNavigate } from "react-router-dom"; 
 import { useEffect, useState } from 'react';
 import { useCart } from '../../contexts/CartContext';
 import "./headerStyle.css";
@@ -8,6 +8,7 @@ import ShoppingCartLogo from "/shoppingbag.svg";
 import { useUser } from "../../contexts/UserContext";
 
 const HeaderComponent = () => {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("");
   const location = useLocation();
   const { cartCount } = useCart();
@@ -25,6 +26,16 @@ const HeaderComponent = () => {
     }
 },[location])
 
+const logout = () => {
+  if (userData) {
+      window.localStorage.removeItem("token");
+      window.localStorage.removeItem("userid");
+      navigate("/");
+      window.location.reload()
+  } else {
+      navigate("/");
+  }
+};
 
   console.log(userData)
 
@@ -47,7 +58,11 @@ return (
               <Link to="/" className={`nav-link ${activeCategory === 'Home' ? 'active' : ''}`} >Home</Link>
               <Link to="/shop" className={`nav-link ${activeCategory === 'Shop' ? 'active' : ''}`} >Shop</Link>
               <Link to="/contact" className={`nav-link ${activeCategory === 'Contact' ? 'active' : ''}`} >Contact</Link>
-              <Link to="/signup" className={`nav-link ${activeCategory === 'Sign in' ? 'active' : ''}`} >Sign in</Link>
+                {userData && <div className="UserInPlace">
+                  {userData.name}
+                </div>}
+                {userData ? <div onClick={logout} >Sign Out</div>
+                : <Link to="/signup" className={`nav-link ${activeCategory === 'Sign in' ? 'active' : ''}`} >Sign in</Link>}
               <div className="shopping-cart-icon">
               <Link to="/cart">
                 <img src={ShoppingCartLogo} width="40" height="40" alt="ShoppingCartLogo" />

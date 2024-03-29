@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
   const refreshUserData = async () => {
     const userid = window.localStorage.getItem("userid")
     const token = window.localStorage.getItem("token")
-    if (!userid) {
+    if (!userid && !token) {
       return;
     }
 

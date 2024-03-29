@@ -52,7 +52,6 @@ export const login = async (email, password) => {
 
 
 export const getUserInformationById = async (userid, token) => {
-  console.log(userid)
   const requestOptions = {
     method: "GET",
     headers: {
