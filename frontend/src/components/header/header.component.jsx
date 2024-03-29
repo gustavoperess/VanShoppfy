@@ -5,13 +5,14 @@ import { useCart } from '../../contexts/CartContext';
 import "./headerStyle.css";
 import Logo from "/VanShoppFYLogo.svg";
 import ShoppingCartLogo from "/shoppingbag.svg";
-import { getUserInformationById } from "../../../../api/controllers/users";
+
 
 
 
 const HeaderComponent = () => {
   const [activeCategory, setActiveCategory] = useState("");
   const location = useLocation();
+  const token = window.localStorage.getItem("token")
   const { cartCount } = useCart();
 
   useEffect(() => {
@@ -25,6 +26,8 @@ const HeaderComponent = () => {
       setActiveCategory("Sign in");
     }
 },[location])
+
+
 
 
 

@@ -17,7 +17,8 @@ function LoginCompononent()  {
     event.preventDefault();
       try {
         const response = await  login(email, password);
-        window.localStorage.setItem("token", response);
+        window.localStorage.setItem("token", response.token);
+        window.localStorage.setItem("userid", response.userid);
         navigate("/");
       } catch (err) {
         setError(err.message)
@@ -27,7 +28,7 @@ function LoginCompononent()  {
    
   };
 
-    const loginPage = () => {
+      const loginPage = () => {
       navigate(`/login`);
       
   }
