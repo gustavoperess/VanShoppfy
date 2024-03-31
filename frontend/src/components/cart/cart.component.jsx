@@ -1,10 +1,17 @@
 import "./cartStyle.css";
-import Table from 'react-bootstrap/Table';
 import { useCart } from '../../contexts/CartContext';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
+import { Link, useLocation, useNavigate } from "react-router-dom"; 
+import {Button, Modal, Container, Table} from 'react-bootstrap';
+import { useState } from 'react';
+import { useUser } from "../../contexts/UserContext";
 
 function CartComponent() {
+    const [show, setShow] = useState(false);
+    const navigate = useNavigate();
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const { userData, refreshUserData } = useUser();
+
     const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem, increaseItem, updateItem} = useCart();
 
     const formatPrice = (price) => {
@@ -18,13 +25,21 @@ function CartComponent() {
             console.log("Product not removed", err);
         }
     };
-
     
+    const handleForwardClick = () => {
+        if(userData) {
+            handleShow
+        } else {
+            navigate("/login");
+        }
+
+    }
+
     return (
         <Container>
             <div className="my-bag-container">
                     <h1>Your Bag</h1>
-                    <Button variant="primary" size="lg">
+                    <Button variant="primary" size="lg" onClick={handleForwardClick}>
                         Procced to checkout
                     </Button>
                 </div>
@@ -69,6 +84,20 @@ function CartComponent() {
                             </tr>
                         </tbody>
                     </Table>
+                    <Modal show={show}  onHide={handleClose}>
+                        <Modal.Header closeButton>
+                        <Modal.Title>
+                            VanShoppFY
+                            your total is {formatPrice(totalAmount)}
+                        </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                        <Button variant="secondary" onClick={handleClose}>Login</Button>
+                        </Modal.Body>
+                        <Modal.Body>
+                        <Button variant="secondary" onClick={handleClose}>Proceed as a guest</Button>
+                        </Modal.Body>
+                    </Modal>
              </div>
         </Container>
     );
