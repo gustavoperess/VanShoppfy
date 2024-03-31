@@ -145,7 +145,7 @@ function CartComponent() {
                         <Form className="addressControl">
                             <Form.Group controlId="formBasicEmail">
                                 <div className="person"> 
-                                    <i className="bi bi-person"></i>
+                                    <i className="bi bi-person icontwo"></i>
                                     <Form.Control 
                                         type="name" 
                                         name="name" 
@@ -157,7 +157,7 @@ function CartComponent() {
                             </Form.Group>
                             <Form.Group controlId="formBasicEmail">
                                 <div className="address">
-                                    <i className="bi bi-geo-alt"></i>
+                                    <i className="bi bi-geo-alt icontree"></i>
                                     <Form.Control 
                                         type="Address" 
                                         placeholder="Address"
@@ -166,22 +166,16 @@ function CartComponent() {
                                 </div>
                             </Form.Group> 
                             <div className="ZipCityDiv">
-                                <i className="bi bi-map"></i>
                                 <Form.Group className="zip" controlId="formBasicEmail">
-                                    <Form.Control 
-                                        type="Zip" 
-                                        placeholder="Zip"
-                                        onChange={handleZipChange}
-                                    />
+                                <i className="bi bi-map icon"></i>
+                                    <Form.Control  type="text" placeholder="Zip" onChange={handleZipChange}/>
                                 </Form.Group>  
                                 <Form.Group className="city" controlId="formBasicEmail">
-                                    <Form.Control 
-                                        type="City" 
-                                        placeholder="City"
-                                        onChange={handleCityChange}
-                                    />
+                                <i class="bi bi-compass icon"></i>
+                                    <Form.Control  type="text" placeholder="City"onChange={handleCityChange} />
                                 </Form.Group>
                             </div>
+                            <i class="bi bi-pin-map iconfour"></i>
                             <Form.Select value={selectedCountry} className="country" onChange={handleCountryChange}>
                                 {initiaCountry && (
                                     <option key={initiaCountry} value={initiaCountry}>{initiaCountry}</option>

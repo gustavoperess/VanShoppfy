@@ -94,6 +94,7 @@
 
 .ZipCityDiv {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 10px;
 
 }
@@ -104,41 +105,18 @@
 }
 
 .address{ 
-    display: flex;
     margin-bottom: 10px;
 }
 .person{ 
-    display: flex;
     margin-bottom: 10px;
 }
-.bi-person {
-    padding-right: 10px;
-    font-size: 1.5rem;
-    background-color: white;
 
-}
-.bi-geo-alt {
-    padding-right: 10px;
-    font-size: 1.5rem;
-}
-.bi-map {
-    padding-right: 10px;
-    font-size: 1.5rem;
-}
 
-.city  {
-    width: 70%;
-}
-
-.zip  {
-    width: 30%;
-    border: none !important;
-}
-.month, .cvv {
+.month, .cvv , .zip , .city {
     display: flex;
-    align-items: center; /* Aligns items vertically in the center */
-    position: relative; /* Sets a positioning context for absolutely positioned children */
-    width: 48%; /* Adjust based on your layout, ensuring both fit in the container */
+    align-items: center; 
+    position: relative; 
+    width: 48%; 
 }
 
 .icon {
@@ -156,11 +134,23 @@
     font-size: 1.5rem; /* Adjust icon size as needed */
 }
 
-
-.country {
-    margin-left: 7% !important;
-    width: 93% !important;
+.icontree {
+    position: absolute;
+    left: 25px;
+    top: 80px; 
+    transform: translateY(-50%); /* Centers the icon vertically */
+    font-size: 1.5rem; /* Adjust icon size as needed */
 }
+.iconfour {
+    position: absolute;
+    left: 22px;
+    top: 170px; 
+    transform: translateY(-50%); /* Centers the icon vertically */
+    font-size: 1.5rem; /* Adjust icon size as needed */
+}
+
+
+
 .form-control, .form-select {
     border: none !important; 
     border-bottom: 1px solid #ced4da !important; 
