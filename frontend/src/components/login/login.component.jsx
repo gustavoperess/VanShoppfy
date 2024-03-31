@@ -6,6 +6,7 @@ import "../signup/signUpStyle.css"
 import LogoComponent from "../banner/logo.component";
 import { useUser } from "../../contexts/UserContext";
 
+
 function LoginCompononent()  {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,7 +43,6 @@ function LoginCompononent()  {
   
   const handleEmailChange = (event) => setEmail(event.target.value);
   const handlePasswordChange = (event) => setPassword(event.target.value);
-
 
   return (
     

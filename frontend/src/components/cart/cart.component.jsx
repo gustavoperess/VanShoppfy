@@ -9,6 +9,7 @@ import countries from 'country-list';
 
 
 
+
 function CartComponent() {
     const [show, setShow] = useState(false);
     const navigate = useNavigate();
@@ -16,16 +17,22 @@ function CartComponent() {
     const handleShow = () => setShow(true);
     const { userData, refreshUserData } = useUser();
     const [formData, setFormData] = useState({ name: userData?.name});
-    const [country, setCountry] = useState("");
+    const [initiaCountry, setInitiaCountry] = useState("");
     const [selectedCountry, setSelectedCountry] = useState('');
 
-    // useEffect(() => {
-    //     VisitorAPI("B878v04eK6t1EbCNsi7r").then(data => {
-    //         setCountry(data.countryName);
-    //     }).catch(error => {
-    //        console.log("Error in loading the Country", error)
-    //     });
-    //  },[]);
+    useEffect(() => {
+        const fetchCountry = async () => {
+            try {
+                const data = await VisitorAPI("MY API KEY HERE"); // B878v04eK6t1EbCNsi7r 
+                setInitiaCountry(data.countryName); 
+                setSelectedCountry(data.countryName || "United States of America");
+            } catch (error) {
+               setSelectedCountry("United States of America");
+            }
+        };
+
+        fetchCountry();
+    }, []);
 
 
     const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem, increaseItem, updateItem} = useCart();
@@ -147,11 +154,20 @@ function CartComponent() {
                                     placeholder="City"
                                     className="custom-input-size"/>
                                 </Form.Group>
-                                <Form.Select aria-label="Default select example">
-                                <option>Open this select menu</option>
-                                {countries.getNames().map((country, index) => (
-                                     <option key={index} value="1">{country}</option>
-                                ))};
+                                <Form.Select 
+                                    aria-label="Default select example" 
+                                    value={selectedCountry}
+                                    onChange={handleCountryChange}
+                                >
+                                    {initiaCountry && (
+                                        <option key={initiaCountry} value={initiaCountry}>{initiaCountry}</option>
+                                    )}
+                                    {countries.getNames().map((country, index) => {
+                                        if (country !== initiaCountry) {
+                                            return <option key={index} value={country}>{country}</option>;
+                                        }
+                                        return null; 
+                                    })}
                                 </Form.Select>
                             </Form>
                         </Modal.Body>
