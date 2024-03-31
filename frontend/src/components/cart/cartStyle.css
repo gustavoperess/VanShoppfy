@@ -91,3 +91,47 @@
     /* Your specific styles for buttons, ensure they have some margin if side by side */
     margin: 0 5px;
 }
+
+.ZipCityDiv {
+    display: flex;
+    margin-bottom: 15px;
+
+}
+.address{ 
+    display: flex;
+}
+.person{ 
+    display: flex;
+}
+.bi-person {
+    padding-right: 10px;
+    font-size: 1.5rem;
+    background-color: white;
+
+}
+.bi-geo-alt {
+    padding-right: 10px;
+    font-size: 1.5rem;
+}
+
+.city  {
+    width: 40%;
+    
+}
+
+.zip  {
+    width: 50%;
+    padding-left: 30px;
+}
+
+.addressControl {
+   background-color: white;
+}
+
+.modal-body {
+    background-color: #F0F0F0
+}
+
+.modal-header {
+    background-color: #F0F0F0
+}

@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { useUser } from "../../contexts/UserContext";
 import VisitorAPI from 'visitorapi';
 import countries from 'country-list';
-
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 
 
@@ -18,7 +18,10 @@ function CartComponent() {
     const { userData, refreshUserData } = useUser();
     const [formData, setFormData] = useState({ name: userData?.name});
     const [initiaCountry, setInitiaCountry] = useState("");
-    const [selectedCountry, setSelectedCountry] = useState('');
+    const [selectedCountry, setSelectedCountry] = useState("");
+    const [city, setSelectedCity] = useState("")
+    const [zip, setSelectedZip] = useState("")
+    const [address, setSelectedAddress] = useState("")
 
     useEffect(() => {
         const fetchCountry = async () => {
@@ -69,6 +72,18 @@ function CartComponent() {
         setSelectedCountry(event.target.value);
       };
     
+    const handleAddreessChange = (event) => {
+        setSelectedAddress(event.target.value)
+    }
+
+    const handleCityChange = (event) => {
+        setSelectedCity(event.target.value)
+    }
+
+    const handleZipChange = (event) => {
+        setSelectedZip(event.target.value)
+    }
+
 
     return (
         <Container>
@@ -120,45 +135,58 @@ function CartComponent() {
                         </tbody>
                     </Table>
                     <Modal show={show}  onHide={handleClose}>
-                        <Modal.Header closeButton>
+                        <Modal.Header closeButton className="modal-header">
                         <Modal.Title>
                             VanShoppFY
                             your total is {formatPrice(totalAmount)}
                         </Modal.Title>
                         </Modal.Header>
-                        <Modal.Body>
+                        <Modal.Body className="modal-body">
                             <Form>
                             <Form.Group className="MyForm" controlId="formBasicEmail">
+                            <div className="person"> 
+                            <i className="bi bi-person"></i>
                             <Form.Control 
                                     type="name" 
                                     name="name" 
                                     placeholder="Enter name" 
-                                    className="custom-input-size"
+                
                                     value={formData.name} 
                                     onChange={handleChange}/>
+                            </div>
                                 </Form.Group>
+                            <div className="addressControl">
                                 <Form.Group className="MyForm" controlId="formBasicEmail">
+                                <div className="address">
+                                <i className="bi bi-geo-alt"></i>
                                 <Form.Control 
-                                    type="Adress" 
-                                    placeholder="Adress"
-                                    className="custom-input-size"/>
-                                </Form.Group>   <Form.Group className="MyForm" controlId="formBasicEmail">
-                                <Form.Control 
-                                    type="Zip" 
-                                    placeholder="Zip"
-                                    className="custom-input-size"/>
-                                </Form.Group>  
-                             <Form.Group className="MyForm" controlId="formBasicEmail">
-                                <Form.Control 
-                                    type="City" 
-                                    placeholder="City"
-                                    className="custom-input-size"/>
-                                </Form.Group>
-                                <Form.Select 
-                                    aria-label="Default select example" 
-                                    value={selectedCountry}
-                                    onChange={handleCountryChange}
-                                >
+                                    type="Address" 
+                                    placeholder="Address"
+                       
+                                    onChange={handleAddreessChange}
+                                    />
+                                </div>
+                                </Form.Group>   
+                                <div className="ZipCityDiv">
+                                    <Form.Group className="zip" controlId="formBasicEmail">
+                                    <Form.Control 
+                                        type="Zip" 
+                                        placeholder="Zip"
+                                
+                                        onChange={handleZipChange}
+                                        />
+                                    </Form.Group>  
+                                <Form.Group className="city" controlId="formBasicEmail">
+                                    <Form.Control 
+                                        type="City" 
+                                        placeholder="City"
+                                     
+                                        onChange={handleCityChange}
+                                        />
+                                    
+                                    </Form.Group>
+                                </div>
+                                <Form.Select aria-label="Default select example" value={selectedCountry} onChange={handleCountryChange}>
                                     {initiaCountry && (
                                         <option key={initiaCountry} value={initiaCountry}>{initiaCountry}</option>
                                     )}
@@ -169,6 +197,7 @@ function CartComponent() {
                                         return null; 
                                     })}
                                 </Form.Select>
+                                </div>
                             </Form>
                         </Modal.Body>
                     </Modal>
