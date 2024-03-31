@@ -130,8 +130,8 @@
 }
 
 .country {
-    margin-left: 10% !important;
-    width: 90% !important;
+    margin-left: 7% !important;
+    width: 93% !important;
 }
 .form-control, .form-select {
     border: none !important; 
@@ -146,4 +146,24 @@
 
 .modal-header {
     background-color: #F0F0F0
+}
+
+.modal-body {
+    height: 230px;
+}
+
+.modal-footer {
+    flex-direction: column;
+
+}
+.payment-info-button {
+    background-color: #212529 !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    border-color: black !important;
+}
+
+.payment-info-button:hover {
+    background-color: #424649 !important;
+    border-color: blue !important;
 }
