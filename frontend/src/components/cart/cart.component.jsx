@@ -28,11 +28,10 @@ function CartComponent() {
     
     const handleForwardClick = () => {
         if(userData) {
-            handleShow
+            handleShow()
         } else {
             navigate("/login");
         }
-
     }
 
     return (

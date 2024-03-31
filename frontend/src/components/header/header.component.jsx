@@ -60,9 +60,9 @@ return (
               <Link to="/" className={`nav-link ${activeCategory === 'Home' ? 'active' : ''}`} >Home</Link>
               <Link to="/shop" className={`nav-link ${activeCategory === 'Shop' ? 'active' : ''}`} >Shop</Link>
               <Link to="/contact" className={`nav-link ${activeCategory === 'Contact' ? 'active' : ''}`} >Contact</Link>
-                {userData && <div className={`nav-link ${activeCategory === 'Cart' ? 'active' : 'UserInPlace'}`}>
+                {userData && <Link to="/cart" className={`nav-link ${activeCategory === 'Cart' ? 'active' : 'UserInPlace'}`}>
                   {userData.name}
-                </div>}
+                </Link>}
                 {userData ? <div onClick={logout} className="signOut">Sign Out</div>
                 : <Link to="/login" className={`nav-link ${activeCategory === 'Sign in' ? 'active' : ''}`} >Sign in</Link>}
               <div className="shopping-cart-icon">
