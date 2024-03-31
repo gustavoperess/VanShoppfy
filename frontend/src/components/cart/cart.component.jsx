@@ -5,6 +5,9 @@ import {Form, Button, Modal, Container, Table} from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { useUser } from "../../contexts/UserContext";
 import VisitorAPI from 'visitorapi';
+import countries from 'country-list';
+
+
 
 function CartComponent() {
     const [show, setShow] = useState(false);
@@ -14,6 +17,7 @@ function CartComponent() {
     const { userData, refreshUserData } = useUser();
     const [formData, setFormData] = useState({ name: userData?.name});
     const [country, setCountry] = useState("");
+    const [selectedCountry, setSelectedCountry] = useState('');
 
     // useEffect(() => {
     //     VisitorAPI("B878v04eK6t1EbCNsi7r").then(data => {
@@ -22,6 +26,7 @@ function CartComponent() {
     //        console.log("Error in loading the Country", error)
     //     });
     //  },[]);
+
 
     const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem, increaseItem, updateItem} = useCart();
 
@@ -53,6 +58,10 @@ function CartComponent() {
         }));
     };
 
+    const handleCountryChange = (event) => {
+        setSelectedCountry(event.target.value);
+      };
+    
 
     return (
         <Container>
@@ -131,18 +140,19 @@ function CartComponent() {
                                     type="Zip" 
                                     placeholder="Zip"
                                     className="custom-input-size"/>
-                                </Form.Group>   <Form.Group className="MyForm" controlId="formBasicEmail">
+                                </Form.Group>  
+                             <Form.Group className="MyForm" controlId="formBasicEmail">
                                 <Form.Control 
                                     type="City" 
                                     placeholder="City"
                                     className="custom-input-size"/>
                                 </Form.Group>
-                                <Form.Group className="MyForm" controlId="formBasicEmail">
-                                <Form.Control 
-                                    type="Country" 
-                                    placeholder="Country"
-                                    className="custom-input-size"/>
-                                </Form.Group>
+                                <Form.Select aria-label="Default select example">
+                                <option>Open this select menu</option>
+                                {countries.getNames().map((country, index) => (
+                                     <option key={index} value="1">{country}</option>
+                                ))};
+                                </Form.Select>
                             </Form>
                         </Modal.Body>
                     </Modal>
