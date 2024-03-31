@@ -214,13 +214,27 @@ function CartComponent() {
                             <p>your total is {formatPrice(totalAmount)}</p>
                         </Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
+                    <Modal.Body className="secondModalBody">
                         <Form>
                             <Form.Group controlId="paymentCardNumber">
-                                <Form.Label>Card Number</Form.Label>
+                            <div className="person"> 
+                                <i class="bi bi-credit-card icontwo"></i>
                                 <Form.Control type="text" placeholder="Enter card number" />
+                            </div>
                             </Form.Group>
+                            <div className="monthcvvdiv">
+                                <Form.Group className="month" controlId="paymentMonth">
+                                    <i className="bi bi-calendar-day icon"></i>
+                                    <Form.Control type="text" placeholder="MM/YY" />
+                                </Form.Group>
+                                <Form.Group className="cvv" controlId="paymentCVV">
+                                    <i className="bi bi-file-lock icon"></i>
+                                    <Form.Control type="text" placeholder="CVV" />
+                                </Form.Group>
+                            </div>
                         </Form>
+                        <p className="faketext">*This is a test website please use the following credit card to proceed with purchase*</p>
+                        <p className="faketext">1234 5678 8910 1112 - Exp: 10/30 - CVV 456</p> 
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={() => setShowPaymentModal(false)}>
@@ -229,6 +243,7 @@ function CartComponent() {
                         <Button variant="primary" onClick={() => {/* Handle payment submission here */}}>
                             Submit Payment
                         </Button>
+                        
                     </Modal.Footer>
                 </Modal>
             </div>

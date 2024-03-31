@@ -97,6 +97,12 @@
     margin-bottom: 10px;
 
 }
+.monthcvvdiv {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Ensure the div takes full width */
+}
+
 .address{ 
     display: flex;
     margin-bottom: 10px;
@@ -128,6 +134,28 @@
     width: 30%;
     border: none !important;
 }
+.month, .cvv {
+    display: flex;
+    align-items: center; /* Aligns items vertically in the center */
+    position: relative; /* Sets a positioning context for absolutely positioned children */
+    width: 48%; /* Adjust based on your layout, ensuring both fit in the container */
+}
+
+.icon {
+    position: absolute;
+    left: 10px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%); /* Centers the icon vertically */
+    font-size: 1.5rem; /* Adjust icon size as needed */
+}
+.icontwo {
+    position: absolute;
+    left: 25px;
+    top: 34px; 
+    transform: translateY(-50%); /* Centers the icon vertically */
+    font-size: 1.5rem; /* Adjust icon size as needed */
+}
+
 
 .country {
     margin-left: 7% !important;
@@ -136,7 +164,8 @@
 .form-control, .form-select {
     border: none !important; 
     border-bottom: 1px solid #ced4da !important; 
-    box-shadow: none !important; 
+    box-shadow: none !important;
+    padding-left: 50px !important; 
 }
 
 .addressControl {
@@ -186,4 +215,12 @@
 .payment-info-button:hover {
     background-color: #424649 !important;
     border-color: blue !important;
+}
+.secondModalBody {
+    height: 250px;
+}
+
+.faketext {
+    padding-top: 10px;
+    color: red;
 }
