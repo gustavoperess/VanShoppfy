@@ -21,6 +21,8 @@ function CartComponent() {
     const [zip, setSelectedZip] = useState("");
     const [address, setSelectedAddress] = useState("");
     const [showPaymentModal, setShowPaymentModal] = useState(false);
+    const [formValidationFailed, setFormValidationFailed] = useState(false);
+
 
     useEffect(() => {
         const fetchCountry = async () => {
@@ -87,6 +89,20 @@ function CartComponent() {
         setShow(true); 
     };
 
+    const handleProceedToCheckout = () => {
+        if (!city || !zip || !address) {
+            setFormValidationFailed(true);
+            // Optionally, reset the validation state after the animation duration
+            setTimeout(() => setFormValidationFailed(false), 500); // 500ms = animation duration
+            console.log("NOT ALLOWED");
+        } else {
+            setFormValidationFailed(false); // Reset on successful validation
+            handleClose(); 
+            setShowPaymentModal(true);  
+        }
+    };
+
+
     return (
         <Container>
             <div className="my-bag-container">
@@ -136,7 +152,7 @@ function CartComponent() {
                         </tr>
                     </tbody>
                 </Table>
-                <Modal show={show} onHide={handleClose} className="my-custom-modal">
+                <Modal show={show} onHide={handleClose} className={`my-custom-modal ${formValidationFailed ? 'shake-animation' : ''}`}>
                 <Modal.Header className="modal-header">
                         <div className="close-area" onClick={handleClose}>
                             <span aria-hidden="true">&times;</span>
@@ -176,11 +192,11 @@ function CartComponent() {
                                     <Form.Control  type="text" placeholder="Zip" onChange={handleZipChange}/>
                                 </Form.Group>  
                                 <Form.Group className="city" controlId="formBasicEmail">
-                                <i class="bi bi-compass icon"></i>
+                                <i className="bi bi-compass icon"></i>
                                     <Form.Control  type="text" placeholder="City"onChange={handleCityChange} />
                                 </Form.Group>
                             </div>
-                            <i class="bi bi-pin-map iconfour"></i>
+                            <i className="bi bi-pin-map iconfour"></i>
                             <Form.Select value={selectedCountry} className="country" onChange={handleCountryChange}>
                                 {initiaCountry && (
                                     <option key={initiaCountry} value={initiaCountry}>{initiaCountry}</option>
@@ -195,12 +211,7 @@ function CartComponent() {
                         </Form>
                     </Modal.Body>
                     <Modal.Footer className="modal-footer">
-                        <Button className="payment-info-button" onClick={() => {
-                            handleClose(); 
-                            setShowPaymentModal(true); 
-                        }}>
-                            Proceed to Payment
-                        </Button>
+                        <Button className="payment-info-button" onClick={handleProceedToCheckout}>Proceed to Payment</Button>
                     </Modal.Footer>
                 </Modal>
                 <Modal show={showPaymentModal} className="my-custom-modal" onHide={() => setShowPaymentModal(false)}>
