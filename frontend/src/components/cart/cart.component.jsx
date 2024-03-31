@@ -1,7 +1,7 @@
 import "./cartStyle.css";
 import { useCart } from '../../contexts/CartContext';
-import { Link, useLocation, useNavigate } from "react-router-dom"; 
-import {Button, Modal, Container, Table} from 'react-bootstrap';
+import { useNavigate } from "react-router-dom"; 
+import {Form, Button, Modal, Container, Table} from 'react-bootstrap';
 import { useState } from 'react';
 import { useUser } from "../../contexts/UserContext";
 
@@ -11,6 +11,7 @@ function CartComponent() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const { userData, refreshUserData } = useUser();
+    const [formData, setFormData] = useState({ name: userData?.name});
 
     const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem, increaseItem, updateItem} = useCart();
 
@@ -33,6 +34,15 @@ function CartComponent() {
             navigate("/login");
         }
     }
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value,
+        }));
+    };
+
 
     return (
         <Container>
@@ -91,10 +101,39 @@ function CartComponent() {
                         </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                        <Button variant="secondary" onClick={handleClose}>Login</Button>
-                        </Modal.Body>
-                        <Modal.Body>
-                        <Button variant="secondary" onClick={handleClose}>Proceed as a guest</Button>
+                            <Form>
+                            <Form.Group className="MyForm" controlId="formBasicEmail">
+                            <Form.Control 
+                                    type="name" 
+                                    name="name" 
+                                    placeholder="Enter name" 
+                                    className="custom-input-size"
+                                    value={formData.name} 
+                                    onChange={handleChange}/>
+                                </Form.Group>
+                                <Form.Group className="MyForm" controlId="formBasicEmail">
+                                <Form.Control 
+                                    type="Adress" 
+                                    placeholder="Adress"
+                                    className="custom-input-size"/>
+                                </Form.Group>   <Form.Group className="MyForm" controlId="formBasicEmail">
+                                <Form.Control 
+                                    type="Zip" 
+                                    placeholder="Zip"
+                                    className="custom-input-size"/>
+                                </Form.Group>   <Form.Group className="MyForm" controlId="formBasicEmail">
+                                <Form.Control 
+                                    type="City" 
+                                    placeholder="City"
+                                    className="custom-input-size"/>
+                                </Form.Group>
+                                <Form.Group className="MyForm" controlId="formBasicEmail">
+                                <Form.Control 
+                                    type="Country" 
+                                    placeholder="Country"
+                                    className="custom-input-size"/>
+                                </Form.Group>
+                            </Form>
                         </Modal.Body>
                     </Modal>
              </div>
