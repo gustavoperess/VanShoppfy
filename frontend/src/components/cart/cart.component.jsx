@@ -82,6 +82,11 @@ function CartComponent() {
         setSelectedZip(event.target.value);
     };
 
+    const handleReturnToCheckout = () => {
+        setShowPaymentModal(false); 
+        setShow(true); 
+    };
+
     return (
         <Container>
             <div className="my-bag-container">
@@ -131,7 +136,7 @@ function CartComponent() {
                         </tr>
                     </tbody>
                 </Table>
-                <Modal show={show} onHide={handleClose}>
+                <Modal show={show} onHide={handleClose} className="my-custom-modal">
                 <Modal.Header className="modal-header">
                         <div className="close-area" onClick={handleClose}>
                             <span aria-hidden="true">&times;</span>
@@ -198,10 +203,10 @@ function CartComponent() {
                         </Button>
                     </Modal.Footer>
                 </Modal>
-                <Modal show={showPaymentModal} onHide={() => setShowPaymentModal(false)}>
+                <Modal show={showPaymentModal} className="my-custom-modal" onHide={() => setShowPaymentModal(false)}>
                 <Modal.Header className="modal-header">
-                        <div className="close-area" onClick={handleClose}>
-                            <span aria-hidden="true">&times;</span>
+                        <div className="close-area-two" onClick={handleReturnToCheckout}>
+                            <span aria-hidden="true">&larr;</span>
                         </div>
                         <Modal.Title className="modal-title">
                             <h6>VanShoppFY</h6>
@@ -231,10 +236,7 @@ function CartComponent() {
                         <p className="faketext">1234 5678 8910 1112 - Exp: 10/30 - CVV 456</p> 
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={() => setShowPaymentModal(false)}>
-                            Close
-                        </Button>
-                        <Button variant="primary" onClick={() => {/* Handle payment submission here */}}>
+                        <Button className="payment-info-button" onClick={() => {/* Handle payment submission here */}}>
                             Submit Payment
                         </Button>
                         

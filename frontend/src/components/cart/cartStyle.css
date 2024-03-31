@@ -175,6 +175,11 @@
     cursor: pointer;
     text-align: right; 
 }
+.close-area-two {
+    width: 100%;
+    cursor: pointer;
+    text-align: left; 
+}
 
 .modal-title {
     width: 100%; 
@@ -214,3 +219,8 @@
     padding-top: 10px;
     color: red;
 }
+.my-custom-modal {
+    transform: translate(0, 10%);
+    top: 50%;
+    margin: 0 auto;
+} 
