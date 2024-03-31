@@ -132,10 +132,13 @@ function CartComponent() {
                     </tbody>
                 </Table>
                 <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton className="modal-header">
-                        <Modal.Title>
-                            VanShoppFY
-                            your total is {formatPrice(totalAmount)}
+                <Modal.Header className="modal-header">
+                        <div className="close-area" onClick={handleClose}>
+                            <span aria-hidden="true">&times;</span>
+                        </div>
+                        <Modal.Title className="modal-title">
+                            <h6>VanShoppFY</h6>
+                            <p>your total is {formatPrice(totalAmount)}</p>
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body className="modal-body">
@@ -202,18 +205,21 @@ function CartComponent() {
                     </Modal.Footer>
                 </Modal>
                 <Modal show={showPaymentModal} onHide={() => setShowPaymentModal(false)}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Payment Information</Modal.Title>
+                <Modal.Header className="modal-header">
+                        <div className="close-area" onClick={handleClose}>
+                            <span aria-hidden="true">&times;</span>
+                        </div>
+                        <Modal.Title className="modal-title">
+                            <h6>VanShoppFY</h6>
+                            <p>your total is {formatPrice(totalAmount)}</p>
+                        </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        {/* Payment form or information here */}
                         <Form>
-                            {/* Example: Payment form fields */}
                             <Form.Group controlId="paymentCardNumber">
                                 <Form.Label>Card Number</Form.Label>
                                 <Form.Control type="text" placeholder="Enter card number" />
                             </Form.Group>
-                            {/* Add more fields as needed */}
                         </Form>
                     </Modal.Body>
                     <Modal.Footer>
