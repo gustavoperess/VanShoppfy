@@ -2,8 +2,9 @@ import "./cartStyle.css";
 import { useCart } from '../../contexts/CartContext';
 import { useNavigate } from "react-router-dom"; 
 import {Form, Button, Modal, Container, Table} from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useUser } from "../../contexts/UserContext";
+import VisitorAPI from 'visitorapi';
 
 function CartComponent() {
     const [show, setShow] = useState(false);
@@ -12,6 +13,15 @@ function CartComponent() {
     const handleShow = () => setShow(true);
     const { userData, refreshUserData } = useUser();
     const [formData, setFormData] = useState({ name: userData?.name});
+    const [country, setCountry] = useState("");
+
+    // useEffect(() => {
+    //     VisitorAPI("B878v04eK6t1EbCNsi7r").then(data => {
+    //         setCountry(data.countryName);
+    //     }).catch(error => {
+    //        console.log("Error in loading the Country", error)
+    //     });
+    //  },[]);
 
     const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem, increaseItem, updateItem} = useCart();
 

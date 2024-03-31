@@ -14,5 +14,8 @@
   },
   "devDependencies": {
     "file-loader": "^6.2.0"
+  },
+  "dependencies": {
+    "visitorapi": "^2.0.0"
   }
 }
