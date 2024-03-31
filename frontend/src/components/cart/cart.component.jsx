@@ -142,8 +142,8 @@ function CartComponent() {
                         </Modal.Title>
                         </Modal.Header>
                         <Modal.Body className="modal-body">
-                            <Form>
-                            <Form.Group className="MyForm" controlId="formBasicEmail">
+                            <Form className="addressControl">
+                            <Form.Group controlId="formBasicEmail">
                             <div className="person"> 
                             <i className="bi bi-person"></i>
                             <Form.Control 
@@ -155,8 +155,8 @@ function CartComponent() {
                                     onChange={handleChange}/>
                             </div>
                                 </Form.Group>
-                            <div className="addressControl">
-                                <Form.Group className="MyForm" controlId="formBasicEmail">
+                       
+                                <Form.Group  controlId="formBasicEmail">
                                 <div className="address">
                                 <i className="bi bi-geo-alt"></i>
                                 <Form.Control 
@@ -166,8 +166,9 @@ function CartComponent() {
                                     onChange={handleAddreessChange}
                                     />
                                 </div>
-                                </Form.Group>   
+                                </Form.Group> 
                                 <div className="ZipCityDiv">
+                                <i class="bi bi-map"></i>
                                     <Form.Group className="zip" controlId="formBasicEmail">
                                     <Form.Control 
                                         type="Zip" 
@@ -186,7 +187,7 @@ function CartComponent() {
                                     
                                     </Form.Group>
                                 </div>
-                                <Form.Select aria-label="Default select example" value={selectedCountry} onChange={handleCountryChange}>
+                                <Form.Select value={selectedCountry} className="country" onChange={handleCountryChange}>
                                     {initiaCountry && (
                                         <option key={initiaCountry} value={initiaCountry}>{initiaCountry}</option>
                                     )}
@@ -197,7 +198,6 @@ function CartComponent() {
                                         return null; 
                                     })}
                                 </Form.Select>
-                                </div>
                             </Form>
                         </Modal.Body>
                     </Modal>
