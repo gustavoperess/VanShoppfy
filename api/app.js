@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 app.use("/tokens",  authenticationRouter);
 app.use("/users", usersRouter);
-app.use("/userorder", userOrderRouter);
+app.use("/userorders", userOrderRouter);
 app.use('/uploads', express.static('uploads'));
 app.use("/products", productRouter);
 app.use("/carts", cartRouter)

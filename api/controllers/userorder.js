@@ -1,16 +1,15 @@
 const UserOder = require("../models/userorder");
 
 const createOrder = async (req, res) => {
+    console.log(req.body)
     try {
         const newOrder = new UserOder({ 
-            username : req.user.username,
-            email : req.user.email,
-            total: req.products.total,
+            // username : req.user.username,
+            // email : req.user.email,
+            // total: req.products.total,
         });
-        await newOrder.save()
         res.status(201).json({ message: 'Order created successfully', order: newOrder });
     }catch(err) {
-        console.error(error);
         res.status(500).json({ message: 'Internal server error' });
     }
 }

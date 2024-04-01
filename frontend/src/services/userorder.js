@@ -1,24 +1,23 @@
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 
-export const createOder = async (form, userid) => {
-    const requestOptions = {
+export const createOder = async (formData, userid) => {
+      const requestOptions = {
         method: 'POST',
-        body: form
+        body: formData,
+
     };
-    
       // Loop through FormData entries
-    //   for (let [key, value] of form.entries()) {
+    //   for (let [key, value] of formData.entries()) {
     //     console.log(`Key: ${key}, Value: ${value}`);
     // }
 
-    const response = await fetch(`${BACKEND_URL}/userorders/createOrder${userid}`, requestOptions);
-
+    const response = await fetch(`${BACKEND_URL}/userorders/createOrder/${userid}`, requestOptions);
+    console.log(response)
     if (response.status === 201) {
         return;
       } else {
-        const errorResponse = await response.json(); 
-        const errorMessage = errorResponse.message || `Received status ${response.status} when signing up. Expected 201`;
+        const errorResponse = await response.json();
         throw new Error(errorResponse);
       }
 }

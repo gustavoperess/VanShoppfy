@@ -137,7 +137,7 @@ function CartComponent() {
             setTimeout(() => setFormValidationFailed(false), 500); 
         } else {
             const formData = new FormData();
-            formData.append("name", formData.name);
+            formData.append("name", userName.name);
             formData.append("address", address);
             formData.append("zip", zip);
             formData.append("city", city);
