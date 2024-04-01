@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 
 const UseOrderrSchema =  new mongoose.Schema({
     userid: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+    productsId: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }],
     name: {type: String},
     totalAmount: {type: Number},
     address: {type: String},

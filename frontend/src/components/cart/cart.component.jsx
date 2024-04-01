@@ -147,7 +147,7 @@ function CartComponent() {
             formData.append("cvv", cvvCheck);
             formData.append("totalAmount", totalAmount);
             for (let i = 0; i < cartItems?.length; i++) {
-                formData.append("productsBougth", cartItems[i]._id);
+                formData.append("productsBought", cartItems[i]._id);
             }
             try {
                 createOder(formData, userData?._id) 
