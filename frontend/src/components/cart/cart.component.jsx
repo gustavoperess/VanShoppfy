@@ -129,6 +129,13 @@ function CartComponent() {
         }
     };
 
+    const handleSubmit = () => {
+        if(!cvv || !creditCard || !monthYear) {
+            setFormValidationFailed(true);
+            setTimeout(() => setFormValidationFailed(false), 500); 
+        }
+    }
+
     
     return (
         <Container>
@@ -258,7 +265,7 @@ function CartComponent() {
                         <Button className="payment-info-button" onClick={handleProceedToCheckout}>Proceed to Payment</Button>
                     </Modal.Footer>
                 </Modal>
-                <Modal show={showPaymentModal} className="my-custom-modal" onHide={() => setShowPaymentModal(false)}>
+                <Modal show={showPaymentModal}  className={`my-custom-modal ${formValidationFailed ? 'horizontal-shaking-animation' : ''}`}  onHide={() => setShowPaymentModal(false)}>
                 <Modal.Header className="modal-header">
                         <div className="close-area-two" onClick={handleReturnToCheckout}>
                             <span aria-hidden="true">&larr;</span>
@@ -311,10 +318,9 @@ function CartComponent() {
                         <p className="faketext">1234 5678 8910 1112 - Exp: 10/30 - CVV 456</p> 
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button className="payment-info-button" onClick={() => {/* Handle payment submission here */}}>
+                        <Button className="payment-info-button" onClick={handleSubmit}>
                             Submit Payment
                         </Button>
-                        
                     </Modal.Footer>
                 </Modal>
             </div>
