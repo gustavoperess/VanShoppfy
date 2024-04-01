@@ -1,1 +1,10 @@
-const User = require("../models/user");
+const UserOder = require("../models/user");
+
+
+
+const UserOrderControler = {
+ 
+  
+  };
+
+  module.exports = UserOrderControler;
