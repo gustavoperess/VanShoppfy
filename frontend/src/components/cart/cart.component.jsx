@@ -150,7 +150,8 @@ function CartComponent() {
                 formData.append("productsBought", cartItems[i]._id);
             }
             try {
-                createOder(formData, userData?._id) 
+                createOder(formData, userData?._id)
+                setShowPaymentModal(false); 
             } catch (err) {
                 console.log("error creating order", err)
             }

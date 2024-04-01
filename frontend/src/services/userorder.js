@@ -13,7 +13,7 @@ export const createOder = async (formData, userid) => {
     // }
 
     const response = await fetch(`${BACKEND_URL}/userorders/createOrder/${userid}`, requestOptions);
-    console.log(response)
+
     if (response.status === 201) {
         return;
       } else {
