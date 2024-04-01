@@ -14,7 +14,7 @@ function CartComponent() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const { userData, refreshUserData } = useUser();
-    const [formData, setFormData] = useState({ name: userData?.name });
+    const [formData, setFormData] = useState({ name: userData?.name || '' });
     const [initiaCountry, setInitiaCountry] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
     const [city, setSelectedCity] = useState("");
@@ -92,9 +92,7 @@ function CartComponent() {
     const handleProceedToCheckout = () => {
         if (!city || !zip || !address) {
             setFormValidationFailed(true);
-            // Optionally, reset the validation state after the animation duration
-            setTimeout(() => setFormValidationFailed(false), 500); // 500ms = animation duration
-            console.log("NOT ALLOWED");
+            setTimeout(() => setFormValidationFailed(false), 500); 
         } else {
             setFormValidationFailed(false); // Reset on successful validation
             handleClose(); 
@@ -152,7 +150,7 @@ function CartComponent() {
                         </tr>
                     </tbody>
                 </Table>
-                <Modal show={show} onHide={handleClose} className={`my-custom-modal ${formValidationFailed ? 'shake-animation' : ''}`}>
+                <Modal show={show} onHide={handleClose} className={`my-custom-modal ${formValidationFailed ? 'horizontal-shaking-animation' : ''}`}>
                 <Modal.Header className="modal-header">
                         <div className="close-area" onClick={handleClose}>
                             <span aria-hidden="true">&times;</span>
@@ -164,36 +162,50 @@ function CartComponent() {
                     </Modal.Header>
                     <Modal.Body className="modal-body">
                         <Form className="addressControl">
-                            <Form.Group controlId="formBasicEmail">
+                            <Form.Group >
                                 <div className="person"> 
                                     <i className="bi bi-person icontwo"></i>
                                     <Form.Control 
-                                        type="name" 
-                                        name="name" 
-                                        placeholder="Enter name" 
+                                        type="text" 
+                                        name="name"
+                                        placeholder="Enter name"
                                         value={formData.name} 
                                         onChange={handleChange}
+                                        className={formValidationFailed && !formData.name ? 'form-control-error' : ''}
                                     />
                                 </div>
                             </Form.Group>
-                            <Form.Group controlId="formBasicEmail">
+                            <Form.Group >
                                 <div className="address">
                                     <i className="bi bi-geo-alt icontree"></i>
                                     <Form.Control 
-                                        type="Address" 
+                                        type="text" 
+                                        name="Address"
                                         placeholder="Address"
                                         onChange={handleAddreessChange}
+                                        className={formValidationFailed && !address ? 'form-control-error' : ''}
                                     />
                                 </div>
                             </Form.Group> 
                             <div className="ZipCityDiv">
-                                <Form.Group className="zip" controlId="formBasicEmail">
+                                <Form.Group className="zip" >
                                 <i className="bi bi-map icon"></i>
-                                    <Form.Control  type="text" placeholder="Zip" onChange={handleZipChange}/>
+                                    <Form.Control  
+                                        type="text"
+                                        name="Zip"
+                                        placeholder="Zip/Postal Code"
+                                        onChange={handleZipChange}
+                                        className={formValidationFailed && !zip ? 'form-control-error' : ''}
+                                    />
                                 </Form.Group>  
-                                <Form.Group className="city" controlId="formBasicEmail">
+                                <Form.Group className="city" >
                                 <i className="bi bi-compass icon"></i>
-                                    <Form.Control  type="text" placeholder="City"onChange={handleCityChange} />
+                                    <Form.Control  
+                                    type="text" 
+                                    placeholder="City"
+                                    onChange={handleCityChange} 
+                                    className={formValidationFailed && !city ? 'form-control-error' : ''}
+                                    />
                                 </Form.Group>
                             </div>
                             <i className="bi bi-pin-map iconfour"></i>

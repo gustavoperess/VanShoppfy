@@ -149,6 +149,9 @@
     font-size: 1.5rem; /* Adjust icon size as needed */
 }
 
+.form-control-error {
+    background-color: #DC143C !important;
+}
 
 
 .form-control, .form-select {
@@ -219,21 +222,16 @@
     padding-top: 10px;
     color: red;
 }
-.my-custom-modal {
-    transform: translate(0, 10%);
-    top: 50%;
-    margin: 0 auto;
-} 
 
 
-@keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    50% { transform: translateX(10px); }
-    75% { transform: translateX(-10px); }
-    100% { transform: translateX(0); }
+@keyframes horizontal-shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
   }
   
-  .shake-animation {
-    animation: shake 0.5s;
+  .horizontal-shaking-animation {
+    animation: horizontal-shaking 0.35s;
   }
