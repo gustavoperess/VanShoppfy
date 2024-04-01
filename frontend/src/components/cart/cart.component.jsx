@@ -20,6 +20,8 @@ function CartComponent() {
     const [city, setSelectedCity] = useState("");
     const [zip, setSelectedZip] = useState("");
     const [address, setSelectedAddress] = useState("");
+    const [creditCard, setCreditCard] = useState("")
+    const [creditCardIcon, setCreditCardIcon] = useState(false)
     const [showPaymentModal, setShowPaymentModal] = useState(false);
     const [formValidationFailed, setFormValidationFailed] = useState(false);
 
@@ -72,17 +74,13 @@ function CartComponent() {
         setSelectedCountry(event.target.value);
     };
 
-    const handleAddreessChange = (event) => {
-        setSelectedAddress(event.target.value);
-    };
-
-    const handleCityChange = (event) => {
-        setSelectedCity(event.target.value);
-    };
-
-    const handleZipChange = (event) => {
-        setSelectedZip(event.target.value);
-    };
+    const handleCreditCardChange = (event) => {
+        if (event.target.value[0] == 1) {
+            setCreditCardIcon(true)
+        } else {
+            setCreditCardIcon(false)
+        }
+    }
 
     const handleReturnToCheckout = () => {
         setShowPaymentModal(false); 
@@ -100,7 +98,7 @@ function CartComponent() {
         }
     };
 
-
+    
     return (
         <Container>
             <div className="my-bag-container">
@@ -182,7 +180,8 @@ function CartComponent() {
                                         type="text" 
                                         name="Address"
                                         placeholder="Address"
-                                        onChange={handleAddreessChange}
+                                        value={address} 
+                                        onChange={(e) => setSelectedAddress(e.target.value)}
                                         className={formValidationFailed && !address ? 'form-control-error' : ''}
                                     />
                                 </div>
@@ -194,7 +193,8 @@ function CartComponent() {
                                         type="text"
                                         name="Zip"
                                         placeholder="Zip/Postal Code"
-                                        onChange={handleZipChange}
+                                        value={zip}
+                                        onChange={(e) => setSelectedZip(e.target.value)}
                                         className={formValidationFailed && !zip ? 'form-control-error' : ''}
                                     />
                                 </Form.Group>  
@@ -203,7 +203,8 @@ function CartComponent() {
                                     <Form.Control  
                                     type="text" 
                                     placeholder="City"
-                                    onChange={handleCityChange} 
+                                    value={city} 
+                                    onChange={(e) => setSelectedCity(e.target.value)}
                                     className={formValidationFailed && !city ? 'form-control-error' : ''}
                                     />
                                 </Form.Group>
@@ -240,8 +241,16 @@ function CartComponent() {
                         <Form>
                             <Form.Group controlId="paymentCardNumber">
                             <div className="person"> 
-                                <i class="bi bi-credit-card icontwo"></i>
-                                <Form.Control type="text" placeholder="Enter card number" />
+                                <i className="bi bi-credit-card icontwo"></i>
+                                <Form.Control 
+                                type="text" 
+                                placeholder="Enter card number" 
+                                onChange={handleCreditCardChange}
+                                
+                                
+                                />
+                                {creditCardIcon ? <div className="visaCreditCard"> <img src="../../../public/visa.svg"></img></div> 
+                                : ""}
                             </div>
                             </Form.Group>
                             <div className="monthcvvdiv">
