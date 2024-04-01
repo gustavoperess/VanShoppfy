@@ -2,8 +2,10 @@ const mongoose = require("mongoose")
 
 
 const UseOrderrSchema =  new mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    userid: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
+    name: {type: String},
+    totalAmount: {type: Number},
     address: {type: String},
     zip: {type: Number},
     month: {type: Number},
@@ -11,11 +13,10 @@ const UseOrderrSchema =  new mongoose.Schema({
     city: {type: String},
     creditcard: {type: Number},
     country: {type: String},
-    total: {type: Number},
     oderNumber: {type: Number},
 
 })
 
 
-const UserOder = mongoose.model("UserOrder", UseOrderrSchema)
-module.exports = UserOder;
+const UserOrder = mongoose.model("UserOrder", UseOrderrSchema)
+module.exports = UserOrder;
