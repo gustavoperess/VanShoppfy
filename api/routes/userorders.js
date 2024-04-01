@@ -6,6 +6,6 @@ const tokenChecker = require('../middleware/tokenChecker.js'); // Your token ver
 const router = express.Router();
 
 
-router.post("/postUserOrder/:userid", UserOrderControler);
+router.post("/postUserOrder/:userid", UserOrderControler.createOrder);
 
 module.exports = router;
