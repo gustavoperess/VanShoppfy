@@ -19,8 +19,13 @@ function CartComponent() {
     const [selectedCountry, setSelectedCountry] = useState("");
     const [city, setSelectedCity] = useState("");
     const [zip, setSelectedZip] = useState("");
+    const [monthYear, setMonthYear] = useState("");
+    const [monthYearCheck, setMonthYearCheck] = useState("");
+    const [cvv, setCvv] = useState("");
+    const [cvvCheck, setCvvCheck] = useState("");
     const [address, setSelectedAddress] = useState("");
     const [creditCard, setCreditCard] = useState("")
+    const [creditCardNumberCheck, setCreditCardNumberCheck] = useState("")
     const [creditCardIcon, setCreditCardIcon] = useState(false)
     const [showPaymentModal, setShowPaymentModal] = useState(false);
     const [formValidationFailed, setFormValidationFailed] = useState(false);
@@ -75,11 +80,37 @@ function CartComponent() {
     };
 
     const handleCreditCardChange = (event) => {
+        let value = event.target.value.replace(/\D/g, '');
+        value = value.slice(0, 16);
+        const formattedValue = value.replace(/(.{4})/g, '$1 ').trim();
+        setCreditCard(formattedValue);
+        if (value == "1234567889101112") {
+            setCreditCardNumberCheck(value)
+        }
         if (event.target.value[0] == 1) {
             setCreditCardIcon(true)
         } else {
             setCreditCardIcon(false)
         }
+    }
+
+    const handleMonthYearChange = (event) => {
+        let value = event.target.value.replace(/\D/g, '');
+        value = value.slice(0, 4);
+        const formattedValue = value.length > 2 ? value.slice(0, 2) + '/' + value.slice(2) : value;
+        setMonthYear(formattedValue)
+        if (value == "1030" ) {
+            setMonthYearCheck(value)
+        } 
+    }
+
+    const handleCvvChange = (event) => {
+        let value = event.target.value.replace(/\D/g, '');
+        value = value.slice(0, 3);
+        setCvv(value)
+        if (value == "456" ) {
+            setCvvCheck(value)
+        } 
     }
 
     const handleReturnToCheckout = () => {
@@ -246,8 +277,8 @@ function CartComponent() {
                                 type="text" 
                                 placeholder="Enter card number" 
                                 onChange={handleCreditCardChange}
-                                
-                                
+                                value={creditCard}
+                                className={formValidationFailed && !creditCardNumberCheck ? 'form-control-error' : ''}
                                 />
                                 {creditCardIcon ? <div className="visaCreditCard"> <img src="../../../public/visa.svg"></img></div> 
                                 : ""}
@@ -256,11 +287,23 @@ function CartComponent() {
                             <div className="monthcvvdiv">
                                 <Form.Group className="month" controlId="paymentMonth">
                                     <i className="bi bi-calendar-day icon"></i>
-                                    <Form.Control type="text" placeholder="MM/YY" />
+                                    <Form.Control 
+                                    type="text" 
+                                    placeholder="MM/YY"
+                                    onChange={handleMonthYearChange}
+                                    value={monthYear} 
+                                    className={formValidationFailed && !monthYearCheck ? 'form-control-error' : ''}
+                                    />
                                 </Form.Group>
                                 <Form.Group className="cvv" controlId="paymentCVV">
                                     <i className="bi bi-file-lock icon"></i>
-                                    <Form.Control type="text" placeholder="CVV" />
+                                    <Form.Control 
+                                    type="text"
+                                     placeholder="CVV" 
+                                     onChange={handleCvvChange}
+                                     value={cvv} 
+                                     className={formValidationFailed && !cvvCheck ? 'form-control-error' : ''}
+                                     />
                                 </Form.Group>
                             </div>
                         </Form>

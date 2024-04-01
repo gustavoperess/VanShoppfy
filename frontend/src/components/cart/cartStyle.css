@@ -151,8 +151,19 @@
 
 .visaCreditCard {
     position: absolute;
-    left: 420px;
-    top: 10px; 
+    left: 40px;
+    top: 10px;
+    animation: slideIn 0.5s forwards; 
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(40px); 
+    }
+    to {
+        transform: translateX(0); 
+        left: 420px; 
+    }
 }
 
 .form-control-error {
