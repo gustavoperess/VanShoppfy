@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Form, Button, Modal, Container, Table } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { useUser } from "../../contexts/UserContext";
+import { createOder } from "../../services/userorder";
 import VisitorAPI from 'visitorapi';
 import countries from 'country-list';
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -14,7 +15,7 @@ function CartComponent() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const { userData, refreshUserData } = useUser();
-    const [formData, setFormData] = useState({ name: userData?.name || '' });
+    const [userName, setUserName] = useState({ name: userData?.name || '' });
     const [initiaCountry, setInitiaCountry] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
     const [city, setSelectedCity] = useState("");
@@ -67,9 +68,9 @@ function CartComponent() {
         }
     };
 
-    const handleChange = (event) => {
+    const handleNameChange = (event) => {
         const { name, value } = event.target;
-        setFormData(prevState => ({
+        setUserName(prevState => ({
             ...prevState,
             [name]: value,
         }));
@@ -128,11 +129,31 @@ function CartComponent() {
             setShowPaymentModal(true);  
         }
     };
+ 
 
     const handleSubmit = () => {
         if(!cvv || !creditCard || !monthYear) {
             setFormValidationFailed(true);
             setTimeout(() => setFormValidationFailed(false), 500); 
+        } else {
+            const formData = new FormData();
+            formData.append("name", formData.name);
+            formData.append("address", address);
+            formData.append("zip", zip);
+            formData.append("city", city);
+            formData.append("country", selectedCountry);
+            formData.append("creditcard", creditCardNumberCheck);
+            formData.append("month", monthYearCheck);
+            formData.append("cvv", cvvCheck);
+            formData.append("totalAmount", totalAmount);
+            for (let i = 0; i < cartItems?.length; i++) {
+                formData.append("productsBougth", cartItems[i]._id);
+            }
+            try {
+                createOder(formData, userData?._id) 
+            } catch (err) {
+                console.log("error creating order", err)
+            }
         }
     }
 
@@ -205,9 +226,9 @@ function CartComponent() {
                                         type="text" 
                                         name="name"
                                         placeholder="Enter name"
-                                        value={formData.name} 
-                                        onChange={handleChange}
-                                        className={formValidationFailed && !formData.name ? 'form-control-error' : ''}
+                                        value={userName.name} 
+                                        onChange={handleNameChange}
+                                        className={formValidationFailed && !userName.name ? 'form-control-error' : ''}
                                     />
                                 </div>
                             </Form.Group>

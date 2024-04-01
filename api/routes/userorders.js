@@ -1,11 +1,10 @@
 const express = require("express");
-
-const UserOrderControler = require("../controllers/users.js");
-const tokenChecker = require('../middleware/tokenChecker.js'); // Your token verification middleware
+const UserOrderControler = require("../controllers/userorder.js");
+const tokenChecker = require('../middleware/tokenChecker.js'); 
 
 const router = express.Router();
 
 
-router.post("/postUserOrder/:userid", UserOrderControler.createOrder);
+router.post("/createOrder/:userid", UserOrderControler.createOrder);
 
 module.exports = router;

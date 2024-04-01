@@ -1,4 +1,4 @@
-const UserOder = require("../models/user");
+const UserOder = require("../models/userorder");
 
 const createOrder = async (req, res) => {
     try {
