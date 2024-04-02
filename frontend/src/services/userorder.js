@@ -33,11 +33,15 @@ export const getUserOrders = async (userid, token) => {
 
     const response = await fetch(`${BACKEND_URL}/userorders/getOrders/${userid}`, requestOptions);
 
-    if (response.status === 201) {
-      return;
-    } else {
-      const errorResponse = await response.json();
-      throw new Error(errorResponse);
+    if (response.status === 200) {
+      const items = await response.json();
+      const orders = items.orders
+      const products = items.products
+      return { orders, products };
+    } else  {
+      const errorResponse = await response.json(); 
+      const errorMessage = errorResponse.message || `Received status ${response.status}`;
+      throw new Error(errorMessage);
     }
-
+ 
 }

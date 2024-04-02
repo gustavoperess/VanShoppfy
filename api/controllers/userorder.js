@@ -26,7 +26,7 @@ const createOrder = async (req, res) => {
         console.error(err);
         res.status(500).json({ message: 'Internal server error' });
     }
-};
+};  
 
 const getUserOrders = async (req, res) => {
     const userId = req.params.userid;
@@ -36,13 +36,12 @@ const getUserOrders = async (req, res) => {
         const products = await Product.find({ _id: { $in: productIds } });
        
         res.json({ orders: userOrderDetails, products: products });
-
     } catch (err) {
         console.error("Error retrieving user's information", err);
         res.status(500).json({ message: "Error retrieving user's information" });
     }
 };
-
+  
 const UserOrderControler = {
     createOrder:createOrder,
     getUserOrders:getUserOrders
