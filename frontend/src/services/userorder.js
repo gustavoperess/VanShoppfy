@@ -21,3 +21,21 @@ export const createOder = async (formData, userid) => {
         throw new Error(errorResponse);
       }
 }
+
+
+export const getOrders = async (userid) => {
+    const requestOptions = {
+      method: 'GET',
+    };
+
+    const response = await fetch(`${BACKEND_URL}/userorders/getOrder/${userid}`, requestOptions);
+
+
+    if (response.status === 201) {
+      return;
+    } else {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse);
+    }
+
+}
