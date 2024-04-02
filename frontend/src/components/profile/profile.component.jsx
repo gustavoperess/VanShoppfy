@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import {Card, Accordion} from 'react-bootstrap';
+import {Accordion, Table} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useUser } from "../../contexts/UserContext";
 import { getUserOrders } from '../../services/userorder';
@@ -26,12 +26,14 @@ function ProfileComponent() {
         }
     }, [token, userData?._id]);
     
-    console.log(userOrder.orders[1]?.productsId,"SEPARTATION", userOrder?.products)
-
+   
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
     };
+
+   
+    
  
     if (isLoading) {
         return <div>Loading...</div>; // Or some loading spinner
@@ -43,13 +45,36 @@ function ProfileComponent() {
             {userOrder.orders?.map((order, index) => (
               <Accordion.Item key={index} eventKey={index.toString()}>
                 <Accordion.Header>
-                    Order Number: {order.orderNumber} 
+                    Order Number: {order.orderNumber}
                     Total Amount: {formatPrice(order.totalAmount)}
                 </Accordion.Header>
                 <Accordion.Body>
                   {userOrder.products?.filter(product => order.productsId.includes(product._id)).map((product, productIndex) => (
-                      <div key={productIndex}>
-                        {product.productName} 
+                      <div className="my-bag-products" key={productIndex}>
+                         <Table striped bordered hover>
+                         <thead>
+                            <tr> 
+                                <th>Product</th>
+                                <th>Product Price</th>
+                            </tr>
+                        </thead>
+                        <tbody className="table-body">
+                            <tr>
+                                <td className="table-body-product"> 
+                                    <img className="myImage" src={product?.productPicture ? product?.productPicture : 'default-picture-url'} alt={product.productName} />
+                                    <div className="table-body-product-text">
+                                        <h1>{product.productName}</h1>
+                                        <p>{product.productCategory}</p>
+                                        <p>{product.productGender}</p>
+                                    </div>     
+                                </td>
+                                {/* Use product's price directly */}
+                                <td className="table-body-price">
+                                  {formatPrice(parseFloat(product.productPrice.$numberDecimal))}
+                                </td>
+                            </tr>
+                        </tbody>
+                        </Table>
                       </div>
                     ))
                   }
@@ -62,7 +87,3 @@ function ProfileComponent() {
 }
 
 export default ProfileComponent;
-
-// {userOrder.orders.map((item, index) => ( 
-
-// {orders: Array(1), products: Array(5)}
