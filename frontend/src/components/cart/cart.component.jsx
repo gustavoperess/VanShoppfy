@@ -46,7 +46,7 @@ function CartComponent() {
         fetchCountry();
     }, []);
 
-    const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem, increaseItem, updateItem } = useCart();
+    const { cartItems, cartCount, totalAmount, removeFromCart, addToCart, decreaseItem, increaseItem, updateItem, removeAllitemsFromCart } = useCart();
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
@@ -151,7 +151,9 @@ function CartComponent() {
             }
             try {
                 createOder(formData, userData?._id)
-                setShowPaymentModal(false); 
+                setShowPaymentModal(false);
+                removeAllitemsFromCart()
+                navigate("/profile");
             } catch (err) {
                 console.log("error creating order", err)
             }

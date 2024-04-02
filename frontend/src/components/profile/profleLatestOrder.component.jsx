@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useNavigate } from 'react';
 import {Accordion, Table, ListGroup} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useUser } from "../../contexts/UserContext";
@@ -6,6 +6,9 @@ import { getUserOrders } from '../../services/userorder';
 import "./profileStyle.css"
 
 function ProfileLatestOrder() {
+    const { userData, refreshUserData } = useUser();
+    const navigate = useNavigate();
+    
    
     return (
         <div className='profile-page-container'>

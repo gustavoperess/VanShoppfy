@@ -87,6 +87,11 @@ export const CartProvider = ({ children }) => {
         
     };
 
+    const removeAllitemsFromCart = () => {
+        setCartItems([]);
+        setTotalAmount(0);
+        setCartCount(0);
+    };
 
     const updateItem = (productId) => {
         setCartItems(prevItems => prevItems.map(item => {
@@ -104,7 +109,7 @@ export const CartProvider = ({ children }) => {
 
 
     return (
-        <CartContext.Provider value={{ cartCount, cartItems, addToCart, totalAmount, removeFromCart, decreaseItem, increaseItem, updateItem }}>
+        <CartContext.Provider value={{ cartCount, cartItems, addToCart, totalAmount, removeFromCart, decreaseItem, increaseItem, updateItem, removeAllitemsFromCart }}>
             {children}
         </CartContext.Provider>
     );
