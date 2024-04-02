@@ -8,3 +8,13 @@
 .accordion-rightside {
     width: 70%;
 }
+
+.accordion-body {
+    padding: 0px !important;
+}
+.table-body-profile {
+    margin-bottom: 0px !important;
+}
+.table-body-profile-price {
+    width: 20%;
+}

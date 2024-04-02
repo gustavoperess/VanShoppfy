@@ -7,16 +7,15 @@ const UseOrderrSchema =  new mongoose.Schema({
     name: {type: String},
     totalAmount: {type: Number},
     address: {type: String},
-    zip: {type: Number},
+    zip: mongoose.Schema.Types.Mixed,
     month: {type: Number},
     cvv: {type: Number},
     city: {type: String},
     creditcard: {type: Number},
     country: {type: String},
-    oderNumber: {type: Number},
+    orderNumber: {type: Number},
 
 })
-
 
 const UserOrder = mongoose.model("UserOrder", UseOrderrSchema)
 module.exports = UserOrder;

@@ -53,19 +53,13 @@ function ProfileComponent() {
             {userOrder.orders?.map((order, index) => (
               <Accordion.Item key={index} eventKey={index.toString()}>
                 <Accordion.Header>
-                    Order Number: {order.orderNumber}
-                    Total Amount: {formatPrice(order.totalAmount)}
+                    <p>Order Number: {order.orderNumber}</p>
+                    <p> Total Amount: {formatPrice(order.totalAmount)}</p>
                 </Accordion.Header>
-                <Accordion.Body>
+                <Accordion.Body className='accordion-body'>
                   {userOrder.products?.filter(product => order.productsId.includes(product._id)).map((product, productIndex) => (
-                      <div className="my-bag-products" key={productIndex}>
-                         <Table striped bordered hover>
-                         <thead>
-                            <tr> 
-                                <th>Product</th>
-                                <th>Product Price</th>
-                            </tr>
-                        </thead>
+                      <div className="my-bag-products-profile" key={productIndex}>
+                         <Table striped bordered hover className='table-body-profile'>
                         <tbody className="table-body">
                             <tr>
                                 <td className="table-body-product"> 
@@ -76,10 +70,7 @@ function ProfileComponent() {
                                         <p>{product.productGender}</p>
                                     </div>     
                                 </td>
-                                {/* Use product's price directly */}
-                                <td className="table-body-price">
-                                  {formatPrice(parseFloat(product.productPrice.$numberDecimal))}
-                                </td>
+                                <td className="table-body-profile-price">Price: {formatPrice(parseFloat(product.productPrice.$numberDecimal))}</td>
                             </tr>
                         </tbody>
                         </Table>

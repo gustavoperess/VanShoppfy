@@ -3,7 +3,7 @@ const Product = require("../models/product")
 
 const createOrder = async (req, res) => {
     try {
-        const orderNumber = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000; 
+        const orderNumber = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;  
         const newOrder = new UserOrder({
             userid: req.params.userid,
             name: req.body.name,
@@ -16,7 +16,7 @@ const createOrder = async (req, res) => {
             cvv: req.body.cvv,
             totalAmount: req.body.totalAmount,
             productsId: req.body.productsBought,
-            oderNumber: orderNumber,
+            orderNumber: orderNumber,
         });
 
         await newOrder.save(); 
