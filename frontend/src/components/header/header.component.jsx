@@ -25,8 +25,9 @@ const HeaderComponent = () => {
       setActiveCategory("Sign in");
     } else if (location.pathname == "/cart") {
       setActiveCategory("Cart");
-    }
-
+    } else if (location.pathname == "/profile") {
+      setActiveCategory("Profile");
+    } 
 },[location])
 
 const logout = () => {
@@ -60,7 +61,7 @@ return (
               <Link to="/" className={`nav-link ${activeCategory === 'Home' ? 'active' : ''}`} >Home</Link>
               <Link to="/shop" className={`nav-link ${activeCategory === 'Shop' ? 'active' : ''}`} >Shop</Link>
               <Link to="/contact" className={`nav-link ${activeCategory === 'Contact' ? 'active' : ''}`} >Contact</Link>
-                {userData && <Link to="/cart" className={`nav-link ${activeCategory === 'Cart' ? 'active' : 'UserInPlace'}`}>
+                {userData && <Link to="/profile" className={`nav-link ${activeCategory === 'Profile' ? 'active' : 'UserInPlace'}`}>
                   {userData.name}
                 </Link>}
                 {userData ? <div onClick={logout} className="signOut">Sign Out</div>
