@@ -3,13 +3,16 @@ import {Accordion, Table, ListGroup} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useUser } from "../../contexts/UserContext";
 import { getUserOrders } from '../../services/userorder';
+import { useLocation } from 'react-router-dom';
 import "./profileStyle.css"
 
 function ProfileComponent() {
     const { userData, refreshUserData } = useUser();
+    const [activeCategory, setActiveCategory] = useState("");
     const token = window.localStorage.getItem("token")
     const [userOrder, setUserOrder] = useState({ orders: [], products: [] });
     const [isLoading, setIsLoading] = useState(true); 
+    const location = useLocation();
 
     useEffect(() => {
         if (token && userData?._id) {
@@ -28,6 +31,15 @@ function ProfileComponent() {
     }, [token, userData?._id]);
     
    
+  useEffect(() => {
+    if ( location.pathname == "/profile") {
+        setActiveCategory("Profile");
+    } else if (location.pathname == "/profile/latestorder") {
+        setActiveCategory("LatestOrder");
+    } else if (location.pathname == "/profile/userdetails") {
+        setActiveCategory("Details");
+    }
+},[location])
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
@@ -42,8 +54,8 @@ function ProfileComponent() {
             <div className='profile-sidebar'>
                 <ListGroup>
                     <ListGroup.Item disabled >MY ACCOUNT</ListGroup.Item>
-                    <ListGroup.Item>Latest order</ListGroup.Item>
-                    <ListGroup.Item>Order History</ListGroup.Item>
+                    <ListGroup.Item><Link to="/profile/latestorder" className={`nav-link ${activeCategory === 'LatestOrder' ? 'active' : ''}`}>Latest order</Link></ListGroup.Item>
+                    <ListGroup.Item><Link to="/profile" className={`nav-link ${activeCategory === 'Profile' ? 'active' : ''}`}>Order History</Link></ListGroup.Item>
                     <ListGroup.Item>User Details</ListGroup.Item>
                 </ListGroup>
             </div>
