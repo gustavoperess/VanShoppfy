@@ -1,5 +1,6 @@
 const UserOrder = require("../models/userorder");
-
+const User = require("../models/user");
+const Product = require("../models/product")
 
 const createOrder = async (req, res) => {
     try {
@@ -28,8 +29,20 @@ const createOrder = async (req, res) => {
     }
 };
 
+const getUserOrders = async (req, res) => {
+    try {
+      const orders = await Product.find({ user: req.params.productsId });
+      const userOrderDetails = await UserOrder.findOne({ user: req.params.userId });
+      res.json(orders, userOrderDetails)
+  } catch (err) {
+      console.error("Error retriving user's information", err);
+      res.status(500).json({ message: "EError retriving user's information" });
+  }
+}
+
 const UserOrderControler = {
-    createOrder:createOrder
+    createOrder:createOrder,
+    getUserOrders:getUserOrders
   
   };
 
