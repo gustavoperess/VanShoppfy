@@ -1,0 +1,10 @@
+.profile-page-container {
+    display: flex;
+}
+
+.profile-sidebar {
+    width: 30%;
+}
+.accordion-rightside {
+    width: 70%;
+}

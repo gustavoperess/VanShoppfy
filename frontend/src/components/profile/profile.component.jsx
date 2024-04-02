@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import {Accordion, Table} from 'react-bootstrap';
+import {Accordion, Table, ListGroup} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useUser } from "../../contexts/UserContext";
 import { getUserOrders } from '../../services/userorder';
+import "./profileStyle.css"
 
 function ProfileComponent() {
     const { userData, refreshUserData } = useUser();
@@ -40,8 +41,15 @@ function ProfileComponent() {
     }
 
     return (
-        <div>       
-          <Accordion>
+        <div className='profile-page-container'>
+            <div className='profile-sidebar'>
+                <ListGroup>
+                    <ListGroup.Item disabled>My Account</ListGroup.Item>
+                    <ListGroup.Item>Order History</ListGroup.Item>
+                    <ListGroup.Item>User Details</ListGroup.Item>
+                </ListGroup>
+            </div>
+          <Accordion className='accordion-rightside'>
             {userOrder.orders?.map((order, index) => (
               <Accordion.Item key={index} eventKey={index.toString()}>
                 <Accordion.Header>
