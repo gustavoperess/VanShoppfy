@@ -7,6 +7,7 @@ import { AdminArea } from "./pages/Admin/AdminPage"
 import { ContactPage } from "./pages/Contact/ContactPage";
 import { CartPage } from "./pages/Cart/cartPage";
 import { ProfilePage } from "./pages/Profile/ProfilePage";
+import { ProfileLatestOrderPage } from "./pages/Profile/ProfileLatestOrder";
 
 import './App.css'
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <ProfilePage />,
+  },
+  {
+    path: "/profile/latestorder",
+    element: <ProfileLatestOrderPage />,
   },
 
 

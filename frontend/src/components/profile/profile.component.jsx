@@ -32,19 +32,17 @@ function ProfileComponent() {
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
     };
-
-   
-    
  
     if (isLoading) {
-        return <div>Loading...</div>; // Or some loading spinner
+        return <div>Loading...</div>; 
     }
 
     return (
         <div className='profile-page-container'>
             <div className='profile-sidebar'>
                 <ListGroup>
-                    <ListGroup.Item disabled>My Account</ListGroup.Item>
+                    <ListGroup.Item disabled >MY ACCOUNT</ListGroup.Item>
+                    <ListGroup.Item>Latest order</ListGroup.Item>
                     <ListGroup.Item>Order History</ListGroup.Item>
                     <ListGroup.Item>User Details</ListGroup.Item>
                 </ListGroup>
@@ -52,9 +50,9 @@ function ProfileComponent() {
           <Accordion className='accordion-rightside'>
             {userOrder.orders?.map((order, index) => (
               <Accordion.Item key={index} eventKey={index.toString()}>
-                <Accordion.Header>
+                <Accordion.Header >
                     <p>Order Number: {order.orderNumber}</p>
-                    <p> Total Amount: {formatPrice(order.totalAmount)}</p>
+                    <p>Total Amount: {formatPrice(order.totalAmount)}</p>
                 </Accordion.Header>
                 <Accordion.Body className='accordion-body'>
                   {userOrder.products?.filter(product => order.productsId.includes(product._id)).map((product, productIndex) => (

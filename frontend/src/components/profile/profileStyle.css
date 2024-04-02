@@ -7,19 +7,44 @@
 .profile-sidebar {
     width: 30%;
 }
+
 .accordion-rightside {
-    width: 70%;;
+    width: 50%;
 }
 
 .accordion-body {
     padding: 0px !important;
 }
+
 .table-body-profile {
     margin-bottom: 0px !important;
 }
+
 .table-body-profile-price {
     width: 20%;
 }
+
 .list-group-item {
     border: none !important;
+}
+
+.list-group-item.disabled {
+    font-size: larger !important;
+    margin-left: -30px !important;
+}
+.accordion-header p{
+    text-align: center;
+    font-weight: 700;
+    padding-right: 50px;
+
+}
+
+@media (max-width: 930px) {
+    .profile-page-container {
+        padding-left: 0; 
+    }
+    
+    .list-group-item.disabled {
+        margin-left: 0 !important; 
+    }
 }
