@@ -6,6 +6,6 @@ const router = express.Router();
 const upload = multer();
 
 router.post("/createOrder/:userid", upload.none(), UserOrderControler.createOrder);
-router.post("/getOrders/:userid",  UserOrderControler.getUserOrders);
+router.get("/getOrders/:userid",  UserOrderControler.getUserOrders);
 
 module.exports = router;

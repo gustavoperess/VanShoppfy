@@ -23,7 +23,7 @@ export const createOder = async (formData, userid) => {
 }
 
 
-export const getOrders = async (userid, token) => {
+export const getUserOrders = async (userid, token) => {
     const requestOptions = {
       method: 'GET',
       headers: {
@@ -31,7 +31,7 @@ export const getOrders = async (userid, token) => {
       },
     };
 
-    const response = await fetch(`${BACKEND_URL}/userorders/getOrder/${userid}`, requestOptions);
+    const response = await fetch(`${BACKEND_URL}/userorders/getOrders/${userid}`, requestOptions);
 
     if (response.status === 201) {
       return;
