@@ -1,12 +1,14 @@
 .profile-page-container {
     display: flex;
+    padding-left: 100px;
+    padding-top: 30px;
 }
 
 .profile-sidebar {
     width: 30%;
 }
 .accordion-rightside {
-    width: 70%;
+    width: 70%;;
 }
 
 .accordion-body {
@@ -17,4 +19,7 @@
 }
 .table-body-profile-price {
     width: 20%;
+}
+.list-group-item {
+    border: none !important;
 }
