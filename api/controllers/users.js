@@ -23,8 +23,10 @@ const create = (req, res) => {
 };
 
 const getUserInformationById = async (req, res) => {
+    const userid = req.params.userid
     try {
-      const user = await User.findOne({ user: req.params.userId });
+      const user = await User.findById(userid);
+      const usertwo = await User.findById(userid);
       res.status(200).json(user);
   } catch (err) {
       console.error("Error retriving user's information", err);

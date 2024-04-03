@@ -34,7 +34,6 @@ const getUserOrders = async (req, res) => {
         const userOrderDetails = await UserOrder.find({ userid: userId });
         const productIds = userOrderDetails.map(order => order.productsId).flat(); 
         const products = await Product.find({ _id: { $in: productIds } });
-       
         res.json({ orders: userOrderDetails, products: products });
     } catch (err) {
         console.error("Error retrieving user's information", err);
@@ -48,14 +47,19 @@ const getLatestOrder = async (req, res) => {
     const userId = req.params.userid;
     try {
         const userOrderDetails = await UserOrder.find({ userid: userId });
-        const lastItem = userOrderDetails[userOrderDetails.length - 1]
-        const products = await Product.find({ _id: { $in: lastItem.productsId } });
-        res.json({ order: lastItem, products: products });
+        if (userOrderDetails.length > 0) {
+            const lastItem = userOrderDetails[userOrderDetails.length - 1];
+            const products = await Product.find({ _id: { $in: lastItem.productsId } });
+            res.json({ order: lastItem, products: products });
+        } else {
+            res.status(205).json({ message: "No orders found for the user" });
+        }
     } catch (err) {
         console.error("Error retrieving user's information", err);
         res.status(500).json({ message: "Error retrieving user's information" });
     }
 };
+
   
 const UserOrderControler = {
     createOrder:createOrder,

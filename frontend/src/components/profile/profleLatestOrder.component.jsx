@@ -13,20 +13,25 @@ function ProfileLatestOrder() {
     const [isLoading, setIsLoading] = useState(true); 
 
     useEffect(() => {
-        if (token && userData?._id) {
-            const fetchUserOrders = async () => {
-                setIsLoading(true); 
-                try {
-                    const { order, products } = await getLatestOrder(userData._id, token);
-                    setUserOrder({ order, products });
-                } catch (err) {
-                    console.log("error in loading the orders", err);
-                }
-                setIsLoading(false); 
-            };
-            fetchUserOrders();
-        }
-    }, [token, userData?._id]);
+      if (token && userData?._id) {
+          const fetchUserOrders = async () => {
+              setIsLoading(true);
+              try {
+                  const response = await getLatestOrder(userData._id, token);
+                  if (response.status === 'success') {
+                      setUserOrder({ order: response.order, products: response.products });
+                  } else if (response.status === 'no-orders') {
+                      setUserOrder(null); 
+                  }
+              } catch (err) {
+                  console.log("error in loading the orders", err);
+              }
+              setIsLoading(false); 
+          };
+          fetchUserOrders();
+      }
+  }, [token, userData?._id]);
+  
   
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
@@ -66,14 +71,14 @@ function ProfileLatestOrder() {
     if (isLoading) {
         return <div>Loading...</div>; 
     }
- 
+    
 
     return (
         <div className='profile-page-container'>
           <div className='profile-sidebar'>
             <SideListComponent />
           </div>
-          {userOrder ? (
+          {userOrder? (
             <div className='latest-order'>
                 <div className='header'>  
                     <h4>Vanshopfy</h4>
@@ -123,3 +128,6 @@ function ProfileLatestOrder() {
 }
 
 export default ProfileLatestOrder;
+
+
+//                 
