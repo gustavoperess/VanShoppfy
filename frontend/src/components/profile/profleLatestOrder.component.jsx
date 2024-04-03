@@ -107,8 +107,8 @@ function ProfileLatestOrder() {
                 <div className='footer'>
                 <h6>Your delivery information</h6>
                 <p>{userOrder.order?.name} </p>
-                <p>{userOrder.order?.zip} {userOrder.order?.address} {userOrder.order?.city} </p>
-                <p>{userOrder.order?.country}</p>
+                <p>{userOrder.order?.address} {userOrder.order?.city} </p>
+                <p>{userOrder.order?.zip} {userOrder.order?.country}</p>
                 </div>
    
             </div>

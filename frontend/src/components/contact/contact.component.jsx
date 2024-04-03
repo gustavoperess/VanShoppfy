@@ -12,6 +12,7 @@ function ContactComponent() {
                 Have a question or want to work together
             </Card.Text>
             <div className='about-me'>
+            <h6>A little about me :</h6>
             <p>  Software engineer eager to continue my journey and apply what I’ve learned so far to a team dynamic, 
             working towards challenging projects. I moved to London, UK from Vancouver, Canada in 2023 and am a recent graduate
             from Makers Academy. In my 4 years of professional experience in the finance industry, I have proven my ability to 

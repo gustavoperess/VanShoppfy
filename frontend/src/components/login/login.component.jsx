@@ -14,11 +14,12 @@ function LoginCompononent()  {
   const navigate = useNavigate();
   const location = useLocation();
   const { userData, refreshUserData } = useUser();
-  
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
       try {
-        const response = await  login(email, password);
+        const response = await login(email, password);
         window.localStorage.setItem("token", response.token);
         window.localStorage.setItem("userid", response.userid);
         refreshUserData()

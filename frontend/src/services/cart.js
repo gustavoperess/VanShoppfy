@@ -54,7 +54,7 @@ export const getProductBySessionId = async () => {
     };
 
     const response = await fetch(`${BACKEND_URL}/carts/getItems`, requestOptions);
-    console.log(response)
+
     if (response.status === 200) {
       const data = await response.json();
       return data
