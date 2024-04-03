@@ -33,17 +33,37 @@ function ProfileLatestOrder() {
         return <div>Loading...</div>; 
     }
 
-    console.log(userOrder)
+    console.log(userOrder.order)
 
     return (
         <div className='profile-page-container'>
-            <div className='profile-sidebar'>
-               <SideListComponent />
+          <div className='profile-sidebar'>
+            <SideListComponent />
+          </div>
+          {userOrder ? (
+            <div> 
+                <h4>Vanshopfy</h4>
+                <h6>YOUR ORDER'S ON ITS WAY</h6>
+                Order number: {userOrder.order?.orderNumber}
+                <p>Hi {userOrder.order?.name} ,</p> 
+                <p>Your items from your order {userOrder.order?.orderNumber} will be delivered by DHL Express on Monday, Jun 27th, 2022. </p> 
+                Here’s what will arrive:
+
+                Thanks again for shopping with us.
+                Vanshopfy
+
+                Your delivery information
+                {userOrder.order?.name} 
+                {userOrder.order?.zip} {userOrder.order?.address} {userOrder.order?.city} {userOrder.order?.country}
+   
             </div>
-        <div className='message'>
-            Thank you for shopping with us here is the latest order delivered on 
+    
+          ) : (
+            <div className='no-order-message'>
+              No orders made by this customer :D
+            </div>
+          )}
         </div>
-    </div>
       );
 }
 
