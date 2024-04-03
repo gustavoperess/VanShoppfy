@@ -24,7 +24,8 @@
     color: blue; /* Or any other color you want for the active state */
     font-weight: bold; /* Make it stand out */
     padding-bottom: 2px; /* Adjust space between text and underline */
-    border-bottom: 1px solid blue; /* Simulate underline */ 
+    border-bottom: 1px solid blue; /* Simulate underline */
+    
 }
 
 
