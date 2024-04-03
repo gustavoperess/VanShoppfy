@@ -25,7 +25,7 @@ function ContactComponent() {
               <p>Linkedin: <Link to="https://www.linkedin.com/in/gustavo-moreira-25bb56144/" target="_blank" rel="noopener noreferrer" className="contact-detail">Linkedin profile</Link></p>
               <p>Github:  <Link to="https://github.com/gustavoperess" target="_blank" rel="noopener noreferrer" className="contact-detail">Github profile</Link></p>
             </div>
-            <Link to="#" className="btn btn-dark">Contact Us</Link>      
+            <Link to="mailto:gustaoluisperesmoreira@gmail.com" className="btn btn-dark">Contact Us</Link>      
           </Card.Body>
           <hr></hr>
         </Card>
