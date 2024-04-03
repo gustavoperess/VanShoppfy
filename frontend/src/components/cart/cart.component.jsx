@@ -153,7 +153,7 @@ function CartComponent() {
                 createOder(formData, userData?._id)
                 setShowPaymentModal(false);
                 removeAllitemsFromCart()
-                navigate("/profile");
+                navigate("/profile/latestorder");
             } catch (err) {
                 console.log("error creating order", err)
             }

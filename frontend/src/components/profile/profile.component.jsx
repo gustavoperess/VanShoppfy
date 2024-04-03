@@ -33,7 +33,11 @@ function ProfileComponent() {
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
     };
- 
+
+    const formatedDate = (date) => {
+        return date.split("T")[0]
+    }
+
     if (isLoading) {
         return <div>Loading...</div>; 
     }
@@ -49,6 +53,7 @@ function ProfileComponent() {
                 <Accordion.Header >
                     <p>Order Number: {order.orderNumber}</p>
                     <p>Total Amount: {formatPrice(order.totalAmount)}</p>
+                    <p>Delivery Date: {formatedDate(order.orderDate)}</p>
                 </Accordion.Header>
                 <Accordion.Body className='accordion-body'>
                   {userOrder.products?.filter(product => order.productsId.includes(product._id)).map((product, productIndex) => (

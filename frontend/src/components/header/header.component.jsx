@@ -25,7 +25,7 @@ const HeaderComponent = () => {
       setActiveCategory("Sign in");
     } else if (location.pathname == "/cart") {
       setActiveCategory("Cart");
-    } else if (location.pathname == "/profile") {
+    } else if (location.pathname == "/profile" || location.pathname == "/profile/latestorder") {
       setActiveCategory("Profile");
     } 
 },[location])

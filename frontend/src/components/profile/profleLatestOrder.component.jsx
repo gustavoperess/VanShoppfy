@@ -31,11 +31,42 @@ function ProfileLatestOrder() {
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
     };
+    
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+    
+        function getDaySuffix(day) {
+          if (day > 3 && day < 21) return 'th';
+          switch (day % 10) {
+            case 1: return "st";
+            case 2: return "nd";
+            case 3: return "rd";
+            default: return "th";
+          }
+        }
+      
+
+        const formatter = new Intl.DateTimeFormat('en-US', {
+          weekday: 'long', 
+          month: 'short',  
+          year: 'numeric'  
+        });
+      
+        const parts = formatter.formatToParts(date);
+        const weekday = parts.find(part => part.type === 'weekday').value;
+        const month = parts.find(part => part.type === 'month').value;
+        const year = parts.find(part => part.type === 'year').value;
+        const day = date.getDate();
+    
+   
+        return `${weekday}, ${month} ${day}${getDaySuffix(day)}, ${year}`;
+      }
+      
  
     if (isLoading) {
         return <div>Loading...</div>; 
     }
-
+ 
 
     return (
         <div className='profile-page-container'>
@@ -50,7 +81,7 @@ function ProfileLatestOrder() {
                     <p>Order number: {userOrder.order?.orderNumber}</p>
                 </div>
                 <p>Hi {userOrder.order?.name} ,</p> 
-                <p>Your items from your order {userOrder.order?.orderNumber} will be delivered by DHL Express on Monday, Jun 27th, 2022. </p> 
+                <p>Your items from your order {userOrder.order?.orderNumber} will be delivered by DHL Express on {formatDate(userOrder.order?.orderDate)} </p> 
                 <p>Here’s what will arrive:</p>
                 {userOrder.products?.map((product, productIndex) => (
                     <div className="my-bag-products-profile" key={productIndex}>

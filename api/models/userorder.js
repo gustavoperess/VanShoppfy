@@ -14,6 +14,7 @@ const UseOrderrSchema =  new mongoose.Schema({
     creditcard: {type: Number},
     country: {type: String},
     orderNumber: {type: Number},
+    orderDate: {type: Date, default: Date.now}
 
 })
 
