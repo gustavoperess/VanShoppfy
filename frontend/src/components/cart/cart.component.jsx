@@ -61,9 +61,11 @@ function CartComponent() {
     };
 
     const handleForwardClick = () => {
-        if (userData) {
+        if (userData && totalAmount > 0) {
             handleShow();
-        } else {
+        } else if (userData && totalAmount == 0) {
+            navigate("/shop");
+        } else if (!userData) {
             navigate("/login");
         }
     };
@@ -160,7 +162,7 @@ function CartComponent() {
         }
     }
 
-    
+
     return (
         <Container>
             <div className="my-bag-container">
