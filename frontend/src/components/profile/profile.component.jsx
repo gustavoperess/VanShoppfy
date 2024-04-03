@@ -1,19 +1,16 @@
 import { useEffect, useState } from 'react';
-import {Accordion, Table, ListGroup} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import {Accordion, Table} from 'react-bootstrap';
 import { useUser } from "../../contexts/UserContext";
 import { getUserOrders } from '../../services/userorder';
-import { useLocation } from 'react-router-dom';
 import SideListComponent from './sideList.component';
 import "./profileStyle.css"
 
 function ProfileComponent() {
     const { userData, refreshUserData } = useUser();
-    const [activeCategory, setActiveCategory] = useState("");
     const token = window.localStorage.getItem("token")
     const [userOrder, setUserOrder] = useState({ orders: [], products: [] });
     const [isLoading, setIsLoading] = useState(true); 
-    const location = useLocation();
+
 
     useEffect(() => {
         if (token && userData?._id) {
@@ -32,15 +29,6 @@ function ProfileComponent() {
     }, [token, userData?._id]);
     
    
-  useEffect(() => {
-    if ( location.pathname == "/profile") {
-        setActiveCategory("Profile");
-    } else if (location.pathname == "/profile/latestorder") {
-        setActiveCategory("LatestOrder");
-    } else if (location.pathname == "/profile/userdetails") {
-        setActiveCategory("Details");
-    }
-},[location])
 
     const formatPrice = (price) => {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);

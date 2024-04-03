@@ -41,10 +41,26 @@ const getUserOrders = async (req, res) => {
         res.status(500).json({ message: "Error retrieving user's information" });
     }
 };
+
+
+
+const getLatestOrder = async (req, res) => {
+    const userId = req.params.userid;
+    try {
+        const userOrderDetails = await UserOrder.find({ userid: userId });
+        const lastItem = userOrderDetails[userOrderDetails.length - 1]
+        const products = await Product.find({ _id: { $in: lastItem.productsId } });
+        res.json({ order: lastItem, products: products });
+    } catch (err) {
+        console.error("Error retrieving user's information", err);
+        res.status(500).json({ message: "Error retrieving user's information" });
+    }
+};
   
 const UserOrderControler = {
     createOrder:createOrder,
-    getUserOrders:getUserOrders
+    getUserOrders:getUserOrders,
+    getLatestOrder:getLatestOrder
   
   };
 

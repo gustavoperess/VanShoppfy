@@ -7,5 +7,6 @@ const upload = multer();
 
 router.post("/createOrder/:userid", upload.none(), UserOrderControler.createOrder);
 router.get("/getOrders/:userid",  UserOrderControler.getUserOrders);
+router.get("/latestOrder/:userid",  UserOrderControler.getLatestOrder);
 
 module.exports = router;
