@@ -28,7 +28,10 @@ function ProfileLatestOrder() {
         }
     }, [token, userData?._id]);
   
-    
+    const formatPrice = (price) => {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'GBP' }).format(price);
+    };
+ 
     if (isLoading) {
         return <div>Loading...</div>; 
     }
@@ -51,7 +54,26 @@ function ProfileLatestOrder() {
 
                 Thanks again for shopping with us.
                 Vanshopfy
-
+                {userOrder.products?.map((product, index) => (
+                        <tbody key={index} className="table-body">
+                            <tr>
+                                <td className="table-body-product"> 
+                                    <img className="myImage" src={product?.productPicture ? product?.productPicture : 'default-picture-url'} alt={product.productPicture} />
+                                    <div className="table-body-product-text">
+                                        <h1>{product.productName}</h1>
+                                        <p>{product.productCategory}</p>
+                                        <p>{product.productGender}</p>
+                                    </div>     
+                                </td>
+                                <td className="table-body-profile-price">Price: {formatPrice(parseFloat(product.productPrice.$numberDecimal))}</td>
+                            </tr>
+                        </tbody>
+                    ))}
+                    <tbody>
+                        <tr className="table-total"> 
+                            <td colSpan={3}><p>Subtotal: {formatPrice(userOrder.order?.totalAmount)}</p></td>
+                        </tr>
+                    </tbody>
                 Your delivery information
                 {userOrder.order?.name} 
                 {userOrder.order?.zip} {userOrder.order?.address} {userOrder.order?.city} {userOrder.order?.country}
