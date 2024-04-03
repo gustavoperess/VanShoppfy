@@ -22,9 +22,37 @@ hr {
     border-top: 1px solid rgba(0,0,0,1);
 }
 
+
+
 .contact-info {
-    background-color: gray;
-    margin: 0px;
-    justify-content: center;
-    text-align: center;
+    background-color: rgb(245, 245, 245);
+    width: 30%;
+    height: 150px;
+    margin: auto;
+    margin-top: 40px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: left; 
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    margin: 1px; 
+    padding-left: 10px;
+    font-weight: bold; /* Makes the entire paragraph bold */
+}
+.contact-info a, .contact-info a:link, .contact-info a:visited {
+    color: inherit; /* Makes the link color the same as the surrounding text */
+    text-decoration: none; /* Removes the underline from the links */
+    font-weight: bold; /* Makes the link text bold */
+  }
+  
+  
+
+.contactComponent {
+    width: 80%;
+    margin: auto;
+
 }
