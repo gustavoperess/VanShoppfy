@@ -21,9 +21,9 @@ function ContactComponent() {
            skills which will allow me to make a positive impact and succeed in a software development role.</p>
           </div>
           <div className='contact-info'>
-            <p>Email: </p>
-            <p>linkedin: </p>
-            <p>github: </p>
+            <p>Email: gustaoluisperesmoreira@gmail.com </p>
+            <p>linkedin: <Link to="https://www.linkedin.com/in/gustavo-moreira-25bb56144/" target="_blank" rel="noopener noreferrer">Linkedin profile</Link></p>
+            <p>github:  <Link to="https://github.com/gustavoperess" target="_blank" rel="noopener noreferrer">Github profile</Link></p>
           </div>
           <Link to="#" className="btn btn-dark">Contact Us</Link>      
         </Card.Body>

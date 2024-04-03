@@ -1,7 +1,7 @@
 import HeaderComponent from '../../components/header/header.component';
 import SingleBannerComponent from '../../components/banner/singleBanner.component';
 import ShopPageComponent from '../../components/shoppagecard/shopagecard.component';
-import ContactComponent from '../../components/contact/contact.component';
+import ContactUs from '../../components/contact/contactus.component';
 import Container from 'react-bootstrap/Container';
 import FooterComponent from '../../components/footer/footer.component';
 import SidebarComponent from '../../components/Sidebar/sideeBarCard.component';
@@ -16,7 +16,7 @@ export const MyShopPage = () => {
             <SidebarComponent />
             <SingleBannerComponent />
             <ShopPageComponent />
-            <ContactComponent />
+            <ContactUs />
             <FooterComponent />
         </Container>
         </div>
