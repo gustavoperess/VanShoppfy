@@ -1,0 +1,19 @@
+.UserInPlace{
+    padding-left: 5px;
+    padding-right: 10px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+  }
+
+  .signOutFooter {
+    padding-left: 5px;
+    padding-right: 10px;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    cursor: pointer; 
+  }
+  
