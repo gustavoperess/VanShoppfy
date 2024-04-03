@@ -28,6 +28,7 @@ function SideListComponent() {
             <ListGroup.Item><Link to="/profile/latestorder" className={`nav-link ${activeCategory === 'LatestOrder' ? 'active' : ''}`}>Latest order</Link></ListGroup.Item>
             <ListGroup.Item><Link to="/profile" className={`nav-link ${activeCategory === 'Profile' ? 'active' : ''}`}>Order History</Link></ListGroup.Item>
             <ListGroup.Item>User Details</ListGroup.Item>
+           
         </ListGroup>
     </>
       );
