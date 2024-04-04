@@ -40,7 +40,7 @@ const CardLayout = styled.div`
 
 
 const CardTwo = styled.div`
-  background: url(../../../src/assets/myBanners/them.jpg) center center / cover;
+  background: url(https://res.cloudinary.com/dououppib/image/upload/v1712246316/MY_UPLOADS/invdg2e3avhu68p7wzlv.jpg) center center / cover;
   height: 500px;
   border-radius: 7px;
   display: flex;
