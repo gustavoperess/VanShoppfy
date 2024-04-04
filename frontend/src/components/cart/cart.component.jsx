@@ -16,7 +16,7 @@ function CartComponent() {
     const handleShow = () => setShow(true);
     const { userData, refreshUserData } = useUser();
     const [userName, setUserName] = useState({ name: userData?.name || '' });
-    const [initiaCountry, setInitiaCountry] = useState("");
+    const [initialCountry, setInitiaCountry] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
     const [city, setSelectedCity] = useState("");
     const [zip, setSelectedZip] = useState("");
@@ -276,11 +276,11 @@ function CartComponent() {
                             </div>
                             <i className="bi bi-pin-map iconfour"></i>
                             <Form.Select value={selectedCountry} className="country" onChange={handleCountryChange}>
-                                {initiaCountry && (
-                                    <option key={initiaCountry} value={initiaCountry}>{initiaCountry}</option>
+                                {initialCountry && (
+                                    <option key={initialCountry} value={initialCountry}>{initialCountry}</option>
                                 )}
                                 {countries.getNames().map((country, index) => {
-                                    if (country !== initiaCountry) {
+                                    if (country !== initialCountry) {
                                         return <option key={index} value={country}>{country}</option>;
                                     }
                                     return null; 
