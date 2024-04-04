@@ -16,7 +16,7 @@ function SideListComponent() {
             setActiveCategory("Profile");
         } else if (location.pathname == "/profile/latestorder") {
             setActiveCategory("LatestOrder");
-        } else if (location.pathname == "/profile/userdetails") {
+        } else if (location.pathname == "/profile/info/Escalobaloba") {
             setActiveCategory("Details");
         }
     },[location])
@@ -27,8 +27,7 @@ function SideListComponent() {
             <ListGroup.Item disabled >MY ACCOUNT</ListGroup.Item>
             <ListGroup.Item><Link to="/profile/latestorder" className={`nav-link ${activeCategory === 'LatestOrder' ? 'active' : ''}`}>Latest order</Link></ListGroup.Item>
             <ListGroup.Item><Link to="/profile" className={`nav-link ${activeCategory === 'Profile' ? 'active' : ''}`}>Order History</Link></ListGroup.Item>
-            <ListGroup.Item>User Details</ListGroup.Item>
-           
+            <ListGroup.Item><Link to="/profile/info/Escalobaloba" className={`nav-link ${activeCategory === 'Details' ? 'active' : ''}`}>User Details</Link></ListGroup.Item>          
         </ListGroup>
     </>
       );

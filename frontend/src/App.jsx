@@ -8,6 +8,7 @@ import { ContactPage } from "./pages/Contact/ContactPage";
 import { CartPage } from "./pages/Cart/cartPage";
 import { ProfilePage } from "./pages/Profile/ProfilePage";
 import { ProfileLatestOrderPage } from "./pages/Profile/ProfileLatestOrder";
+import { ProfileUsersInfo } from "./pages/Profile/ProfileUsersInfo";
 
 import './App.css'
 
@@ -51,6 +52,12 @@ const router = createBrowserRouter([
     path: "/profile/latestorder",
     element: <ProfileLatestOrderPage />,
   },
+  {
+    path: "/profile/info/:username",
+    element: <ProfileUsersInfo />,
+  },
+
+
 
 
 ]);
