@@ -120,7 +120,7 @@ function ProfileLatestOrder() {
     
           ) : (
             <div className='no-order-message'>
-              No orders made by this customer :D
+            
             </div>
           )}
         </div>
