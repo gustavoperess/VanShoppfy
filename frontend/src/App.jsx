@@ -53,7 +53,7 @@ const router = createBrowserRouter([
     element: <ProfileLatestOrderPage />,
   },
   {
-    path: "/profile/info/:username",
+    path: "/profile/info/:username/:id",
     element: <ProfileUsersInfo />,
   },
 
