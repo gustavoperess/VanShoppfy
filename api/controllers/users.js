@@ -36,8 +36,9 @@ const getUserInformationById = async (req, res) => {
 
 const updateUserInformation = async (req, res) => {
   const userid = req.params.userid
+  console.log(req.body)
   try {
-    const user = await User.findByIdAndUpdate(userid);
+    // const user = await User.findByIdAndUpdate(userid);
     res.status(200).json(user);
 } catch (err) {
     console.error("Error retriving user's information", err);
@@ -48,7 +49,8 @@ const updateUserInformation = async (req, res) => {
 
 const UsersController = {
     create: create,
-    getUserInformationById:getUserInformationById
+    getUserInformationById:getUserInformationById,
+    updateUserInformation:updateUserInformation
   
   };
 
