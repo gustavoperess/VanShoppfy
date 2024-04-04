@@ -15,7 +15,7 @@ const options = [
   },
 ];
 
-function SidebarComponent() {
+function SideBarComponent() {
   const [show, setShow] = useState(false);
   const { cartItems, cartCount, totalAmount, removeFromCart } = useCart();
   const [prevCartCount, setPrevCartCount] = useState(cartCount);
@@ -88,4 +88,4 @@ function SidebarComponent() {
 }
 
 
-export default SidebarComponent;
+export default SideBarComponent;
