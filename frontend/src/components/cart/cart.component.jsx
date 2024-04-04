@@ -35,7 +35,7 @@ function CartComponent() {
     useEffect(() => {
         const fetchCountry = async () => {
             try {
-                const data = await VisitorAPI("MY API KEY HERE"); // B878v04eK6t1EbCNsi7r 
+                const data = await VisitorAPI("B878v04eK6t1EbCNsi7r"); //  
                 setInitiaCountry(data.countryName); 
                 setSelectedCountry(data.countryName || "United States of America");
             } catch (error) {
