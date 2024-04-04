@@ -1,13 +1,11 @@
 
 const Product = require("../models/product")
-const Keys = require('./API_KEYS');
-const keysInstance = new Keys()
 const cloudinary = require('cloudinary').v2;
 
 cloudinary.config({ 
-    cloud_name: keysInstance.CLOUDNAME, 
-    api_key: keysInstance.API_KEY, 
-    api_secret: keysInstance.CLOUDINARY_API_SECRET
+    cloud_name: process.env.CLOUDNAME, 
+    api_key: process.env.API_KEY, 
+    api_secret: process.env.CLOUDINARY_API_SECRET
   });
 
 const createPost = async (req, res) => {
