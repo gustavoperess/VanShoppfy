@@ -106,6 +106,7 @@ function CartComponent() {
             setMonthYearCheck(value)
         } 
     }
+ 
 
     const handleCvvChange = (event) => {
         let value = event.target.value.replace(/\D/g, '');
@@ -134,7 +135,7 @@ function CartComponent() {
  
 
     const handleSubmit = () => {
-        if(!cvv || !creditCard || !monthYear) {
+        if(!cvvCheck || !creditCardNumberCheck || !monthYearCheck) {
             setFormValidationFailed(true);
             setTimeout(() => setFormValidationFailed(false), 500); 
         } else {
