@@ -71,6 +71,32 @@
     font-weight: 1000;
 }
 
+.form-group-row {
+    display: flex;
+    align-items: center; 
+    justify-content: start; 
+    gap: 10px; 
+}
+
+.form-group-row .form-label {
+    font-weight: 700;
+    margin-bottom: 0; /* Removes the bottom margin from the label */
+
+    text-align: right; /* Align the text to the right */
+
+}
+
+.wide-input {
+    width: 300px !important;
+}
+
+
+.form-group-row .form-control {
+    
+    flex-grow: 1;
+    padding-left: 10px !important;
+}
+
 @media (max-width: 930px) {
     .profile-page-container {
         padding-left: 0; 
