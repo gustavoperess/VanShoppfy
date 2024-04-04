@@ -240,6 +240,18 @@
     color: red;
 }
 
+@media (max-width: 780px) {
+    .table-body-product {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .table-body-product h1, .table-body-product p {
+        text-align: center; 
+    }
+    .myImage {
+        margin-bottom: 10px; 
+    }
+}
 
 @keyframes horizontal-shaking {
     0% { transform: translateX(0) }
