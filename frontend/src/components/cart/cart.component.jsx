@@ -314,7 +314,7 @@ function CartComponent() {
                                 value={creditCard}
                                 className={formValidationFailed && !creditCardNumberCheck ? 'form-control-error' : ''}
                                 />
-                                {creditCardIcon ? <div className="visaCreditCard"> <img src="frontend/dist/visa.svg"></img></div> 
+                                {creditCardIcon ? <div className="visaCreditCard"> <img src="https://res.cloudinary.com/dououppib/image/upload/v1712259176/MY_UPLOADS/g2rya32y54fhdswlo5v2.png"></img></div> 
                                 : ""}
                             </div>
                             </Form.Group>
