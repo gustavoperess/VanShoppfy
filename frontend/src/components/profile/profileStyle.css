@@ -98,6 +98,16 @@
 }
 
 @media (max-width: 930px) {
+    .accordion-header p {
+        padding-right: 10px; 
+    }
+    .accordion-rightside {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 930px) {
     .profile-page-container {
         padding-left: 0; 
     }
