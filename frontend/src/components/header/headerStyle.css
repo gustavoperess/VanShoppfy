@@ -59,3 +59,17 @@
     color: #007bff; 
     text-decoration: underline; 
   }
+
+  @media (max-width: 991px) {
+    .signOut {
+      display: block; /* Enables Flexbox */
+    }
+}
+
+  @media (max-width: 991px) {
+    .cart-count {
+        position: absolute;
+        top: 13px;
+        left: 10px;
+    }
+}
