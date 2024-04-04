@@ -25,9 +25,9 @@ function SecondMenuComponent() {
 
   function handleClick(event) {
     const text = (event.target.closest('.card').querySelector('.card-title').innerText)
-    if (text === "Man") {
+    if (text === "Men") {
         navigate("/shop", {state: {key: 'Male'}});
-    } else if (text === "Woman") {
+    } else if (text === "Women") {
       navigate("/shop", {state: {key: 'Female'}});
     } 
   }
