@@ -7,7 +7,7 @@ cloudinary.config({
     api_key: process.env.API_KEY, 
     api_secret: process.env.CLOUDINARY_API_SECRET
   });
-  // new ip address added
+  // nnew ip addresses added! 
 
 const createPost = async (req, res) => {
     if (!req.file) {
