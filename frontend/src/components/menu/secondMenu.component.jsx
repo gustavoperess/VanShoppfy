@@ -7,12 +7,12 @@ import { useNavigate } from "react-router-dom";
 const myImages = [
   {
     src: "https://res.cloudinary.com/dououppib/image/upload/v1712246312/MY_UPLOADS/edetwbqbwiow3y3at16y.jpg",
-    title: "Man",
+    title: "Men",
     text: "Shop Now."
   },
   {
     src: "https://res.cloudinary.com/dououppib/image/upload/v1712246313/MY_UPLOADS/u3f5yjsl4fgoevp9t8iv.jpg",
-    title: "Woman",
+    title: "Women",
     text: "Shop Now."
   },
 
