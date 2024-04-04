@@ -31,7 +31,6 @@ function ContactComponent() {
           <hr></hr>
         </Card>
       </div>
-
   );
 }
 

@@ -62,3 +62,15 @@ hr {
 
 }
 
+
+@media (max-width: 1100px) {
+    .contact-info {
+        width: 50%;
+    }
+}
+
+@media (max-width: 660px) {
+    .contact-info {
+        width: 100%;
+    }
+}
