@@ -35,16 +35,25 @@ const getUserInformationById = async (req, res) => {
 
 
 const updateUserInformation = async (req, res) => {
-  const userid = req.params.userid
-  console.log(req.body)
+  const userid = req.params.userid;
+  const { name, password, email } = req.body; 
+
   try {
-    // const user = await User.findByIdAndUpdate(userid);
-    res.status(200).json(user);
-} catch (err) {
-    console.error("Error retriving user's information", err);
-    res.status(500).json({ message: "EError retriving user's information" });
-}
-}
+    const updatedUser = await User.findByIdAndUpdate(userid, 
+      { name, password, email }, 
+      { new: true, runValidators: true } 
+    );
+
+    if (updatedUser) {
+      res.status(200).json(updatedUser);
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (err) {
+    console.error("Error updating user's information", err); 
+    res.status(500).json({ message: "Error updating user's information" });
+  }
+};
 
 
 const UsersController = {
