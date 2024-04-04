@@ -12,4 +12,4 @@ const listenForRequests = () => {
 
 connectToDatabase().then(() => {
   listenForRequests();
-});
+}); 

@@ -36,7 +36,7 @@ app.use((_req, res) => {
   // Error Handling Middleware
   app.use((err, _req, res, _next) => {
     console.error(err);
-    if (process.env.NODE_ENV === "development") {
+    if (process.env.NODE_ENV === "production") { // i changed this
       res.status(500).send(err.message);
     } else {
       res.status(500).json({ err: "Something went wrong" });
