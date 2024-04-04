@@ -6,17 +6,17 @@ import { useState, useEffect } from 'react';
 
 const myImages = [
   {
-    src: "../../../src/assets/myBanners/hatsTwo.jpg",
+    src: "https://res.cloudinary.com/dououppib/image/upload/v1712246314/MY_UPLOADS/xyddydbjtlxfc5vdioye.avif",
     title: "Hats",
     text: "Shop Now."
   },
   {
-    src: "../../../src/assets/myBanners/jackets_W.jpg",
+    src: "https://res.cloudinary.com/dououppib/image/upload/v1712246310/MY_UPLOADS/oqpf74xxjg1pn2avpdpw.jpg",
     title: "Jackets",
     text: "Shop Now."
   },
   {
-    src: "../../../src/assets/myBanners/sneakers_W.jpg",
+    src: "https://res.cloudinary.com/dououppib/image/upload/v1712246310/MY_UPLOADS/u5aybmezkretnuoqbsbl.jpg",
     title: "Sneakers",
     text: "Shop Now."
   }

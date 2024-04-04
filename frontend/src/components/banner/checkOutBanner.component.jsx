@@ -38,7 +38,7 @@ const CardLayout = styled.div`
 
 
 const CardThree = styled.div`
-  background: url(../../../src/assets/myBanners/MyCheckoutBanner.jpg) ;
+  background: url(https://res.cloudinary.com/dououppib/image/upload/v1712246312/MY_UPLOADS/bvqerufbd23htn7m3tkn.jpg) ;
   height: 300px;
   display: flex;
   flex-direction: column; /* This ensures children are stacked vertically */

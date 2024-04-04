@@ -35,7 +35,7 @@ const CardLayout = styled.div`
 
 
 const CardThree = styled.div`
-  background: url(../../../src/assets/myBanners/contact2.jpg) no-repeat center center;
+  background: url(https://res.cloudinary.com/dououppib/image/upload/v1712246312/MY_UPLOADS/nvyfi6a56p0cddcnb7g5.jpg) no-repeat center center;
   background-size: cover; /* This will cover the entire container without repeating */
   height: 350px;
   display: flex;

@@ -5,17 +5,17 @@ import { Link } from 'react-router-dom';
 
 const myCarouselImages = [
   {
-    src: "../../../src/assets/myBanners/Banner_01.png",
+    src: "https://res.cloudinary.com/dououppib/image/upload/v1712246310/MY_UPLOADS/pkjfivl9ieoapl0536h6.webp",
     label: "Enjoy 30% off on Winter Products",
     description: "Summer Collection has already arrived."
   },
   {
-    src: "../../../src/assets/myBanners/Banner_02.png",
+    src: "https://res.cloudinary.com/dououppib/image/upload/v1712246310/MY_UPLOADS/f9fsiqypi1g49hmtlefi.jpg",
     label: "Summer is almost here, see our collections",
     description: "Summer Collection has already arrived."
   },
   {
-    src: "../../../src/assets/myBanners/Banner_03.png",
+    src: "https://res.cloudinary.com/dououppib/image/upload/v1712246311/MY_UPLOADS/bprukhnopcjvtujgnko1.webp",
     label: "Shop over 100$ and get an extra 20% off",
     description: "Summer Collection has already arrived."
   },
@@ -40,7 +40,7 @@ function BannerComponent() {
             <h5>New Arrivals</h5>
             <h3>{picture.label}</h3>
             <p>{picture.description}</p>
-            <Link to="http://localhost:5173/shop" className="btn btn-dark">Shop Now</Link>      
+            <Link to="https://vanshoppfy.onrender.com/shop" className="btn btn-dark">Shop Now</Link>      
           </Carousel.Caption>
         </Carousel.Item>
       ))}

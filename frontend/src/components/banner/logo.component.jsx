@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const myPicture = [
   {
-    src: "../../../src/assets/myBanners/VanShoppFYLogo.png",
+    src: "https://res.cloudinary.com/dououppib/image/upload/v1712246312/MY_UPLOADS/gwhxtfzgaklleaa8fvct.png",
 
   },
 ];

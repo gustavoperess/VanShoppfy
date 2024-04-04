@@ -4,12 +4,12 @@ import "./thirdMenuStyle.css"
 
 const myImages = [
   {
-    src: "../../../src/assets/myBanners/summerSales_W.jpg",
+    src: "https://res.cloudinary.com/dououppib/image/upload/v1712246311/MY_UPLOADS/ga4d1irifqizu8g6lcq9.jpg",
     title: "New Arrival",
     text: "On eligeble items."
   },
   {
-    src: "../../../src/assets/myBanners/SummerSalesTwo_W.jpg",
+    src: "https://res.cloudinary.com/dououppib/image/upload/v1712246313/MY_UPLOADS/li3jqja4bf0j0yrnrmtn.jpg",
     title: "Summer Sales OFF",
     text: "On eligeble items."
   },
