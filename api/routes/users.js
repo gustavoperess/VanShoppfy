@@ -8,5 +8,6 @@ const upload = multer();
 
 router.post("/", upload.none(), UsersController.create);
 router.get("/getInformationById/:userid", upload.none(), UsersController.getUserInformationById);
+// router.update("/editUserInfo/:userid", upload.none(), UsersController.getUserInformationById);
 
 module.exports = router;

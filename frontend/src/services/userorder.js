@@ -46,33 +46,6 @@ export const getUserOrders = async (userid, token) => {
  
 }
 
-// export const getLatestOrder = async (userid, token) => {
-
-//   const requestOptions = {
-//     method: 'GET',
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   };
-
-//   const response = await fetch(`${BACKEND_URL}/userorders/latestOrder/${userid}`, requestOptions);
-  
-
-//   if (response.status === 200) {
-//     const items = await response.json();
-//     const order = items.order
-//     const products = items.products
-//     return { order, products };
-//   } else if  (response.status == 404){
-//     console.log(response.json())
-//     return "No order made by this customer";
-//   } else  {
-//     const errorResponse = await response.json(); 
-//     const errorMessage = errorResponse.message || `Received status ${response.status}`;
-//     throw new Error(errorMessage);
-//   }
-
-// }
 
 
 

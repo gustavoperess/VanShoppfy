@@ -69,3 +69,26 @@ export const getUserInformationById = async (userid, token) => {
     throw new Error(errorMessage);
   }
 };
+
+
+export const editUsersInformation = async (formData, userid, token) => {
+  const requestOptions = {
+    method: "PATCH", 
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    body: formData,
+  };
+  
+  let response = await fetch(`${BACKEND_URL}/users/editUserInfo/${userid}`, requestOptions);
+
+  if (response.ok) { 
+    return await response.json();
+  } else {
+    const errorResponse = await response.json();
+    const errorMessage = errorResponse.message || `Received status ${response.status}`;
+    throw new Error(errorMessage);
+  }
+};
+
+
