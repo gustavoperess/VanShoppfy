@@ -19,7 +19,7 @@ function SideListComponent() {
         } else if (location.pathname.includes(`/profile/info/${userData?.name}/${userData?._id}`)) {
             setActiveCategory("Details");
         }
-    },[location, userData?.name, userData._id])
+    },[location, userData?.name, userData?._id])
    
     return (
         <>
