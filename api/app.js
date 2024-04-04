@@ -11,7 +11,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 
 const corsOptions = {
-  origin: 'https://vanshoppfy.onrender.com', // Replace with your frontend's origin
+  origin: 'http://localhost:5173', // Replace with your frontend's origin
   credentials: true, // This is important to allow cookies
 };
 
