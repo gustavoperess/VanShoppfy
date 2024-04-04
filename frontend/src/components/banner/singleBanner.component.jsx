@@ -5,7 +5,7 @@ import "./singleBannerStyle.css";
 
 const myPicture = [
   {
-    src: "../../../src/assets/myBanners/Banner_01.png",
+    src: "https://res.cloudinary.com/dououppib/image/upload/v1712246316/MY_UPLOADS/invdg2e3avhu68p7wzlv.jpg",
     label: "Enjoy 30% off on Winter Products",
     description: "Summer Collection has already arrived."
   },
