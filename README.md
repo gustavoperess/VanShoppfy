@@ -2,16 +2,26 @@
   VanShoppfy
 </h1>
 
+
+
+
 Check the deployed version: 
   [VanShoppfy](https://vanshoppfy.onrender.com/).
 
+## Features
+
+- **Browse and Search**: Navigate throught different categories including hats/watchs/mens/womens .
+- **Shop without logging in**: Shop in our website without the need of logging in, your purchases are tracked through browser cookie.
+- **Manage your purchase**: You can update, add or delete the items inside of the shopping cart.
+- **User Profiles**: Manage your profile, view your order history, and edit your details.
+- **Shopping Cart**: Add books to your cart, adjust quantities, or remove items as needed before checkout.
+- **Side bar shopping**: See in real time what has been added to your cart.
+- **Procced to checkout**: Buy unlimeted clothes with the given credit cart, offer only today 🤓.
 
 
-<h3 align="center"> Structure </h3>
-This project is separeted in two applications.
 
-- A frontend React App
-- A backend api server
+Check the deployed version: 
+  [VanShoppfy](https://vanshoppfy.onrender.com/).
 
 
 <h3 align="center">  Set up your project  </h3>
