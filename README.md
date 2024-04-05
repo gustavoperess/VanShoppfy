@@ -2,6 +2,7 @@
   VanShoppfy
 </h1>
 
+An e-commerce website designed to make the shopping experience easy and secure. 
 
 Check the deployed version: 
   [VanShoppfy](https://vanshoppfy.onrender.com/).
