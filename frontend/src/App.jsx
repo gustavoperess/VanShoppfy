@@ -12,7 +12,7 @@ import { ProfileUsersInfo } from "./pages/Profile/ProfileUsersInfo";
 
 import './App.css'
 
-//Shift + Option + F to indent 
+//Shift + Option + F to indent //
 // docs: https://reactrouter.com/en/main/start/overview
 
 const router = createBrowserRouter([
