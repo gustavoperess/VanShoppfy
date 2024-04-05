@@ -40,20 +40,11 @@ This project is separeted in two applications.
    brew tap mongodb/brew
    brew install mongodb-community@6.0
 ```
-
-6. Install MongoDB
-   ```
-   brew tap mongodb/brew
-   brew install mongodb-community@6.0
-   ```
-   _Note:_ If you see a message that says
-   `If you need to have mongodb-community@6.0 first in your PATH, run:`, follow
-   the instruction. Restart your terminal after this.
+ 
 7. Start MongoDB
-
-   ```
+```
    brew services start mongodb-community@6.0
-   ```
+```
 
 ### Setting up environment variables.
 
