@@ -10,13 +10,12 @@ Check the deployed version:
 
 ## Features
 
-- **Browse and Search**: Navigate through different categories including hats/watches/mens/womens. .
-- **Shop without logging in**: Shop on our website without the need of logging in; your purchases are tracked through browser cookies.
-- **Manage your purchase**: Update, add, or delete the items inside the shopping cart.
-- **User Profiles**: Manage your profile, view your order history, and edit your details.
-- **Shopping Cart**: Add books to your cart, adjust quantities, or remove items as needed before checkout.
-- **Side bar shopping**: See in real-time what has been added to your cart.
-- **Procced to checkout**: Buy unlimited clothes with the given credit card, offer only today 🤓.
+- **Browse**: Navigate through different categories including hats/watches/mens/womens. .
+- **Add to cart without logging in**: Shop on our website without the need of logging in, items in your cart are tracked through browser cookies.
+- **Shopping Cart**: Update, add, or delete the items in the shopping cart.
+- **User Profiles**: Manage your profile, view your order history, and see details of your latest purchase.
+- **Side bar shopping cart**: See in real-time what has been added to your cart.
+- **Procced to checkout**: Input shipping details and buy unlimited clothes with the given credit card, offer only today 🤓.
 
 
 
