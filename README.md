@@ -4,7 +4,7 @@
 
 Check the deployed version: 
   [VanShoppfy](https://vanshoppfy.onrender.com/).
-<p align="center"> heh </p>
+
 
 
 <h3 align="center"> Structure </h3>
@@ -14,7 +14,7 @@ This project is separeted in two applications.
 - A backend api server
 
 
-### Set up your project
+<h3 align="center">  Set up your project  </h3>
 
 1. Install Node Version Manager (NVM)
 ```
@@ -46,7 +46,7 @@ This project is separeted in two applications.
    brew services start mongodb-community@6.0
 ```
 
-### Setting up environment variables.
+<h3 align="center"> Setting up environment variables.  </h3>
 
 #### Frontend
 
@@ -67,7 +67,7 @@ Create a file `api/.env` with the following contents:
 ```
 
 
-### How to run the server and use the app
+<h3 align="center"> How to run the server and use the app </h3>
 
 1. Start the server application (in the `api` directory) in dev mode:
 
