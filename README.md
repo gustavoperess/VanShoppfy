@@ -7,7 +7,7 @@ Check the deployed version:
 <p align="center"> heh </p>
 
 
-### Structure
+<h3 align="center"> Structure </h3>
 This project is separeted in two applications.
 
 - A frontend React App
@@ -72,8 +72,8 @@ Create a file `api/.env` with the following contents:
 1. Start the server application (in the `api` directory) in dev mode:
 
 ```
-    ; cd api
-    ; npm run dev
+     cd api
+     npm run dev
 ```
 
 2. Start the front end application (in the `frontend` directory)
@@ -81,8 +81,8 @@ Create a file `api/.env` with the following contents:
 In a new terminal session...
 
 ```
-    ; cd frontend
-    ; npm run dev
+     cd frontend
+     npm run dev
 ```
 
 
