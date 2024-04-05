@@ -3,8 +3,6 @@
 </h1>
 
 
-
-
 Check the deployed version: 
   [VanShoppfy](https://vanshoppfy.onrender.com/).
 
