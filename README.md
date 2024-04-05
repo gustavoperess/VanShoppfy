@@ -24,7 +24,7 @@ Check the deployed version:
   [VanShoppfy](https://vanshoppfy.onrender.com/).
 
 
-<h3 align="center">  Set up your project  </h3>
+##  Set up your project  
 
 1. Install Node Version Manager (NVM)
 ```
@@ -56,7 +56,7 @@ Check the deployed version:
    brew services start mongodb-community@6.0
 ```
 
-<h3 align="center"> Setting up environment variables.  </h3>
+##  Setting up environment variables.  
 
 #### Frontend
 
@@ -76,8 +76,7 @@ Create a file `api/.env` with the following contents:
     JWT_SECRET="secret"
 ```
 
-
-<h3 align="center"> How to run the server and use the app </h3>
+##  How to run the server and use the app 
 
 1. Start the server application (in the `api` directory) in dev mode:
 
