@@ -1,10 +1,13 @@
-<p align="center">
-<a href="https://vanshoppfy.onrender.com/"> 
-</a></p>
+
 
 <h1 align="center">
   VanShoppfy
 </h1>
+
+
+<p align="center">
+Check the deployed version:  <a href="https://vanshoppfy.onrender.com/"> </a>
+</p>
 
 
 Installing Node.js
