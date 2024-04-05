@@ -4,10 +4,9 @@
   VanShoppfy
 </h1>
 
-
-<p align="center">
-Check the deployed version:  <a href="https://vanshoppfy.onrender.com/"> </a>
-</p>
+Check the deployed version: 
+  [VanShoppfy](https://vanshoppfy.onrender.com/).
+<p align="center"> heh </p>
 
 
 Installing Node.js
