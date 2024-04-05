@@ -41,11 +41,62 @@ This project is separeted in two applications.
    brew install mongodb-community@6.0
 ```
 
+6. Install MongoDB
+   ```
+   brew tap mongodb/brew
+   brew install mongodb-community@6.0
+   ```
+   _Note:_ If you see a message that says
+   `If you need to have mongodb-community@6.0 first in your PATH, run:`, follow
+   the instruction. Restart your terminal after this.
+7. Start MongoDB
+
+   ```
+   brew services start mongodb-community@6.0
+   ```
+
+### Setting up environment variables.
+
+#### Frontend
+
+Create a file `frontend/.env` with the following contents:
+
+```
+    VITE_BACKEND_URL="http://localhost:3000"
+```
+
+#### Backend
+
+Create a file `api/.env` with the following contents:
+
+```
+    MONGODB_URL="mongodb://0.0.0.0/vanShoppfy"
+    NODE_ENV="development"
+    JWT_SECRET="secret"
+```
 
 
-Installing Node.js
-Install Node Version Manager (NVM)
--- brew install nvm
--- nvm install 20
--- mongoDB as database
---using express and mongoosee 
+### How to run the server and use the app
+
+1. Start the server application (in the `api` directory) in dev mode:
+
+```
+    ; cd api
+    ; npm run dev
+```
+
+2. Start the front end application (in the `frontend` directory)
+
+In a new terminal session...
+
+```
+    ; cd frontend
+    ; npm run dev
+```
+
+
+
+
+
+
+
