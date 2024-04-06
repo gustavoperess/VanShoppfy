@@ -19,7 +19,7 @@ const connectToDatabase = async () => {
     console.log("Successfully connected to MongoDB");
 
 
-    setInterval(keepDbAlive, 60000); 
+    setInterval(keepDbAlive, 600000); 
   } catch (error) {
     console.error("Failed to connect to MongoDB:", error.message);
   }
