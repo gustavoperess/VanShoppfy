@@ -12,7 +12,7 @@ export const createProduct = async (form) => {
     //     console.log(`Key: ${key}, Value: ${value}`);
     // }
 
-    const response = await fetch(`${BACKEND_URL}/products/create`, requestOptions);
+    const response = await fetch(`/products/create`, requestOptions);
 
     if (response.status === 201) {
         return;
@@ -29,7 +29,7 @@ export const getAllProducts = async () => {
     method: 'GET',
   };
 
-  const response = await fetch(`${BACKEND_URL}/products/getProducts`, requestOptions);
+  const response = await fetch(`/products/getProducts`, requestOptions);
 
   if (response.status === 200) {
     const data = await response.json();
