@@ -30,9 +30,7 @@ export const getAllProducts = async () => {
   };
 
   const response = await fetch(`${BACKEND_URL}/products/getProducts`, requestOptions);
-  console.log("Check here ")
-  console.log("Backend URL:", BACKEND_URL);
-  console.log(response)
+
 
   if (response.status === 200) {
     const data = await response.json();
