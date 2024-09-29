@@ -53,14 +53,15 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
+      
+      - name: List files in current directory
+        run: ls -R  
 
       - name: Unzip artifact for deployment
         run: | 
           mkdir -p ./unzipped_artifact
-          mv node-app ./unzipped_artifact
-          cd ./unzipped_artifact
-          unzip release.zip
-          ls -R 
+          unzip node-app.zip -d ./unzipped_artifact
+          
       
       - name: Login to Azure
         uses: azure/login@v2
