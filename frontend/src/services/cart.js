@@ -15,7 +15,7 @@ export const addItemToCart = async (productId) => {
     //     console.log(`Key: ${key}, Value: ${value}`);
     // }
 
-    const response = await fetch(`${BACKEND_URL}/carts/addItem`, requestOptions);
+    const response = await fetch(`https://vanshop-backend-fdg3gghxbvebbmgq.uksouth-01.azurewebsites.net/carts/addItem`, requestOptions);
     if (response.status === 201 || response.status == 200) {
       return await response.json(); // Assuming the server sends back some data on success
     } else {
@@ -34,7 +34,7 @@ export const deleteProductById = async (productId) => {
         credentials: 'include', 
       }
 
-      const response = await fetch(`${BACKEND_URL}/carts/deleteItem/${productId}`, requestOptions)
+      const response = await fetch(`https://vanshop-backend-fdg3gghxbvebbmgq.uksouth-01.azurewebsites.net//carts/deleteItem/${productId}`, requestOptions)
 
       if (response.status === 200) {
         const data = await response.json();
@@ -53,7 +53,7 @@ export const getProductBySessionId = async () => {
         credentials: 'include', 
     };
 
-    const response = await fetch(`${BACKEND_URL}/carts/getItems`, requestOptions);
+    const response = await fetch(`https://vanshop-backend-fdg3gghxbvebbmgq.uksouth-01.azurewebsites.net/carts/getItems`, requestOptions);
 
     if (response.status === 200) {
       const data = await response.json();
