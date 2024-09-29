@@ -11,7 +11,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 
 const corsOptions = {
-  origin: 'https://wonderful-desert-04ea24410.5.azurestaticapps.net/', // Replace with your frontend's origin https://vanshoppfy.onrender.com http://localhost:5173
+  origin: 'https://wonderful-desert-04ea24410.5.azurestaticapps.net', // Replace with your frontend's origin https://vanshoppfy.onrender.com http://localhost:5173
   credentials: true, // This is important to allow cookies
 };
 
