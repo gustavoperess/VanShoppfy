@@ -33,7 +33,6 @@ export const getAllProducts = async () => {
   console.log("Check here ")
   console.log("Backend URL:", BACKEND_URL);
   console.log(response)
-  console.log("Check here ")
 
   if (response.status === 200) {
     const data = await response.json();
