@@ -5,7 +5,7 @@ function keepDbAlive() {
     .then(() => console.log("DB ping successful"))
     .catch((err) => console.error("DB ping failed:", err));
 }
-
+// trying new changes
 const connectToDatabase = async () => {
   const mongoDbUrl = process.env.MONGODB_URL;
 
