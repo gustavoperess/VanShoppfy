@@ -27,6 +27,7 @@ export const createProduct = async (form) => {
 export const getAllProducts = async () => {
   const requestOptions = {
     method: 'GET',
+    credentials: "include",
   };
 
   const response = await fetch(`${BACKEND_URL}/products/getProducts`, requestOptions);

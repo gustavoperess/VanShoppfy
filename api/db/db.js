@@ -5,6 +5,7 @@ function keepDbAlive() {
     .then(() => console.log("DB ping successful"))
     .catch((err) => console.error("DB ping failed:", err));
 }
+
 // trying new changes
 const connectToDatabase = async () => {
   const mongoDbUrl = process.env.MONGODB_URL;
@@ -24,5 +25,7 @@ const connectToDatabase = async () => {
     console.error("Failed to connect to MongoDB:", error.message);
   }
 };
+
+
 
 module.exports = { connectToDatabase };

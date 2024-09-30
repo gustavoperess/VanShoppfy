@@ -15,6 +15,7 @@ function ShopPageComponent() {
   const [filter, setFilter] = useState(my_key)
   const { addToCart } = useCart();
   const [ productCount, setProductCount ] = useState([])
+
   
   useEffect(() => {
     const fetchData = async () => {
