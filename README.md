@@ -5,7 +5,7 @@
 An e-commerce website designed to make the shopping experience easy and secure. 
 
 Check the deployed version: 
-  [VanShoppfy](https://vanshoppfy.onrender.com/).
+  [VanShoppfy](https://wonderful-desert-04ea24410.5.azurestaticapps.net).
 
 ## Features
 
@@ -19,7 +19,7 @@ Check the deployed version:
 
 
 Check the deployed version: 
-  [VanShoppfy](https://vanshoppfy.onrender.com/).
+  [VanShoppfy](https://wonderful-desert-04ea24410.5.azurestaticapps.net).
 
 
 ##  Set up your project  
