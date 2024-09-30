@@ -17,23 +17,28 @@ jobs:
         with:
           submodules: true
           lfs: false
+      
       - name: Install Dependencies
         run: |
           cd frontend
           npm install
+      
       - name: Build Frontend
         run: |
           cd frontend
           npm run build  
           if [ ! -d "dist" ]; then echo "Build failed: dist directory does not exist."; exit 1; fi
+      
       - name: Copy routes.json
         run: |
           cd frontend
           cp routes.json dist/  # Ensure routes.json is copied to the output directory
+
       - name: Check if routes.json is present
         run: |
           cd frontend
           ls dist/  # List files in dist to check if routes.json is there
+      
       - name: Deploy to Azure
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
@@ -46,8 +51,6 @@ jobs:
           output_location: "dist"
         env:
           VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
-
-
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
