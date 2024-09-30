@@ -1,11 +1,10 @@
 {
   "navigationFallback": {
-    "route": "/*",
     "rewrite": "/index.html"
   },
   "routes": [
     {
-      "route": "/shop",
+      "route": "/*",
       "rewrite": "/index.html"
     }
   ]
