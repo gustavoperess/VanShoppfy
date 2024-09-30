@@ -29,20 +29,20 @@ jobs:
           npm run build  
           if [ ! -d "dist" ]; then echo "Build failed: dist directory does not exist."; exit 1; fi
       
-      - name: Copy routes.json
+      - name: Copy staticwebapp.config.json
         run: |
           cd frontend
-          cp routes.json dist/  # Ensure routes.json is copied to the output directory
+          cp staticwebapp.config.json dist/  # Ensure staticwebapp.config.json is copied to the output directory
 
-      - name: Check if routes.json is present
+      - name: Check if staticwebapp.config.json is present
         run: |
           cd frontend
-          ls dist/  # List files in dist to check if routes.json is there
+          ls dist/  # List files in dist to check if staticwebapp.config.json is there
           
-      - name: Check routes.json content
+      - name: Check staticwebapp.config.json content
         run: |
           cd frontend
-          cat dist/routes.json  # Print the contents to the logs
+          cat dist/staticwebapp.config.json  # Print the contents to the logs
     
       - name: Deploy to Azure
         id: builddeploy
