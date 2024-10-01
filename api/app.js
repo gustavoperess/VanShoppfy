@@ -12,13 +12,14 @@ const cookieParser = require('cookie-parser');
 
 // Define CORS options
 const allowedOrigins = [
-  'https://mango-forest-09f2f4f03.5.azurestaticapps.net', 
+  'https://mango-forest-09f2f4f03.5.azurestaticapps.net',
+  // "http://localhost:5173"
 ];
 
 const corsOptions = {
   origin: function (origin, callback) {
+    console.log(`Incoming request with origin: ${origin}`);
     if (!origin) {
-      // Allow requests with no origin (such as server-to-server or local)
       console.log(`CORS request allowed from origin: undefined (likely server-to-server request)`);
       return callback(null, true);
     }
@@ -30,6 +31,8 @@ const corsOptions = {
       return callback(new Error('Not allowed by CORS'));
     }
   },
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // specify allowed methods
+  allowedHeaders: ["Content-Type", "Authorization"], // specify allowed headers
   credentials: true, // Allow cookies
 };
 
