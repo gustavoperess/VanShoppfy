@@ -19,14 +19,14 @@ const corsOptions = {
   origin: function (origin, callback) {
     console.log(`Incoming request with origin: ${origin}`);
     if (!origin) {
-      console.log(`CORS request allowed from origin: undefined (likely server-to-server request)`);
+      // console.log(`CORS request allowed from origin: undefined (likely server-to-server request)`);
       return callback(null, true);
     }
     if (allowedOrigins.includes(origin)) {
-      console.log(`CORS request allowed from origin: ${origin}`);
+      // console.log(`CORS request allowed from origin: ${origin}`);
       return callback(null, true);
     } else {
-      console.log(`Blocked by CORS: ${origin}`);
+      // console.log(`Blocked by CORS: ${origin}`);
       return callback(new Error('Not allowed by CORS'));
     }
   },

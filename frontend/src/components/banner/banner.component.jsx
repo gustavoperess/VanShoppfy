@@ -40,7 +40,7 @@ function BannerComponent() {
             <h5>New Arrivals</h5>
             <h3>{picture.label}</h3>
             <p>{picture.description}</p>
-            <Link to="https://wonderful-desert-04ea24410.5.azurestaticapps.net/shop" className="btn btn-dark">Shop Now</Link>      
+            <Link to="https://mango-forest-09f2f4f03.5.azurestaticapps.net/shop" className="btn btn-dark">Shop Now</Link>      
           </Carousel.Caption>
         </Carousel.Item>
       ))}
