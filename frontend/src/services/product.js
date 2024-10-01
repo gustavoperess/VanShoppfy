@@ -30,23 +30,28 @@ export const getAllProducts = async () => {
     credentials: "include",
   };
 
-  const response = await fetch(`${BACKEND_URL}/products/getProducts`, requestOptions);
-
   try {
-    if (response.status === 200) {
+    const response = await fetch(`${BACKEND_URL}/products/getProducts`, requestOptions);
+
+    // Check if the response status is OK (200)
+    if (response.ok) {
       const data = await response.json();
       return data;
     } else {
-      const errorResponse = await response.json();
-      const errorMessage = errorResponse.message || `Received status ${response.status} when fetching products.`;
-      throw new Error(errorMessage);
+      // Try parsing the response as JSON, or fallback to text if it's not JSON
+      try {
+        const errorResponse = await response.json();
+        const errorMessage = errorResponse.message || `Received status ${response.status}`;
+        throw new Error(errorMessage);
+      } catch (jsonError) {
+        // If parsing as JSON fails, fall back to reading the text of the response
+        const errorText = await response.text();
+        console.error("Received the following instead of valid JSON:", errorText);
+        throw new Error(`Unexpected response: ${errorText}`);
+      }
     }
   } catch (err) {
-    // In case response.json() fails, log the raw response text
-    const responseClone = response.clone();
-    responseClone.text().then((bodyText) => {
-      console.error('Error occurred while fetching products:', bodyText);
-    });
-    throw new Error(`An error occurred: ${err.message}`);
+    console.error('Error fetching products information:', err);
+    throw err; // Re-throw the error to handle it higher in the call chain
   }
 };
