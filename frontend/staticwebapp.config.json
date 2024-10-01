@@ -2,5 +2,11 @@
   "navigationFallback": {
     "rewrite": "/index.html",
     "exclude": ["/assets/*", "/static/*"]
-  }
+  },
+  "routes": [
+    {
+      "route": "/api/*", 
+      "backendUri": "https://vanshopfy-backend-h4febxd0fkd3bjc0.uksouth-01.azurewebsites.net" 
+    }
+  ]
 }
