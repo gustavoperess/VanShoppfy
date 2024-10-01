@@ -11,7 +11,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 
 const corsOptions = {
-  origin: 'https://wonderful-desert-04ea24410.5.azurestaticapps.net', 
+  origin: 'https://mango-forest-09f2f4f03.5.azurestaticapps.net/', 
   credentials: true, // Allow cookies
 };
 
