@@ -8,10 +8,11 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'https://vanshopfy-backend-h4febxd0fkd3bjc0.uksouth-01.azurewebsites.net', // Your backend URL
-        //  target: '"http://localhost:3000', // Your backend URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
 });
+
+      //  target: '"http://localhost:3000', // Your backend URL
