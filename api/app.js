@@ -13,6 +13,7 @@ const cookieParser = require('cookie-parser');
 // Define CORS options
 const allowedOrigins = [
   'https://mango-forest-09f2f4f03.5.azurestaticapps.net',
+  // 'http://localhost:5173',
 ];
 
 const corsOptions = {
